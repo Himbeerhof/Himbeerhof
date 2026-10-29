@@ -1,0 +1,17 @@
+backend:
+  name: github
+  repo: NumeleTauDeUtilizatorGitHub/himbeerhof
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "pages"
+    label: "Seiten"
+    files:
+      - file: "index.html"
+        label: "Startseite (Index)"
+        name: "index"
+        fields:
+          - {label: "Titel", name: "title", widget: "string"}
