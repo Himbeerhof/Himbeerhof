@@ -1,249 +1,347 @@
 <!DOCTYPE html>
 <html lang="de" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Himbeerhof – Frische Früchte vom Feld & Wochenmärkte in Vorarlberg</title>
-  <meta name="description" content="Köstliche Himbeeren, Erdbeeren, Johannisbeeren und Tafeltrauben direkt vom Himbeerhof in Neukirch. Besuchen Sie uns auf den Wochenmärkten in Vorarlberg!">
-  
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            berry: {
-              50: '#fdf2f4',
-              100: '#fbe5e9',
-              500: '#e11d48',
-              600: '#be123c',
-              700: '#9f1239',
-              900: '#4c0519',
-            }
-          }
-        }
-      }
-    }
-  </script>
-  
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
-  <style>
-    body { font-family: 'Plus Jakarta Sans', sans-serif; }
-    h1, h2, h3, .font-serif { font-family: 'Playfair Display', serif; }
-  </style>
-</head>
-<body class="bg-stone-50 text-stone-800 antialiased">
-
-  <!-- Header / Navigation -->
-  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-stone-200 shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-      <a href="#" class="flex items-center gap-3">
-        <span class="text-3xl">🍓</span>
-        <span class="font-serif text-2xl font-bold tracking-tight text-berry-900">Himbeerhof</span>
-      </a>
-      
-      <nav class="hidden md:flex items-center gap-8 font-medium text-stone-600">
-        <a href="#produkte" class="hover:text-berry-600 transition-colors">Unsere Früchte</a>
-        <a href="#maerkte" class="hover:text-berry-600 transition-colors">Wochenmärkte</a>
-        <a href="#ueber-uns" class="hover:text-berry-600 transition-colors">Über Uns</a>
-        <a href="#kontakt" class="hover:text-berry-600 transition-colors">Kontakt</a>
-      </nav>
-
-      <a href="tel:+4915124722708" class="hidden sm:inline-flex items-center gap-2 bg-berry-600 text-white px-5 py-2.5 rounded-full font-semibold hover:bg-berry-700 transition-all shadow-sm">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-        0151 2472 2708
-      </a>
-    </div>
-  </header>
-
-  <!-- Hero Section -->
-  <section class="relative bg-stone-900 text-white py-24 lg:py-32 overflow-hidden">
-    <div class="absolute inset-0 z-0 opacity-40 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1577069861033-55d04ace4ef0?auto=format&fit=crop&w=2000&q=80');"></div>
-    <div class="absolute inset-0 bg-gradient-to-r from-stone-950 via-stone-900/80 to-transparent z-0"></div>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Himbeerhof – Frische Früchte vom Feld & Wochenmärkte in Vorarlberg</title>
+    <meta name="description" content="Köstliche Himbeeren, Erdbeeren, Johannisbeeren und Tafeltrauben direkt vom Himbeerhof in Neukirch. Besuchen Sie uns auf den Wochenmärkten in Vorarlberg!">
     
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-2xl">
-        <span class="inline-block bg-berry-500/20 text-berry-100 border border-berry-500/30 text-xs font-semibold px-3.5 py-1.5 rounded-full uppercase tracking-wider mb-6">Regional & Knackig Frisch</span>
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6 leading-tight">Süße Früchte, mit Liebe im Bodenseeraum angebaut</h1>
-        <p class="text-lg text-stone-300 mb-8 leading-relaxed">Genießen Sie aromatische Himbeeren, Erdbeeren, Johannisbeeren und edle Tafeltrauben direkt aus unserem Anbau in Neukirch – frisch serviert auf den Wochenmärkten in Vorarlberg.</p>
-        
-        <div class="flex flex-wrap gap-4">
-          <a href="#maerkte" class="bg-berry-600 hover:bg-berry-700 text-white px-8 py-3.5 rounded-full font-semibold transition-all shadow-lg hover:shadow-berry-600/30">Wochenmärkte finden</a>
-          <a href="#produkte" class="bg-white/10 hover:bg-white/20 text-white border border-white/20 px-8 py-3.5 rounded-full font-semibold transition-all backdrop-blur-sm">Unsere Sorten</a>
-        </div>
-      </div>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        berry: {
+                            50: '#fdf2f4',
+                            100: '#fbe5e9',
+                            500: '#a31d45',
+                            600: '#8b0032',
+                            700: '#710026',
+                            800: '#58021f',
+                        },
+                        leaf: {
+                            500: '#3a834f',
+                            600: '#2d5a27',
+                            700: '#21431d',
+                        },
+                        cream: {
+                            50: '#faf8f5',
+                            100: '#f4efe8',
+                            200: '#e8ded0',
+                            300: '#d7c6b0',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #faf8f5;
+            color: #2b2623;
+        }
+        .hero-gradient {
+            background: linear-gradient(180deg, rgba(139, 0, 50, 0.78) 0%, rgba(35, 25, 20, 0.88) 100%), 
+                        url('https://images.unsplash.com/photo-1577069861033-55d04ace4ef0?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+        }
+        .farm-pattern {
+            background-image: radial-gradient(#8b0032 0.5px, transparent 0.5px), radial-gradient(#8b0032 0.5px, #faf8f5 0.5px);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            opacity: 0.035;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-berry-600 selection:text-white">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-berry-700 text-cream-50 text-xs sm:text-sm py-2 px-4 text-center font-medium flex items-center justify-center gap-2">
+        <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span>Jede Woche frisch für Sie auf den Wochenmärkten in Vorarlberg!</span>
     </div>
-  </section>
 
-  <!-- Produkte Section -->
-  <section id="produkte" class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-2xl mx-auto mb-16">
-        <h2 class="text-3xl sm:text-4xl font-bold text-stone-900 mb-4">Unsere Ernte-Highlights</h2>
-        <p class="text-stone-600">Nachhaltiger Anbau, maximale Aromatizität und tägliche Frische für Ihren perfekten Genuss.</p>
-      </div>
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-cream-50/90 backdrop-blur-md border-b border-cream-200 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-full bg-berry-600 flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-seedling text-lg"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-serif text-2xl font-bold tracking-tight text-berry-600 group-hover:text-berry-700 transition-colors">Himbeerhof</span>
+                        <span class="text-[10px] tracking-widest uppercase text-leaf-600 font-semibold -mt-1">Obstbau Neukirch</span>
+                    </div>
+                </a>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <!-- Himbeeren -->
-        <div class="bg-stone-50 rounded-2xl overflow-hidden shadow-sm border border-stone-200/80 hover:shadow-md transition-shadow">
-          <div class="h-48 overflow-hidden relative">
-            <img src="https://images.unsplash.com/photo-1577069861033-55d04ace4ef0?auto=format&fit=crop&w=800&q=80" alt="Aromatische Himbeeren" class="w-full h-full object-cover">
-            <span class="absolute top-3 right-3 bg-emerald-600 text-white text-xs font-bold px-2.5 py-1 rounded-full">In Saison</span>
-          </div>
-          <div class="p-6">
-            <div class="text-xs font-bold text-berry-600 uppercase tracking-wider mb-1">Juni – Oktober</div>
-            <h3 class="text-xl font-bold text-stone-900 mb-2">Himbeeren</h3>
-            <p class="text-stone-600 text-sm leading-relaxed">Süß, saftig und besonders aromatisch. Täglich frisch gepflückt.</p>
-          </div>
-        </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center gap-8 font-medium text-stone-700 text-sm">
+                    <a href="#ueber-uns" class="hover:text-berry-600 transition-colors">Über uns</a>
+                    <a href="#fruechte" class="hover:text-berry-600 transition-colors">Unsere Früchte</a>
+                    <a href="#wochenmaerkte" class="hover:text-berry-600 transition-colors">Wochenmärkte</a>
+                    <a href="#kontakt" class="hover:text-berry-600 transition-colors">Kontakt</a>
+                </div>
 
-        <!-- Erdbeeren -->
-        <div class="bg-stone-50 rounded-2xl overflow-hidden shadow-sm border border-stone-200/80 hover:shadow-md transition-shadow">
-          <div class="h-48 overflow-hidden relative">
-            <img src="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=800&q=80" alt="Süße Erdbeeren" class="w-full h-full object-cover">
-          </div>
-          <div class="p-6">
-            <div class="text-xs font-bold text-berry-600 uppercase tracking-wider mb-1">Mai – Juli</div>
-            <h3 class="text-xl font-bold text-stone-900 mb-2">Erdbeeren</h3>
-            <p class="text-stone-600 text-sm leading-relaxed">Der Geschmack des Sommers – knackig, intensiv und naturbelassen.</p>
-          </div>
-        </div>
+                <!-- Action Badge -->
+                <div class="hidden sm:flex items-center gap-3">
+                    <a href="tel:+4915124722708" class="inline-flex items-center gap-2 bg-berry-600 hover:bg-berry-700 text-white px-5 py-2.5 rounded-full text-sm font-semibold shadow-sm transition-all duration-200">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>+49 151 2472 2708</span>
+                    </a>
+                </div>
 
-        <!-- Johannisbeeren -->
-        <div class="bg-stone-50 rounded-2xl overflow-hidden shadow-sm border border-stone-200/80 hover:shadow-md transition-shadow">
-          <div class="h-48 overflow-hidden relative">
-            <img src="https://images.unsplash.com/photo-1596525131920-53dd4364ebc4?auto=format&fit=crop&w=800&q=80" alt="Johannisbeeren" class="w-full h-full object-cover">
-          </div>
-          <div class="p-6">
-            <div class="text-xs font-bold text-berry-600 uppercase tracking-wider mb-1">Juli – August</div>
-            <h3 class="text-xl font-bold text-stone-900 mb-2">Johannisbeeren</h3>
-            <p class="text-stone-600 text-sm leading-relaxed">Feinsäuerlich und vitaminreich – ideal für Kuchen, Desserts oder pur.</p>
-          </div>
-        </div>
-
-        <!-- Tafeltrauben -->
-        <div class="bg-stone-50 rounded-2xl overflow-hidden shadow-sm border border-stone-200/80 hover:shadow-md transition-shadow">
-          <div class="h-48 overflow-hidden relative">
-            <img src="https://images.unsplash.com/photo-1537640538966-79f369143f8f?auto=format&fit=crop&w=800&q=80" alt="Tafeltrauben" class="w-full h-full object-cover">
-          </div>
-          <div class="p-6">
-            <div class="text-xs font-bold text-berry-600 uppercase tracking-wider mb-1">August – Oktober</div>
-            <h3 class="text-xl font-bold text-stone-900 mb-2">Tafeltrauben</h3>
-            <p class="text-stone-600 text-sm leading-relaxed">Knackige, kernarme Sorten von unseren sonnenverwöhnten Reben.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Wochenmärkte Section -->
-  <section id="maerkte" class="py-20 bg-stone-100">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-2xl mx-auto mb-16">
-        <span class="text-berry-600 font-semibold text-sm uppercase tracking-wider">Direktverkauf</span>
-        <h2 class="text-3xl sm:text-4xl font-bold text-stone-900 mt-2 mb-4">Besuchen Sie uns in Vorarlberg</h2>
-        <p class="text-stone-600">Wir bringen die Frische direkt zu Ihnen auf den Wochenmarkt in Ihrer Nähe.</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Markt Bregenz -->
-        <div class="bg-white p-8 rounded-2xl shadow-sm border border-stone-200/80">
-          <div class="w-12 h-12 bg-berry-50 text-berry-600 rounded-xl flex items-center justify-center font-bold text-xl mb-6">BR</div>
-          <h3 class="text-2xl font-bold text-stone-900 mb-2">Bregenz</h3>
-          <p class="text-stone-500 text-sm mb-4">Wochenmarkt Kornmarktplatz</p>
-          <div class="space-y-2 text-stone-700 font-medium">
-            <div class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-berry-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 002-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-              <span>Dienstag & Freitag</span>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="p-2 rounded-lg text-stone-700 hover:text-berry-600 focus:outline-none" aria-label="Menü öffnen">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
             </div>
-            <div class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-berry-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-              <span>07:00 – 12:00 Uhr</span>
-            </div>
-          </div>
         </div>
 
-        <!-- Markt Dornbirn -->
-        <div class="bg-white p-8 rounded-2xl shadow-sm border border-stone-200/80">
-          <div class="w-12 h-12 bg-berry-50 text-berry-600 rounded-xl flex items-center justify-center font-bold text-xl mb-6">DO</div>
-          <h3 class="text-2xl font-bold text-stone-900 mb-2">Dornbirn</h3>
-          <p class="text-stone-500 text-sm mb-4">Wochenmarkt Marktplatz</p>
-          <div class="space-y-2 text-stone-700 font-medium">
-            <div class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-berry-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 002-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-              <span>Mittwoch & Samstag</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-berry-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-              <span>07:00 – 12:00 Uhr</span>
-            </div>
-          </div>
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cream-50 border-b border-cream-200 px-4 pt-2 pb-6 space-y-3">
+            <a href="#ueber-uns" class="mobile-link block py-2 px-3 rounded-lg text-stone-700 font-medium hover:bg-cream-100 hover:text-berry-600">Über uns</a>
+            <a href="#fruechte" class="mobile-link block py-2 px-3 rounded-lg text-stone-700 font-medium hover:bg-cream-100 hover:text-berry-600">Unsere Früchte</a>
+            <a href="#wochenmaerkte" class="mobile-link block py-2 px-3 rounded-lg text-stone-700 font-medium hover:bg-cream-100 hover:text-berry-600">Wochenmärkte</a>
+            <a href="#kontakt" class="mobile-link block py-2 px-3 rounded-lg text-stone-700 font-medium hover:bg-cream-100 hover:text-berry-600">Kontakt</a>
+            <a href="tel:+4915124722708" class="mobile-link mt-2 flex items-center justify-center gap-2 bg-berry-600 text-white w-full py-2.5 rounded-xl font-semibold">
+                <i class="fa-solid fa-phone"></i> Anrufen
+            </a>
         </div>
+    </nav>
 
-        <!-- Markt Feldkirch -->
-        <div class="bg-white p-8 rounded-2xl shadow-sm border border-stone-200/80">
-          <div class="w-12 h-12 bg-berry-50 text-berry-600 rounded-xl flex items-center justify-center font-bold text-xl mb-6">FK</div>
-          <h3 class="text-2xl font-bold text-stone-900 mb-2">Feldkirch</h3>
-          <p class="text-stone-500 text-sm mb-4">Wochenmarkt Marktgasse</p>
-          <div class="space-y-2 text-stone-700 font-medium">
-            <div class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-berry-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 002-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-              <span>Dienstag & Samstag</span>
+    <!-- Hero Section -->
+    <section class="relative hero-gradient text-white min-h-[85vh] flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20 overflow-hidden">
+        <div class="max-w-4xl mx-auto text-center space-y-8 relative z-10">
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-2 bg-white/15 backdrop-blur-md border border-white/25 px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium tracking-wide text-cream-50 shadow-inner">
+                <i class="fa-solid fa-award text-amber-300"></i>
+                <span>Sorgfältig angebaut in Neukirch • Marktfrisch in Vorarlberg</span>
             </div>
-            <div class="flex items-center gap-2">
-              <svg class="w-5 h-5 text-berry-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-              <span>07:30 – 12:00 Uhr</span>
+
+            <!-- Title -->
+            <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-tight text-cream-50">
+                Frische Beeren <br class="hidden sm:inline">
+                <span class="italic text-amber-300 font-normal">direkt vom Hof</span>
+            </h1>
+
+            <!-- Subtitle -->
+            <p class="text-lg sm:text-xl text-cream-100 max-w-2xl mx-auto leading-relaxed font-light">
+                Aromatische Himbeeren, süße Erdbeeren, Johannisbeeren und edle Tafeltrauben aus eigenem Anbau – pünktlich geerntet und direkt für Sie auf die Wochenmärkte in Bregenz, Dornbirn & Feldkirch gebracht.
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+                <a href="#wochenmaerkte" class="w-full sm:w-auto bg-berry-600 hover:bg-berry-500 text-white font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center gap-3">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <span>Wochenmärkte entdecken</span>
+                </a>
+                <a href="#fruechte" class="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-cream-50 border border-white/30 font-semibold px-8 py-4 rounded-full backdrop-blur-sm transition-all duration-200 flex items-center justify-center gap-3">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                    <span>Unsere Früchte</span>
+                </a>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Ueber Uns Section -->
-  <section id="ueber-uns" class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div>
-          <span class="text-berry-600 font-semibold text-sm uppercase tracking-wider">Tradition & Qualität</span>
-          <h2 class="text-3xl sm:text-4xl font-bold text-stone-900 mt-2 mb-6">Der Himbeerhof in Neukirch</h2>
-          <p class="text-stone-600 mb-4 leading-relaxed">Unser Betrieb befindet sich im malerischen Neukirch in der Bodenseeregion. Mit viel Hingabe und modernsten Anbaumethoden sorgen wir dafür, dass unsere Früchte unter besten Bedingungen heranreifen.</p>
-          <p class="text-stone-600 leading-relaxed mb-6">Vom Pflücken bis zum Verkauf vergehen nur wenige Stunden – das garantiert Ihnen den unvergleichlichen, naturbelassenen Geschmack echter Qualitätsfrüchte.</p>
-        </div>
-        <div class="rounded-3xl overflow-hidden shadow-lg border border-stone-100">
-          <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1200&q=80" alt="Himbeerhof Neukirch Obstfeld" class="w-full h-auto object-cover">
-        </div>
-      </div>
-    </div>
-  </section>
+    <!-- Über Uns Section -->
+    <section id="ueber-uns" class="py-20 relative overflow-hidden">
+        <div class="farm-pattern absolute inset-0 pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                
+                <!-- Image Block -->
+                <div class="relative">
+                    <div class="relative z-10 rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+                        <img src="https://images.unsplash.com/photo-1595231712325-30ede1054238?auto=format&fit=crop&w=1000&q=80" alt="Himbeerhof Anbau" class="w-full h-[460px] object-cover hover:scale-105 transition-transform duration-500">
+                    </div>
+                </div>
 
-  <!-- Kontakt Section -->
-  <section id="kontakt" class="py-20 bg-stone-900 text-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl mx-auto text-center">
-        <h2 class="text-3xl sm:text-4xl font-bold mb-6">Haben Sie Fragen oder Vorbestellungen?</h2>
-        <p class="text-stone-300 text-lg mb-10">Kontaktieren Sie uns gerne telefonisch oder per E-Mail für größere Bestellungen oder Informationen zu unseren aktuellen Erntemengen.</p>
-        
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
-          <a href="tel:+4915124722708" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-berry-600 hover:bg-berry-700 text-white px-8 py-4 rounded-full font-bold text-lg transition-all shadow-lg">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-            +49 151 2472 2708
-          </a>
-          
-          <a href="mailto:sidor@himbeerhof.com" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-stone-800 hover:bg-stone-700 text-white border border-stone-700 px-8 py-4 rounded-full font-bold text-lg transition-all">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-            sidor@himbeerhof.com
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
+                <!-- Text Content -->
+                <div class="space-y-6">
+                    <div class="inline-flex items-center gap-2 text-leaf-600 font-semibold text-sm tracking-widest uppercase">
+                        <i class="fa-solid fa-wheat-awn"></i>
+                        <span>Über den Himbeerhof</span>
+                    </div>
 
-  <!-- Footer cu Legături Legale (Impressum & Datenschutz) -->
-  <footer class="bg-stone-950 text-stone-400 py-12 border-t border-stone-800">
-    <div class="max-w-7xl mx-auto px
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-stone-800 leading-tight">
+                        Leidenschaft für echten Fruchtgeschmack
+                    </h2>
+
+                    <p class="text-stone-600 leading-relaxed text-base sm:text-lg">
+                        Der <strong>Himbeerhof Constantin Sidor</strong> steht für nachhaltigen Obstbau, höchste Frische und unverfälschte Qualität. Auf unseren Feldern in Neukirch (Am Schorrenwald 2) reifen Früchte unter besten Bedingungen heran.
+                    </p>
+
+                    <p class="text-stone-600 leading-relaxed">
+                        Wir bringen unsere erntefrischen Beeren und Tafeltrauben persönlich auf die Wochenmärkte im österreichischen Vorarlberg. Kurze Transportwege garantieren maximale Frische für Sie.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Unsere Früchte Section -->
+    <section id="fruechte" class="py-20 bg-cream-100 border-y border-cream-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-12">
+                <span class="text-berry-600 font-semibold text-sm tracking-widest uppercase">Unser Sortiment</span>
+                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-stone-800">Ernte-Highlights</h2>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Himbeeren -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-cream-200">
+                    <img src="https://images.unsplash.com/photo-1577069861033-55d04ace4ef0?auto=format&fit=crop&w=600&q=80" alt="Himbeeren" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-xs text-berry-600 font-bold uppercase">Juni – Oktober</span>
+                        <h3 class="font-serif text-xl font-bold text-stone-800 mt-1">Himbeeren</h3>
+                        <p class="text-stone-600 text-sm mt-2">Süß, saftig & täglich frisch gepflückt.</p>
+                    </div>
+                </div>
+
+                <!-- Erdbeeren -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-cream-200">
+                    <img src="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=600&q=80" alt="Erdbeeren" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-xs text-berry-600 font-bold uppercase">Mai – Juli</span>
+                        <h3 class="font-serif text-xl font-bold text-stone-800 mt-1">Erdbeeren</h3>
+                        <p class="text-stone-600 text-sm mt-2">Sonnengereift, intensiv & naturbelassen.</p>
+                    </div>
+                </div>
+
+                <!-- Johannisbeeren -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-cream-200">
+                    <img src="https://images.unsplash.com/photo-1596525131920-53dd4364ebc4?auto=format&fit=crop&w=600&q=80" alt="Johannisbeeren" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-xs text-berry-600 font-bold uppercase">Juli – August</span>
+                        <h3 class="font-serif text-xl font-bold text-stone-800 mt-1">Johannisbeeren</h3>
+                        <p class="text-stone-600 text-sm mt-2">Feinsäuerlich & reich an Vitaminen.</p>
+                    </div>
+                </div>
+
+                <!-- Tafeltrauben -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-cream-200">
+                    <img src="https://images.unsplash.com/photo-1537640538966-79f369143f8f?auto=format&fit=crop&w=600&q=80" alt="Tafeltrauben" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-xs text-berry-600 font-bold uppercase">August – Oktober</span>
+                        <h3 class="font-serif text-xl font-bold text-stone-800 mt-1">Tafeltrauben</h3>
+                        <p class="text-stone-600 text-sm mt-2">Knackige, süße Sorten kernarm.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wochenmärkte Section -->
+    <section id="wochenmaerkte" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <span class="text-leaf-600 font-semibold text-sm tracking-widest uppercase">Wochenmärkte in Vorarlberg</span>
+                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-stone-800">Hier finden Sie uns</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Bregenz -->
+                <div class="bg-white rounded-3xl p-8 border border-cream-200 shadow-sm">
+                    <h3 class="font-serif text-2xl font-bold text-stone-800 mb-1">Bregenz</h3>
+                    <p class="text-xs text-stone-500 mb-4">Kornmarktplatz</p>
+                    <p class="text-sm font-semibold text-stone-700">Dienstag & Freitag | 07:00 – 12:00 Uhr</p>
+                </div>
+
+                <!-- Dornbirn -->
+                <div class="bg-white rounded-3xl p-8 border border-berry-500 shadow-md">
+                    <h3 class="font-serif text-2xl font-bold text-stone-800 mb-1">Dornbirn</h3>
+                    <p class="text-xs text-stone-500 mb-4">Marktplatz</p>
+                    <p class="text-sm font-semibold text-stone-700">Mittwoch & Samstag | 07:00 – 12:00 Uhr</p>
+                </div>
+
+                <!-- Feldkirch -->
+                <div class="bg-white rounded-3xl p-8 border border-cream-200 shadow-sm">
+                    <h3 class="font-serif text-2xl font-bold text-stone-800 mb-1">Feldkirch</h3>
+                    <p class="text-xs text-stone-500 mb-4">Marktgasse</p>
+                    <p class="text-sm font-semibold text-stone-700">Dienstag & Samstag | 07:30 – 12:00 Uhr</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontakt Section -->
+    <section id="kontakt" class="py-20 bg-stone-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold mb-6">Kontakt & Vorbestellungen</h2>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-6 mt-8">
+                <a href="tel:+4915124722708" class="bg-berry-600 hover:bg-berry-700 text-white px-8 py-4 rounded-full font-bold text-lg">
+                    <i class="fa-solid fa-phone mr-2"></i> +49 151 2472 2708
+                </a>
+                <a href="mailto:sidor@himbeerhof.com" class="bg-stone-800 hover:bg-stone-700 border border-stone-700 text-white px-8 py-4 rounded-full font-bold text-lg">
+                    <i class="fa-solid fa-envelope mr-2"></i> sidor@himbeerhof.com
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer & Rechtliches -->
+    <footer class="bg-stone-950 text-stone-400 py-12 border-t border-stone-800 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <div>
+                    <p class="font-serif text-xl font-bold text-white">Himbeerhof</p>
+                    <p class="text-xs text-stone-500">Am Schorrenwald 2, 88099 Neukirch, Deutschland</p>
+                </div>
+                <div class="flex gap-6 text-xs">
+                    <a href="#impressum" class="hover:text-white underline">Impressum</a>
+                    <a href="#datenschutz" class="hover:text-white underline">Datenschutzerklärung</a>
+                </div>
+            </div>
+
+            <!-- Impressum Block -->
+            <div id="impressum" class="pt-8 border-t border-stone-800 text-xs text-stone-400 space-y-2">
+                <h4 class="font-bold text-white text-sm">Impressum</h4>
+                <p><strong>Angaben gemäß § 5 TMG / Verantwortlich für den Inhalt:</strong></p>
+                <p>Himbeerhof Constantin Sidor<br>Am Schorrenwald 2<br>88099 Neukirch, Deutschland</p>
+                <p><strong>Kontakt:</strong> Telefon: +49 151 2472 2708 | E-Mail: sidor@himbeerhof.com</p>
+            </div>
+
+            <!-- Datenschutz Block -->
+            <div id="datenschutz" class="pt-4 border-t border-stone-800 text-xs text-stone-500 space-y-2">
+                <h4 class="font-bold text-white text-sm">Datenschutzerklärung</h4>
+                <p>Der Schutz Ihrer persönlichen Daten ist uns ein wichtiges Anliegen. Diese Website erhebt keine personenbezogenen Daten, es sei denn, Sie nehmen direkt per E-Mail oder Telefon Kontakt mit uns auf. Beim Besuch der Website werden automatisch anonyme Server-Log-Dateien verarbeitet.</p>
+            </div>
+
+            <div class="text-center text-xs text-stone-600 pt-4">
+                &copy; 2026 Himbeerhof. Alle Rechte vorbehalten.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    </script>
+</body>
+</html>
