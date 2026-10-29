@@ -75,7 +75,7 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="sticky top-0 z-50 bg-cream-50/90 backdrop-blur-md border-b border-cream-200 transition-all duration-300">
+    <nav class="sticky top-0 z-40 bg-cream-50/90 backdrop-blur-md border-b border-cream-200 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <!-- Logo -->
@@ -189,7 +189,7 @@
                     </p>
 
                     <p class="text-stone-600 leading-relaxed">
-                        Neben unseren eigenen Beeren und saisonalen Spezialitäten bieten wir Ihnen das ganze Jahr über frische Hofprodukte an. Auf Wunsch bringen wir Ihnen auch exklusive exotische Früchte direkt auf Bestellung mit!
+                        Klicken Sie unten auf ein beliebiges Produkt, um alle Fotos direkt von unserer Farm und detaillierte Ernteinformationen zu sehen!
                     </p>
                 </div>
 
@@ -202,113 +202,185 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
             <div class="text-center max-w-3xl mx-auto space-y-4 mb-12">
-                <span class="text-berry-600 font-semibold text-sm tracking-widest uppercase">Unser Sortiment & Saisonzeiten</span>
-                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-stone-800">Frische Vielfalt</h2>
+                <span class="text-berry-600 font-semibold text-sm tracking-widest uppercase">Klicken Sie auf ein Produkt für Bilder & Details</span>
+                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-stone-800">Unsere Hofprodukte</h2>
             </div>
 
             <!-- Product Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 
-                <!-- Himbeeren -->
-                <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-cream-200 flex flex-col justify-between">
+                <!-- 1. Himbeeren -->
+                <div onclick="openProductModal('himbeeren')" class="bg-white rounded-3xl overflow-hidden shadow-sm border border-cream-200 flex flex-col justify-between cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
                     <div>
-                        <img src="https://images.unsplash.com/photo-1577069861033-55d04ace4ef0?auto=format&fit=crop&w=600&q=80" alt="Himbeeren" class="w-full h-48 object-cover">
+                        <div class="relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1577069861033-55d04ace4ef0?auto=format&fit=crop&w=600&q=80" alt="Himbeeren" class="w-full h-52 object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white font-semibold text-sm">
+                                <span class="bg-berry-600/90 backdrop-blur-sm px-4 py-2 rounded-full"><i class="fa-solid fa-eye mr-2"></i>Fotos & Details</span>
+                            </div>
+                        </div>
                         <div class="p-6">
                             <span class="text-xs bg-berry-100 text-berry-700 px-3 py-1 rounded-full font-bold uppercase inline-block mb-2">Juni – Oktober</span>
-                            <h3 class="font-serif text-xl font-bold text-stone-800">Himbeeren</h3>
-                            <p class="text-stone-600 text-sm mt-2">Süß, saftig & täglich frisch vom Hof gepflückt.</p>
+                            <h3 class="font-serif text-xl font-bold text-stone-800 group-hover:text-berry-600 transition-colors">Himbeeren</h3>
+                            <p class="text-stone-600 text-sm mt-2">Süß, saftig & täglich frisch von unserem Hof gepflückt.</p>
                         </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-2 text-berry-600 text-xs font-bold flex items-center gap-1">
+                        <span>Mehr erfahren & Hofbilder</span>
+                        <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
                     </div>
                 </div>
 
-                <!-- Erdbeeren -->
-                <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-cream-200 flex flex-col justify-between">
+                <!-- 2. Erdbeeren -->
+                <div onclick="openProductModal('erdbeeren')" class="bg-white rounded-3xl overflow-hidden shadow-sm border border-cream-200 flex flex-col justify-between cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
                     <div>
-                        <img src="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=600&q=80" alt="Erdbeeren" class="w-full h-48 object-cover">
+                        <div class="relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=600&q=80" alt="Erdbeeren" class="w-full h-52 object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white font-semibold text-sm">
+                                <span class="bg-berry-600/90 backdrop-blur-sm px-4 py-2 rounded-full"><i class="fa-solid fa-eye mr-2"></i>Fotos & Details</span>
+                            </div>
+                        </div>
                         <div class="p-6">
                             <span class="text-xs bg-berry-100 text-berry-700 px-3 py-1 rounded-full font-bold uppercase inline-block mb-2">Mai – Oktober</span>
-                            <h3 class="font-serif text-xl font-bold text-stone-800">Erdbeeren</h3>
+                            <h3 class="font-serif text-xl font-bold text-stone-800 group-hover:text-berry-600 transition-colors">Erdbeeren</h3>
                             <p class="text-stone-600 text-sm mt-2">Aromatisch, intensiver Geschmack & naturbelassen.</p>
                         </div>
                     </div>
+                    <div class="px-6 pb-6 pt-2 text-berry-600 text-xs font-bold flex items-center gap-1">
+                        <span>Mehr erfahren & Hofbilder</span>
+                        <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </div>
                 </div>
 
-                <!-- Zwetschgen -->
-                <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-cream-200 flex flex-col justify-between">
+                <!-- 3. Zwetschgen -->
+                <div onclick="openProductModal('zwetschgen')" class="bg-white rounded-3xl overflow-hidden shadow-sm border border-cream-200 flex flex-col justify-between cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
                     <div>
-                        <img src="https://images.unsplash.com/photo-1603408219216-e41e54c7b8e5?auto=format&fit=crop&w=600&q=80" alt="Zwetschgen" class="w-full h-48 object-cover">
+                        <div class="relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1603408219216-e41e54c7b8e5?auto=format&fit=crop&w=600&q=80" alt="Zwetschgen" class="w-full h-52 object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white font-semibold text-sm">
+                                <span class="bg-berry-600/90 backdrop-blur-sm px-4 py-2 rounded-full"><i class="fa-solid fa-eye mr-2"></i>Fotos & Details</span>
+                            </div>
+                        </div>
                         <div class="p-6">
                             <span class="text-xs bg-purple-100 text-purple-800 px-3 py-1 rounded-full font-bold uppercase inline-block mb-2">Juli – Oktober</span>
-                            <h3 class="font-serif text-xl font-bold text-stone-800">Zwetschgen</h3>
+                            <h3 class="font-serif text-xl font-bold text-stone-800 group-hover:text-berry-600 transition-colors">Zwetschgen</h3>
                             <p class="text-stone-600 text-sm mt-2">Süß-aromatische Pflaumen aus regionalem Anbau.</p>
                         </div>
                     </div>
+                    <div class="px-6 pb-6 pt-2 text-berry-600 text-xs font-bold flex items-center gap-1">
+                        <span>Mehr erfahren & Hofbilder</span>
+                        <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </div>
                 </div>
 
-                <!-- Spargel -->
-                <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-cream-200 flex flex-col justify-between">
+                <!-- 4. Spargel -->
+                <div onclick="openProductModal('spargel')" class="bg-white rounded-3xl overflow-hidden shadow-sm border border-cream-200 flex flex-col justify-between cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
                     <div>
-                        <img src="https://images.unsplash.com/photo-1515471209610-dae1c92d8777?auto=format&fit=crop&w=600&q=80" alt="Spargel" class="w-full h-48 object-cover">
+                        <div class="relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1515471209610-dae1c92d8777?auto=format&fit=crop&w=600&q=80" alt="Spargel" class="w-full h-52 object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white font-semibold text-sm">
+                                <span class="bg-berry-600/90 backdrop-blur-sm px-4 py-2 rounded-full"><i class="fa-solid fa-eye mr-2"></i>Fotos & Details</span>
+                            </div>
+                        </div>
                         <div class="p-6">
                             <span class="text-xs bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full font-bold uppercase inline-block mb-2">April – Juni</span>
-                            <h3 class="font-serif text-xl font-bold text-stone-800">Spargel</h3>
+                            <h3 class="font-serif text-xl font-bold text-stone-800 group-hover:text-berry-600 transition-colors">Spargel</h3>
                             <p class="text-stone-600 text-sm mt-2">Erntefrischer weißer und grüner Spargel.</p>
                         </div>
                     </div>
+                    <div class="px-6 pb-6 pt-2 text-berry-600 text-xs font-bold flex items-center gap-1">
+                        <span>Mehr erfahren & Hofbilder</span>
+                        <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </div>
                 </div>
 
-                <!-- Aprikosen (Caise) -->
-                <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-cream-200 flex flex-col justify-between">
+                <!-- 5. Aprikosen -->
+                <div onclick="openProductModal('aprikosen')" class="bg-white rounded-3xl overflow-hidden shadow-sm border border-cream-200 flex flex-col justify-between cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
                     <div>
-                        <img src="https://images.unsplash.com/photo-1595188840242-7efc90279603?auto=format&fit=crop&w=600&q=80" alt="Aprikosen" class="w-full h-48 object-cover">
+                        <div class="relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1595188840242-7efc90279603?auto=format&fit=crop&w=600&q=80" alt="Aprikosen" class="w-full h-52 object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white font-semibold text-sm">
+                                <span class="bg-berry-600/90 backdrop-blur-sm px-4 py-2 rounded-full"><i class="fa-solid fa-eye mr-2"></i>Fotos & Details</span>
+                            </div>
+                        </div>
                         <div class="p-6">
                             <span class="text-xs bg-amber-100 text-amber-800 px-3 py-1 rounded-full font-bold uppercase inline-block mb-2">Mai – August</span>
-                            <h3 class="font-serif text-xl font-bold text-stone-800">Aprikosen</h3>
+                            <h3 class="font-serif text-xl font-bold text-stone-800 group-hover:text-berry-600 transition-colors">Aprikosen</h3>
                             <p class="text-stone-600 text-sm mt-2">Sonnengereifte, samtige Früchte voller Süße.</p>
                         </div>
                     </div>
+                    <div class="px-6 pb-6 pt-2 text-berry-600 text-xs font-bold flex items-center gap-1">
+                        <span>Mehr erfahren & Hofbilder</span>
+                        <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </div>
                 </div>
 
-                <!-- Äpfel -->
-                <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-cream-200 flex flex-col justify-between">
+                <!-- 6. Äpfel -->
+                <div onclick="openProductModal('aepfel')" class="bg-white rounded-3xl overflow-hidden shadow-sm border border-cream-200 flex flex-col justify-between cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
                     <div>
-                        <img src="https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?auto=format&fit=crop&w=600&q=80" alt="Äpfel" class="w-full h-48 object-cover">
+                        <div class="relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?auto=format&fit=crop&w=600&q=80" alt="Äpfel" class="w-full h-52 object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white font-semibold text-sm">
+                                <span class="bg-berry-600/90 backdrop-blur-sm px-4 py-2 rounded-full"><i class="fa-solid fa-eye mr-2"></i>Fotos & Details</span>
+                            </div>
+                        </div>
                         <div class="p-6">
                             <span class="text-xs bg-red-100 text-red-800 px-3 py-1 rounded-full font-bold uppercase inline-block mb-2">Ganzjährig</span>
-                            <h3 class="font-serif text-xl font-bold text-stone-800">Äpfel</h3>
+                            <h3 class="font-serif text-xl font-bold text-stone-800 group-hover:text-berry-600 transition-colors">Äpfel</h3>
                             <p class="text-stone-600 text-sm mt-2">Knackige und saftige Apfelsorten das ganze Jahr über.</p>
                         </div>
                     </div>
-                </div>
-
-                <!-- Kartoffeln -->
-                <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-cream-200 flex flex-col justify-between">
-                    <div>
-                        <img src="https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=600&q=80" alt="Kartoffeln" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <span class="text-xs bg-stone-200 text-stone-800 px-3 py-1 rounded-full font-bold uppercase inline-block mb-2">Ganzjährig</span>
-                            <h3 class="font-serif text-xl font-bold text-stone-800">Kartoffeln</h3>
-                            <p class="text-stone-600 text-sm mt-2">Feine Speisekartoffeln für jeden Küchenbedarf.</p>
-                        </div>
+                    <div class="px-6 pb-6 pt-2 text-berry-600 text-xs font-bold flex items-center gap-1">
+                        <span>Mehr erfahren & Hofbilder</span>
+                        <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
                     </div>
                 </div>
 
-                <!-- Zitrusfrüchte -->
-                <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-cream-200 flex flex-col justify-between">
+                <!-- 7. Kartoffeln -->
+                <div onclick="openProductModal('kartoffeln')" class="bg-white rounded-3xl overflow-hidden shadow-sm border border-cream-200 flex flex-col justify-between cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
                     <div>
-                        <img src="https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?auto=format&fit=crop&w=600&q=80" alt="Zitrusfrüchte" class="w-full h-48 object-cover">
+                        <div class="relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=600&q=80" alt="Kartoffeln" class="w-full h-52 object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white font-semibold text-sm">
+                                <span class="bg-berry-600/90 backdrop-blur-sm px-4 py-2 rounded-full"><i class="fa-solid fa-eye mr-2"></i>Fotos & Details</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <span class="text-xs bg-stone-200 text-stone-800 px-3 py-1 rounded-full font-bold uppercase inline-block mb-2">Ganzjährig</span>
+                            <h3 class="font-serif text-xl font-bold text-stone-800 group-hover:text-berry-600 transition-colors">Kartoffeln</h3>
+                            <p class="text-stone-600 text-sm mt-2">Feine Speisekartoffeln für jeden Küchenbedarf.</p>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-2 text-berry-600 text-xs font-bold flex items-center gap-1">
+                        <span>Mehr erfahren & Hofbilder</span>
+                        <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </div>
+
+                <!-- 8. Zitrusfrüchte -->
+                <div onclick="openProductModal('zitrusfruechte')" class="bg-white rounded-3xl overflow-hidden shadow-sm border border-cream-200 flex flex-col justify-between cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+                    <div>
+                        <div class="relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?auto=format&fit=crop&w=600&q=80" alt="Zitrusfrüchte" class="w-full h-52 object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white font-semibold text-sm">
+                                <span class="bg-berry-600/90 backdrop-blur-sm px-4 py-2 rounded-full"><i class="fa-solid fa-eye mr-2"></i>Fotos & Details</span>
+                            </div>
+                        </div>
                         <div class="p-6">
                             <span class="text-xs bg-orange-100 text-orange-800 px-3 py-1 rounded-full font-bold uppercase inline-block mb-2">September – April</span>
-                            <h3 class="font-serif text-xl font-bold text-stone-800">Zitrusfrüchte</h3>
+                            <h3 class="font-serif text-xl font-bold text-stone-800 group-hover:text-berry-600 transition-colors">Zitrusfrüchte</h3>
                             <p class="text-stone-600 text-sm mt-2">Vitaminreiche Orangen, Mandarinen & Zitronen.</p>
                         </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-2 text-berry-600 text-xs font-bold flex items-center gap-1">
+                        <span>Mehr erfahren & Hofbilder</span>
+                        <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
                     </div>
                 </div>
 
             </div>
 
             <!-- Exoten auf Bestellung Banner -->
-            <div class="mt-12 bg-berry-600 text-white rounded-3xl p-8 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
+            <div onclick="openProductModal('exoten')" class="mt-12 bg-berry-600 text-white rounded-3xl p-8 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6 cursor-pointer hover:bg-berry-700 transition-colors">
                 <div class="flex items-center gap-5">
                     <div class="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center shrink-0 text-3xl">
                         🍍
@@ -318,9 +390,9 @@
                         <p class="text-cream-100 text-sm mt-1">Suchen Sie etwas Besonderes? Auf Wunsch bestellen und liefern wir Ihnen gerne auch frische exotische Früchte!</p>
                     </div>
                 </div>
-                <a href="tel:+4915124722708" class="bg-white text-berry-800 hover:bg-cream-100 font-bold px-6 py-3 rounded-full text-sm shrink-0 transition-colors">
-                    Jetzt vorbestellen
-                </a>
+                <button class="bg-white text-berry-800 font-bold px-6 py-3 rounded-full text-sm shrink-0 shadow-md">
+                    Details & Bestellung
+                </button>
             </div>
 
         </div>
@@ -336,7 +408,7 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 
-                <!-- Hard (NOU) -->
+                <!-- Hard -->
                 <div class="bg-white rounded-3xl p-6 border-2 border-berry-600 shadow-md relative">
                     <span class="absolute -top-3 right-4 bg-berry-600 text-white text-[10px] uppercase font-bold tracking-wider px-3 py-1 rounded-full">April – September</span>
                     <h3 class="font-serif text-2xl font-bold text-stone-800 mb-1">Hard</h3>
@@ -386,6 +458,75 @@
         </div>
     </section>
 
+    <!-- Modal Pagina Produs (Fereastra pop-up pentru detaliile produsului) -->
+    <div id="product-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+        <div class="bg-cream-50 rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-cream-200 relative my-auto">
+            
+            <!-- Close Button -->
+            <button onclick="closeProductModal()" class="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-white/80 hover:bg-white text-stone-800 flex items-center justify-center shadow-lg transition-transform hover:scale-110">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+
+            <!-- Modal Content -->
+            <div class="p-6 sm:p-8 space-y-8">
+                <!-- Header Info -->
+                <div>
+                    <span id="modal-season" class="text-xs bg-berry-100 text-berry-700 px-3 py-1 rounded-full font-bold uppercase inline-block mb-3">Saison</span>
+                    <h2 id="modal-title" class="font-serif text-3xl sm:text-5xl font-bold text-stone-800">Produkt Name</h2>
+                    <p id="modal-subtitle" class="text-stone-600 text-base sm:text-lg mt-2">Beschreibung</p>
+                </div>
+
+                <!-- Galerie Foto din Fermă -->
+                <div>
+                    <h3 class="font-serif text-xl font-bold text-stone-800 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-camera text-berry-600"></i>
+                        <span>Fotos von unserer Farm in Neukirch</span>
+                    </h3>
+                    <div id="modal-gallery" class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <!-- Imagini din dinamica JS -->
+                    </div>
+                </div>
+
+                <!-- Detailed Description & Details Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white p-6 rounded-2xl border border-cream-200">
+                    <div>
+                        <h4 class="font-bold text-stone-800 mb-2 flex items-center gap-2">
+                            <i class="fa-solid fa-leaf text-leaf-600"></i>
+                            <span>Über den Anbau & Qualität</span>
+                        </h4>
+                        <p id="modal-description" class="text-stone-600 text-sm leading-relaxed">
+                            Detailbeschreibung
+                        </p>
+                    </div>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-location-dot text-berry-600 w-5"></i>
+                            <span><strong>Herkunft:</strong> Himbeerhof Neukirch</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-store text-berry-600 w-5"></i>
+                            <span><strong>Erhältlich:</strong> Wochenmärkte Vorarlberg</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-truck-field text-berry-600 w-5"></i>
+                            <span><strong>Frische:</strong> Täglich morgens geerntet</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer Call to Action -->
+                <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-cream-200">
+                    <p class="text-xs text-stone-500">Möchten Sie eine größere Menge reservieren?</p>
+                    <a href="tel:+4915124722708" class="w-full sm:w-auto bg-berry-600 hover:bg-berry-700 text-white font-bold px-6 py-3 rounded-full text-center text-sm transition-colors flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>Jetzt anrufen & bestellen</span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
     <!-- Footer & Rechtliches -->
     <footer class="bg-stone-950 text-stone-400 py-12 border-t border-stone-800 text-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
@@ -411,7 +552,7 @@
             <!-- Datenschutz Block -->
             <div id="datenschutz" class="pt-4 border-t border-stone-800 text-xs text-stone-500 space-y-2">
                 <h4 class="font-bold text-white text-sm">Datenschutzerklärung</h4>
-                <p>Der Schutz Ihrer persönlichen Daten ist uns ein wichtiges Anliegen. Diese Website erhebt keine personenbezogenen Daten, es sei denn, Sie nehmen direkt per E-Mail oder Telefon Kontakt mit uns auf. Beim Besuch der Website werden automatisch anonyme Server-Log-Dateien verarbeitet.</p>
+                <p>Der Schutz Ihrer persönlichen Daten ist uns ein wichtiges Anliegen. Diese Website erhebt keine personenbezogenen Daten, es sei denn, Sie nehmen direkt per E-Mail oder Telefon Kontakt mit uns auf.</p>
             </div>
 
             <div class="text-center text-xs text-stone-600 pt-4">
@@ -420,10 +561,151 @@
         </div>
     </footer>
 
+    <!-- JavaScript logic pentru Pagina de Produs Modală -->
     <script>
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+        // Date detaliate pentru fiecare produs cu poze din fermă
+        const productsData = {
+            himbeeren: {
+                title: "Himbeeren (Zmeură)",
+                season: "Juni – Oktober",
+                subtitle: "Unsere Herzensangelegenheit: Frische, aromatische Himbeeren direkt von unseren Feldern in Neukirch.",
+                description: "Unsere Himbeeren reifen geschützt auf unseren Plantagen in Neukirch heran. Wir pflücken täglich früh morgens von Hand, damit nur die perfekten, voll ausgereiften Beeren auf den Wochenmarkt gelangen. Süß, saftig und reich an Vitaminen!",
+                images: [
+                    "https://images.unsplash.com/photo-1577069861033-55d04ace4ef0?auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1595231712325-30ede1054238?auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=800&q=80"
+                ]
+            },
+            erdbeeren: {
+                title: "Erdbeeren (Căpșuni)",
+                season: "Mai – Oktober",
+                subtitle: "Sonnengereifte Erdbeeren voller natürlicher Süße und unvergleichlichem Aroma.",
+                description: "Unsere Erdbeeren wachsen auf fruchtbarem Boden und werden mit viel Sorgfalt gepflegt. Durch den schonenden Anbau entwickeln sie ein intensives Rot und einen unverwechselbaren, natürlichen Geschmack.",
+                images: [
+                    "https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1587393855524-087f83d95bc9?auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1518635017498-87f514b750a2?auto=format&fit=crop&w=800&q=80"
+                ]
+            },
+            zwetschgen: {
+                title: "Zwetschgen (Prune)",
+                season: "Juli – Oktober",
+                subtitle: "Süß-aromatische Zwetschgen für den frischen Genuss oder köstliche Kuchen.",
+                description: "Unsere regionalen Zwetschgen überzeugen durch ihr festes Fruchtfleisch und das perfekt ausgewogene Verhältnis von Süße und leicht feiner Säure. Ideal zum Frischverzehr oder zum Backen.",
+                images: [
+                    "https://images.unsplash.com/photo-1603408219216-e41e54c7b8e5?auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1628155930542-3c7a64e2c833?auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1532704868953-d85f24176d73?auto=format&fit=crop&w=800&q=80"
+                ]
+            },
+            spargel: {
+                title: "Spargel (Sparanghel)",
+                season: "April – Juni",
+                subtitle: "Zarter weißer und grüner Spargel – das königliche Frühjahrsgemüse.",
+                description: "Frisch gestochen kommt unser Spargel ohne Umwege direkt auf den Wochenmarkt. Knackig, zart und mit bestem Geschmack für feine Frühlingsgerichte.",
+                images: [
+                    "https://images.unsplash.com/photo-1515471209610-dae1c92d8777?auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1592417817098-8f3d6ef23a28?auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1580130601254-05fa235abeab?auto=format&fit=crop&w=800&q=80"
+                ]
+            },
+            aprikosen: {
+                title: "Aprikosen (Caise)",
+                season: "Mai – August",
+                subtitle: "Samtige, sonnengereifte Aprikosen mit vollem Aroma.",
+                description: "Unsere Aprikosen reifen perfekt an der Sonne, bis sie ihre wunderschöne Farbe und ihren saftig-süßen Geschmack entwickeln.",
+                images: [
+                    "https://images.unsplash.com/photo-1595188840242-7efc90279603?auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1528825871115-3581a5387919?auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1501199532985-60b835e5d1a2?auto=format&fit=crop&w=800&q=80"
+                ]
+            },
+            aepfel: {
+                title: "Äpfel (Mere)",
+                season: "Ganzjährig",
+                subtitle: "Knackige regionale Apfelsorten das ganze Jahr über.",
+                description: "Wir bieten Ihnen das ganze Jahr über erlesene Apfelsorten an – stets knackig, saftig und ideal gelagert für langanhaltende Frische.",
+                images: [
+                    "https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1619546813926-a78fa6372cd2?auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?auto=format&fit=crop&w=800&q=80"
+                ]
+            },
+            kartoffeln: {
+                title: "Kartoffeln (Cartofi)",
+                season: "Ganzjährig",
+                subtitle: "Vorzügliche Speisekartoffeln für jeden Bedarf in der Küche.",
+                description: "Aus gehaltvoller Erde geerntet bieten wir feine Kartoffeln, die durch hervorragenden Geschmack und beste Kocheigenschaften überzeugen.",
+                images: [
+                    "https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1508313880080-c4bef0730395?auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1582515073490-39981397c445?auto=format&fit=crop&w=800&q=80"
+                ]
+            },
+            zitrusfruechte: {
+                title: "Zitrusfrüchte (Citrice)",
+                season: "September – April",
+                subtitle: "Vitaminbombe für die kältere Jahreszeit.",
+                description: "Feinste Orangen, saftige Mandarinen und aromatische Zitronen – perfekt ausgewählt, um Sie im Herbst und Winter mit reichlich Vitamin C zu versorgen.",
+                images: [
+                    "https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1582979512210-99b6a53386f9?auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1557800636-894a64c1696f?auto=format&fit=crop&w=800&q=80"
+                ]
+            },
+            exoten: {
+                title: "Exotische Früchte auf Bestellung",
+                season: "Auf Bestellung",
+                subtitle: "Exklusive Südfrüchte und Exoten ganz nach Ihren Wünschen.",
+                description: "Möchten Sie Mangos, Ananas, Papayas oder andere exotische Früchte direkt frisch geliefert bekommen? Sprechen Sie uns an den Marktständen an oder rufen Sie uns an!",
+                images: [
+                    "https://images.unsplash.com/photo-1550258987-190a2d41a8ba?auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1528825871115-3581a5387919?auto=format&fit=crop&w=800&q=80",
+                    "https://images.unsplash.com/photo-1534531141161-e4160490ef81?auto=format&fit=crop&w=800&q=80"
+                ]
+            }
+        };
+
+        function openProductModal(productId) {
+            const data = productsData[productId];
+            if (!data) return;
+
+            document.getElementById('modal-title').textContent = data.title;
+            document.getElementById('modal-season').textContent = data.season;
+            document.getElementById('modal-subtitle').textContent = data.subtitle;
+            document.getElementById('modal-description').textContent = data.description;
+
+            // Render galerie poze
+            const galleryContainer = document.getElementById('modal-gallery');
+            galleryContainer.innerHTML = '';
+            data.images.forEach((imgUrl, index) => {
+                const imgElement = document.createElement('div');
+                imgElement.className = 'rounded-2xl overflow-hidden h-48 border border-cream-200 shadow-sm';
+                imgElement.innerHTML = `<img src="${imgUrl}" alt="${data.title} Foto ${index + 1}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">`;
+                galleryContainer.appendChild(imgElement);
+            });
+
+            const modal = document.getElementById('product-modal');
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProductModal() {
+            const modal = document.getElementById('product-modal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Inchidere modal la click in afara ferestrei
+        document.getElementById('product-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeProductModal();
+            }
+        });
     </script>
 </body>
 </html>
