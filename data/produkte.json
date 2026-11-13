@@ -2,11 +2,12 @@
   "produkte": [
     {
       "name": "Himbeeren",
-      "titel": "Himbeeren (Zmeură)",
+      "sichtbar": true,
       "saison": "Juni – Oktober",
       "farbe": "beere",
       "kurz": "Süß, saftig & täglich frisch von unserem Hof gepflückt.",
       "bild": "https://images.unsplash.com/photo-1577069861033-55d04ace4ef0?auto=format&fit=crop&w=600&q=80",
+      "titel": "Himbeeren",
       "untertitel": "Unsere Herzensangelegenheit: Frische, aromatische Himbeeren direkt von unseren Feldern in Neukirch.",
       "beschreibung": "Unsere Himbeeren reifen geschützt auf unseren Plantagen in Neukirch heran. Wir pflücken täglich früh morgens von Hand, damit nur die perfekten, voll ausgereiften Beeren auf den Wochenmarkt gelangen. Süß, saftig und reich an Vitaminen!",
       "fotos": [
@@ -19,16 +20,16 @@
         {
           "bild": "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=800&q=80"
         }
-      ],
-      "sichtbar": true
+      ]
     },
     {
       "name": "Erdbeeren",
-      "titel": "Erdbeeren (Căpșuni)",
+      "sichtbar": true,
       "saison": "Mai – Oktober",
       "farbe": "beere",
       "kurz": "Aromatisch, intensiver Geschmack & naturbelassen.",
       "bild": "https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=600&q=80",
+      "titel": "Erdbeeren",
       "untertitel": "Sonnengereifte Erdbeeren voller natürlicher Süße und unvergleichlichem Aroma.",
       "beschreibung": "Unsere Erdbeeren wachsen auf fruchtbarem Boden und werden mit viel Sorgfalt gepflegt. Durch den schonenden Anbau entwickeln sie ein intensives Rot und einen unverwechselbaren, natürlichen Geschmack.",
       "fotos": [
@@ -41,16 +42,16 @@
         {
           "bild": "https://images.unsplash.com/photo-1518635017498-87f514b750a2?auto=format&fit=crop&w=800&q=80"
         }
-      ],
-      "sichtbar": true
+      ]
     },
     {
       "name": "Zwetschgen",
-      "titel": "Zwetschgen (Prune)",
+      "sichtbar": true,
       "saison": "Juli – Oktober",
       "farbe": "lila",
       "kurz": "Süß-aromatische Pflaumen aus regionalem Anbau.",
       "bild": "https://images.unsplash.com/photo-1603408219216-e41e54c7b8e5?auto=format&fit=crop&w=600&q=80",
+      "titel": "Zwetschgen",
       "untertitel": "Süß-aromatische Zwetschgen für den frischen Genuss oder köstliche Kuchen.",
       "beschreibung": "Unsere regionalen Zwetschgen überzeugen durch ihr festes Fruchtfleisch und das perfekt ausgewogene Verhältnis von Süße und leicht feiner Säure. Ideal zum Frischverzehr oder zum Backen.",
       "fotos": [
@@ -63,16 +64,16 @@
         {
           "bild": "https://images.unsplash.com/photo-1532704868953-d85f24176d73?auto=format&fit=crop&w=800&q=80"
         }
-      ],
-      "sichtbar": true
+      ]
     },
     {
       "name": "Spargel",
-      "titel": "Spargel (Sparanghel)",
+      "sichtbar": true,
       "saison": "April – Juni",
       "farbe": "gruen",
       "kurz": "Erntefrischer weißer und grüner Spargel.",
       "bild": "https://images.unsplash.com/photo-1515471209610-dae1c92d8777?auto=format&fit=crop&w=600&q=80",
+      "titel": "Spargel",
       "untertitel": "Zarter weißer und grüner Spargel – das königliche Frühjahrsgemüse.",
       "beschreibung": "Frisch gestochen kommt unser Spargel ohne Umwege direkt auf den Wochenmarkt. Knackig, zart und mit bestem Geschmack für feine Frühlingsgerichte.",
       "fotos": [
@@ -85,16 +86,16 @@
         {
           "bild": "https://images.unsplash.com/photo-1580130601254-05fa235abeab?auto=format&fit=crop&w=800&q=80"
         }
-      ],
-      "sichtbar": true
+      ]
     },
     {
       "name": "Aprikosen",
-      "titel": "Aprikosen (Caise)",
+      "sichtbar": true,
       "saison": "Mai – August",
       "farbe": "gelb",
       "kurz": "Sonnengereifte, samtige Früchte voller Süße.",
       "bild": "https://images.unsplash.com/photo-1595188840242-7efc90279603?auto=format&fit=crop&w=600&q=80",
+      "titel": "Aprikosen",
       "untertitel": "Samtige, sonnengereifte Aprikosen mit vollem Aroma.",
       "beschreibung": "Unsere Aprikosen reifen perfekt an der Sonne, bis sie ihre wunderschöne Farbe und ihren saftig-süßen Geschmack entwickeln.",
       "fotos": [
@@ -107,16 +108,16 @@
         {
           "bild": "https://images.unsplash.com/photo-1501199532985-60b835e5d1a2?auto=format&fit=crop&w=800&q=80"
         }
-      ],
-      "sichtbar": true
+      ]
     },
     {
       "name": "Äpfel",
-      "titel": "Äpfel (Mere)",
+      "sichtbar": true,
       "saison": "Ganzjährig",
       "farbe": "rot",
       "kurz": "Knackige und saftige Apfelsorten das ganze Jahr über.",
       "bild": "https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?auto=format&fit=crop&w=600&q=80",
+      "titel": "Äpfel",
       "untertitel": "Knackige regionale Apfelsorten das ganze Jahr über.",
       "beschreibung": "Wir bieten Ihnen das ganze Jahr über erlesene Apfelsorten an – stets knackig, saftig und ideal gelagert für langanhaltende Frische.",
       "fotos": [
@@ -129,16 +130,16 @@
         {
           "bild": "https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?auto=format&fit=crop&w=800&q=80"
         }
-      ],
-      "sichtbar": true
+      ]
     },
     {
       "name": "Kartoffeln",
-      "titel": "Kartoffeln (Cartofi)",
+      "sichtbar": true,
       "saison": "Ganzjährig",
       "farbe": "grau",
       "kurz": "Feine Speisekartoffeln für jeden Küchenbedarf.",
       "bild": "https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=600&q=80",
+      "titel": "Kartoffeln",
       "untertitel": "Vorzügliche Speisekartoffeln für jeden Bedarf in der Küche.",
       "beschreibung": "Aus gehaltvoller Erde geerntet bieten wir feine Kartoffeln, die durch hervorragenden Geschmack und beste Kocheigenschaften überzeugen.",
       "fotos": [
@@ -151,16 +152,16 @@
         {
           "bild": "https://images.unsplash.com/photo-1582515073490-39981397c445?auto=format&fit=crop&w=800&q=80"
         }
-      ],
-      "sichtbar": true
+      ]
     },
     {
       "name": "Zitrusfrüchte",
-      "titel": "Kartoffeln (Cartofi)",
+      "sichtbar": true,
       "saison": "September – April",
       "farbe": "orange",
       "kurz": "Vitaminreiche Orangen, Mandarinen & Zitronen.",
       "bild": "https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?auto=format&fit=crop&w=600&q=80",
+      "titel": "Kartoffeln",
       "untertitel": "Vorzügliche Speisekartoffeln für jeden Bedarf in der Küche.",
       "beschreibung": "Aus gehaltvoller Erde geerntet bieten wir feine Kartoffeln, die durch hervorragenden Geschmack und beste Kocheigenschaften überzeugen.",
       "fotos": [
@@ -173,8 +174,7 @@
         {
           "bild": "https://images.unsplash.com/photo-1582515073490-39981397c445?auto=format&fit=crop&w=800&q=80"
         }
-      ],
-      "sichtbar": true
+      ]
     }
   ]
 }
