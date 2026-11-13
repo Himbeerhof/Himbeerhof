@@ -1,17 +1,116 @@
 backend:
   name: github
-  repo: NumeleTauDeUtilizatorGitHub/himbeerhof
+  repo: Himbeerhof/Himbeerhof
   branch: main
+  commit_messages:
+    update: "Panou: actualizat {{collection}} – {{slug}}"
+
+locale: "ro"
+site_url: "https://himbeerhof.com"
+display_url: "https://himbeerhof.com"
 
 media_folder: "images"
 public_folder: "/images"
 
 collections:
-  - name: "pages"
-    label: "Seiten"
+  - name: "continut"
+    label: "Conținut site"
+    editor:
+      preview: false
     files:
-      - file: "index.html"
-        label: "Startseite (Index)"
-        name: "index"
+      # ---------------- PRODUSE ----------------
+      - name: "produse"
+        label: "🍓 Produse"
+        file: "data/produkte.json"
         fields:
-          - {label: "Titel", name: "title", widget: "string"}
+          - label: "Produse"
+            name: "produkte"
+            widget: "list"
+            label_singular: "produs"
+            summary: "{{fields.name}} – {{fields.saison}}"
+            hint: "Trage de produse ca să schimbi ordinea. Apasă pe ✕ ca să ștergi un produs."
+            fields:
+              - {label: "Nume (pe card)", name: "name", widget: "string"}
+              - {label: "Afișează pe site", name: "sichtbar", widget: "boolean", default: true, hint: "Dezactivează ca să ascunzi produsul temporar, fără să-l ștergi."}
+              - {label: "Sezon", name: "saison", widget: "string", required: false, hint: "Ex.: Juni – Oktober, Ganzjährig"}
+              - label: "Culoarea etichetei de sezon"
+                name: "farbe"
+                widget: "select"
+                default: "beere"
+                options:
+                  - {label: "Zmeură (roșu închis)", value: "beere"}
+                  - {label: "Roșu", value: "rot"}
+                  - {label: "Mov", value: "lila"}
+                  - {label: "Verde", value: "gruen"}
+                  - {label: "Galben", value: "gelb"}
+                  - {label: "Portocaliu", value: "orange"}
+                  - {label: "Gri", value: "grau"}
+              - {label: "Text scurt (pe card)", name: "kurz", widget: "string"}
+              - {label: "Poză principală (pe card)", name: "bild", widget: "image", choose_url: true}
+              - {label: "Titlu în fereastra de detalii", name: "titel", widget: "string", required: false}
+              - {label: "Subtitlu în fereastra de detalii", name: "untertitel", widget: "text", required: false}
+              - {label: "Descriere detaliată", name: "beschreibung", widget: "text", required: false}
+              - label: "Galerie foto (din fermă)"
+                name: "fotos"
+                widget: "list"
+                required: false
+                label_singular: "poză"
+                summary: "{{fields.bild}}"
+                fields:
+                  - {label: "Poză", name: "bild", widget: "image", choose_url: true}
+
+      # ---------------- PIEȚE ----------------
+      - name: "piete"
+        label: "📍 Piețe săptămânale"
+        file: "data/maerkte.json"
+        fields:
+          - label: "Piețe"
+            name: "maerkte"
+            widget: "list"
+            label_singular: "piață"
+            summary: "{{fields.ort}} – {{fields.zeiten}}"
+            fields:
+              - {label: "Localitate", name: "ort", widget: "string", hint: "Ex.: Bregenz"}
+              - {label: "Loc / piață", name: "platz", widget: "string", hint: "Ex.: Kornmarktplatz"}
+              - {label: "Zile și ore", name: "zeiten", widget: "string", hint: "Ex.: Dienstag & Freitag | 07:00 – 12:00 Uhr"}
+              - {label: "Sezon (opțional)", name: "saison", widget: "string", required: false, hint: "Ex.: April – Oktober. Lasă gol dacă e tot anul."}
+              - {label: "Evidențiază (chenar roșu)", name: "hervorheben", widget: "boolean", default: false}
+              - {label: "Afișează pe site", name: "sichtbar", widget: "boolean", default: true}
+
+      # ---------------- SETĂRI GENERALE ----------------
+      - name: "general"
+        label: "⚙️ Texte, contact și imagini"
+        file: "data/site.json"
+        fields:
+          - {label: "Bara de anunț (sus de tot)", name: "ankuendigung", widget: "string"}
+          - {label: "Telefon", name: "telefon", widget: "string"}
+          - {label: "E-mail", name: "email", widget: "string"}
+          - {label: "Adresa (subsol)", name: "adresse", widget: "string"}
+          - {label: "Prima secțiune – eticheta mică", name: "hero_badge", widget: "string"}
+          - {label: "Prima secțiune – titlu", name: "hero_titel", widget: "string"}
+          - {label: "Prima secțiune – titlu (partea cursivă)", name: "hero_titel_kursiv", widget: "string"}
+          - {label: "Prima secțiune – text", name: "hero_text", widget: "text"}
+          - {label: "Prima secțiune – imagine de fundal", name: "hero_bild", widget: "image", choose_url: true}
+          - {label: "Despre noi – titlu", name: "ueber_titel", widget: "string"}
+          - {label: "Despre noi – text", name: "ueber_text", widget: "text", hint: "Pune **cuvinte** între două steluțe ca să apară îngroșate."}
+          - {label: "Despre noi – text 2", name: "ueber_text2", widget: "text"}
+          - {label: "Despre noi – poză", name: "ueber_bild", widget: "image", choose_url: true}
+          - {label: "Contact – text", name: "kontakt_text", widget: "text"}
+          - label: "🍍 Fructe exotice la comandă"
+            name: "exoten"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "Afișează banner-ul", name: "anzeigen", widget: "boolean", default: true}
+              - {label: "Titlu", name: "titel", widget: "string"}
+              - {label: "Text", name: "text", widget: "text"}
+              - {label: "Text buton", name: "button", widget: "string"}
+              - {label: "Etichetă în fereastra de detalii", name: "saison", widget: "string"}
+              - {label: "Subtitlu în fereastra de detalii", name: "untertitel", widget: "text"}
+              - {label: "Descriere detaliată", name: "beschreibung", widget: "text"}
+              - label: "Poze"
+                name: "fotos"
+                widget: "list"
+                label_singular: "poză"
+                fields:
+                  - {label: "Poză", name: "bild", widget: "image", choose_url: true}

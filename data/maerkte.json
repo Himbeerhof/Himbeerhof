@@ -1,0 +1,36 @@
+{
+  "maerkte": [
+    {
+      "ort": "Hard",
+      "platz": "Wochenmarkt",
+      "zeiten": "Saisonal vor Ort",
+      "saison": "April – September",
+      "hervorheben": true,
+      "sichtbar": true
+    },
+    {
+      "ort": "Feldkirch",
+      "platz": "Marktgasse",
+      "zeiten": "Dienstag & Samstag | 07:30 – 12:00 Uhr",
+      "saison": "April – Oktober",
+      "hervorheben": false,
+      "sichtbar": true
+    },
+    {
+      "ort": "Bregenz",
+      "platz": "Kornmarktplatz",
+      "zeiten": "Dienstag & Freitag | 07:00 – 12:00 Uhr",
+      "saison": "",
+      "hervorheben": false,
+      "sichtbar": true
+    },
+    {
+      "ort": "Dornbirn",
+      "platz": "Marktplatz",
+      "zeiten": "Mittwoch & Samstag | 07:00 – 12:00 Uhr",
+      "saison": "",
+      "hervorheben": false,
+      "sichtbar": true
+    }
+  ]
+}
