@@ -2,6 +2,7 @@ backend:
   name: github
   repo: Himbeerhof/Himbeerhof
   branch: main
+  site_domain: glistening-manatee-007a8a.netlify.app
   commit_messages:
     update: "Panou: actualizat {{collection}} – {{slug}}"
 
