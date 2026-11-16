@@ -1,0 +1,44 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+    function adminPath() { return /databases/$(database)/documents/config/admin; }
+    function isAdmin() { return signedIn() && exists(adminPath()) && get(adminPath()).data.uid == request.auth.uid; }
+    function isActive() {
+      return signedIn() && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.active == true;
+    }
+    function validEntry(d) {
+      return d.uid is string && d.date is string && d.date.size() == 10
+        && d.start is string && d.end is string
+        && d.pauseMin is number && d.totalMin is number
+        && d.totalMin > 0 && d.totalMin <= 960
+        && d.note is string && d.note.size() <= 2000;
+    }
+
+    // cine este administratorul (se creează o singură dată)
+    match /config/admin {
+      allow read: if true;
+      allow create: if signedIn() && request.resource.data.uid == request.auth.uid;
+      allow update, delete: if false;
+    }
+
+    // angajații: doar adminul îi creează / modifică
+    match /users/{uid} {
+      allow read: if isAdmin() || (signedIn() && request.auth.uid == uid);
+      allow write: if isAdmin();
+    }
+
+    // orele: fiecare angajat doar pe ale lui, adminul pe toate
+    match /entries/{id} {
+      allow read: if isAdmin() || (isActive() && resource.data.uid == request.auth.uid);
+      allow create: if validEntry(request.resource.data) && (isAdmin() || (isActive()
+        && request.resource.data.uid == request.auth.uid
+        && id == request.auth.uid + '_' + request.resource.data.date));
+      allow update: if validEntry(request.resource.data) && (isAdmin() || (isActive()
+        && resource.data.uid == request.auth.uid
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.date == resource.data.date));
+      allow delete: if isAdmin() || (isActive() && resource.data.uid == request.auth.uid);
+    }
+  }
+}
