@@ -161,18 +161,18 @@
       "farbe": "orange",
       "kurz": "Vitaminreiche Orangen, Mandarinen & Zitronen.",
       "bild": "https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?auto=format&fit=crop&w=600&q=80",
-      "titel": "Kartoffeln",
-      "untertitel": "Vorzügliche Speisekartoffeln für jeden Bedarf in der Küche.",
-      "beschreibung": "Aus gehaltvoller Erde geerntet bieten wir feine Kartoffeln, die durch hervorragenden Geschmack und beste Kocheigenschaften überzeugen.",
+      "titel": "Zitrusfrüchte",
+      "untertitel": "Vitaminbombe für die kältere Jahreszeit.",
+      "beschreibung": "Feinste Orangen, saftige Mandarinen und aromatische Zitronen – perfekt ausgewählt, um Sie im Herbst und Winter mit reichlich Vitamin C zu versorgen.",
       "fotos": [
         {
-          "bild": "https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=800&q=80"
+          "bild": "https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?auto=format&fit=crop&w=800&q=80"
         },
         {
-          "bild": "https://images.unsplash.com/photo-1508313880080-c4bef0730395?auto=format&fit=crop&w=800&q=80"
+          "bild": "https://images.unsplash.com/photo-1582979512210-99b6a53386f9?auto=format&fit=crop&w=800&q=80"
         },
         {
-          "bild": "https://images.unsplash.com/photo-1582515073490-39981397c445?auto=format&fit=crop&w=800&q=80"
+          "bild": "https://images.unsplash.com/photo-1557800636-894a64c1696f?auto=format&fit=crop&w=800&q=80"
         }
       ]
     }
