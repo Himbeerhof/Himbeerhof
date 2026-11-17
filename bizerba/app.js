@@ -324,5 +324,9 @@ async function xl(build, name) {
   } catch (e) { console.error(e); toast("Excel-ul nu a putut fi făcut: " + e.message, 5000); }
 }
 
+let instEvt = null;
+addEventListener("beforeinstallprompt", e => { e.preventDefault(); instEvt = e; $("#inst").classList.remove("hidden"); });
+addEventListener("appinstalled", () => { $("#inst").classList.add("hidden"); toast("Programul e instalat – îl găsești în meniul Start și pe Desktop."); });
+$("#inst").addEventListener("click", async () => { if (!instEvt) return; instEvt.prompt(); try { await instEvt.userChoice; } catch (e) {} instEvt = null; $("#inst").classList.add("hidden"); });
 fillFilters(); render();
 if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js", { updateViaCache: "none" }).catch(() => {});
