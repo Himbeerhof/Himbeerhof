@@ -1,5 +1,5 @@
 // păstrează aplicația și modelele OCR pe dispozitiv, ca să meargă fără internet
-const CACHE = "zscan-v1";
+const CACHE = "zscan-v2";
 const FILES = ["./", "./index.html", "./app.js", "./manifest.webmanifest", "./icon-192.png", "./icon-512.png",
   "./models/det.onnx", "./models/rec.onnx", "./models/keys.txt", "./ort/ort-wasm-simd-threaded.wasm", "./ort/ort-wasm-simd-threaded.mjs"];
 self.addEventListener("install", e => e.waitUntil(caches.open(CACHE).then(c => c.addAll(FILES)).then(() => self.skipWaiting())));
