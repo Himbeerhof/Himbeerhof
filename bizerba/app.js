@@ -21,7 +21,10 @@ let ALL = (await tx("readonly", s => s.getAll())) || [];
 ALL.sort((a, b) => a.end.localeCompare(b.end));
 
 /* ---------- piețe: ținute minte pe zi + casă și pe zi a săptămânii + casă ---------- */
-const MK = ls("bz_markets") || {};
+// piețele fixe ale Himbeerhof (zi a săptămânii: 2 = marți, 3 = miercuri, 5 = vineri, 6 = sâmbătă); se pot schimba oricând în tabel
+const DEFAULT_MK = { "wd6|1": "Feldkirch", "wd6|2": "Feldkirch", "wd6|3": "Feldkirch", "wd6|4": "Dornbirn", "wd6|5": "Dornbirn",
+  "wd2|3": "Feldkirch", "wd2|4": "Bregenz", "wd2|5": "Bregenz", "wd3|3": "Hard", "wd3|4": "Dornbirn", "wd3|5": "Dornbirn", "wd5|4": "Bregenz", "wd5|5": "Bregenz" };
+const MK = { ...DEFAULT_MK, ...(ls("bz_markets") || {}) };
 const marketOf = (date, k) => MK[date + "|" + k] ?? MK["wd" + wdOf(date) + "|" + k] ?? "";
 function setMarket(date, k, v) { MK[date + "|" + k] = v; MK["wd" + wdOf(date) + "|" + k] = v; ls("bz_markets", MK); }
 
