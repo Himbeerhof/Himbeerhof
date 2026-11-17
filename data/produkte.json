@@ -45,6 +45,50 @@
       ]
     },
     {
+      "name": "Kirschen",
+      "sichtbar": true,
+      "saison": "Juni – Juli",
+      "farbe": "rot",
+      "kurz": "Knackige, süße Kirschen frisch vom Baum.",
+      "bild": "https://images.unsplash.com/photo-1520236060906-9c5ed525b025?auto=format&fit=crop&w=600&q=80",
+      "titel": "Kirschen",
+      "untertitel": "Saftig, dunkelrot und zuckersüß.",
+      "beschreibung": "Unsere Süßkirschen werden in voller Reife gepflückt und kommen frisch auf den Markt – ideal zum Naschen, für Kuchen oder zum Einkochen.",
+      "fotos": [
+        {
+          "bild": "https://images.unsplash.com/photo-1759921037282-1467a5e125ef?auto=format&fit=crop&w=800&q=80"
+        },
+        {
+          "bild": "https://images.unsplash.com/photo-1655129870529-f7cdc464a372?auto=format&fit=crop&w=800&q=80"
+        },
+        {
+          "bild": "https://images.unsplash.com/photo-1621763668206-b9a47fc8727a?auto=format&fit=crop&w=800&q=80"
+        }
+      ]
+    },
+    {
+      "name": "Johannisbeeren",
+      "sichtbar": true,
+      "saison": "Juni – August",
+      "farbe": "beere",
+      "kurz": "Rote und schwarze Johannisbeeren, fruchtig-säuerlich.",
+      "bild": "https://images.unsplash.com/photo-1624944962159-5d2224655ffb?auto=format&fit=crop&w=600&q=80",
+      "titel": "Johannisbeeren",
+      "untertitel": "Kleine Beeren mit großem Aroma.",
+      "beschreibung": "Rote und schwarze Johannisbeeren direkt vom Strauch – perfekt für Marmelade, Gelee, Säfte, Kuchen oder einfach frisch zum Müsli.",
+      "fotos": [
+        {
+          "bild": "https://images.unsplash.com/photo-1721118174490-352c942096d7?auto=format&fit=crop&w=800&q=80"
+        },
+        {
+          "bild": "https://images.unsplash.com/photo-1749558160105-97f6f9d382b1?auto=format&fit=crop&w=800&q=80"
+        },
+        {
+          "bild": "https://images.unsplash.com/photo-1625859641408-eb7b6bd53cd2?auto=format&fit=crop&w=800&q=80"
+        }
+      ]
+    },
+    {
       "name": "Zwetschgen",
       "sichtbar": true,
       "saison": "Juli – Oktober",
@@ -55,6 +99,9 @@
       "untertitel": "Süß-aromatische Zwetschgen für den frischen Genuss oder köstliche Kuchen.",
       "beschreibung": "Unsere regionalen Zwetschgen überzeugen durch ihr festes Fruchtfleisch und das perfekt ausgewogene Verhältnis von Süße und leicht feiner Säure. Ideal zum Frischverzehr oder zum Backen.",
       "fotos": [
+        {
+          "bild": "/images/zwetschgen-baum.webp"
+        },
         {
           "bild": "https://images.unsplash.com/photo-1603408219216-e41e54c7b8e5?auto=format&fit=crop&w=800&q=80"
         },
@@ -78,6 +125,9 @@
       "beschreibung": "Frisch gestochen kommt unser Spargel ohne Umwege direkt auf den Wochenmarkt. Knackig, zart und mit bestem Geschmack für feine Frühlingsgerichte.",
       "fotos": [
         {
+          "bild": "/images/spargel-feld.webp"
+        },
+        {
           "bild": "https://images.unsplash.com/photo-1515471209610-dae1c92d8777?auto=format&fit=crop&w=800&q=80"
         },
         {
@@ -100,6 +150,9 @@
       "beschreibung": "Unsere Aprikosen reifen perfekt an der Sonne, bis sie ihre wunderschöne Farbe und ihren saftig-süßen Geschmack entwickeln.",
       "fotos": [
         {
+          "bild": "/images/aprikosen-baum.webp"
+        },
+        {
           "bild": "https://images.unsplash.com/photo-1595188840242-7efc90279603?auto=format&fit=crop&w=800&q=80"
         },
         {
@@ -107,6 +160,50 @@
         },
         {
           "bild": "https://images.unsplash.com/photo-1501199532985-60b835e5d1a2?auto=format&fit=crop&w=800&q=80"
+        }
+      ]
+    },
+    {
+      "name": "Pfirsiche & Nektarinen",
+      "sichtbar": true,
+      "saison": "Juli – September",
+      "farbe": "orange",
+      "kurz": "Sonnengereifte Pfirsiche und Nektarinen.",
+      "bild": "https://images.unsplash.com/photo-1639588473831-dd9d014646ae?auto=format&fit=crop&w=600&q=80",
+      "titel": "Pfirsiche & Nektarinen",
+      "untertitel": "Saftig, aromatisch und voller Sommer.",
+      "beschreibung": "Pfirsiche mit samtiger Schale und glatte Nektarinen – reif geerntet, süß und saftig. Ein echter Genuss im Hochsommer.",
+      "fotos": [
+        {
+          "bild": "https://images.unsplash.com/photo-1774329659426-1b83a12f0893?auto=format&fit=crop&w=800&q=80"
+        },
+        {
+          "bild": "https://images.unsplash.com/photo-1629828874514-c1e5103f2150?auto=format&fit=crop&w=800&q=80"
+        }
+      ]
+    },
+    {
+      "name": "Tafeltrauben",
+      "sichtbar": true,
+      "saison": "August – Oktober",
+      "farbe": "gruen",
+      "kurz": "Helle und dunkle Tafeltrauben, süß und knackig.",
+      "bild": "https://images.unsplash.com/photo-1632990951421-0f748857ad9a?auto=format&fit=crop&w=600&q=80",
+      "titel": "Tafeltrauben",
+      "untertitel": "Frisch von der Rebe auf Ihren Tisch.",
+      "beschreibung": "Ausgesuchte Tafeltrauben in Hell und Dunkel – knackig, süß und ideal zum Naschen, für Obstsalate oder die Käseplatte.",
+      "fotos": [
+        {
+          "bild": "/images/tafeltrauben-rebe.webp"
+        },
+        {
+          "bild": "https://images.unsplash.com/photo-1543280276-66bc9f439b89?auto=format&fit=crop&w=800&q=80"
+        },
+        {
+          "bild": "https://images.unsplash.com/photo-1637715924886-cbe4485f90b9?auto=format&fit=crop&w=800&q=80"
+        },
+        {
+          "bild": "https://images.unsplash.com/photo-1578829779691-99b60bd8c7be?auto=format&fit=crop&w=800&q=80"
         }
       ]
     },
