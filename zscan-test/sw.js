@@ -1,6 +1,6 @@
 // Aplicația (paginile și codul) se ia mereu întâi de pe internet, ca actualizările să ajungă imediat;
 // fără internet se folosește copia salvată. Modelele OCR (mari) se iau din copia salvată.
-const CACHE = "zscan-v3";
+const CACHE = "zscan-v4";
 const BIG = ["./models/det.onnx", "./models/rec.onnx", "./models/keys.txt", "./ort/ort-wasm-simd-threaded.wasm", "./ort/ort-wasm-simd-threaded.mjs"];
 const SHELL = ["./", "./index.html", "./app.js", "./manifest.webmanifest", "./icon-192.png", "./icon-512.png"];
 self.addEventListener("install", e => e.waitUntil(caches.open(CACHE).then(c => c.addAll([...SHELL, ...BIG])).then(() => self.skipWaiting())));
