@@ -2808,13 +2808,27 @@ const Store = {
     let crypto = null;
     if (cfg.secret && cfg.salt) { try { crypto = await CP.makeCrypto(cfg.secret, cfg.salt); } catch (e) {} }
     this.engine = new CP.SyncEngine({ local, adapter: await this.adapterFor(cfg), deviceId: this.device(), crypto,
-      onRemoteChange: () => this.reload(true), onStatus: st => { this.status = st; renderSyncStatus(); } });
+      onRemoteChange: () => this.reload(true), onStatus: st => { this.status = st; if (st.state === "relogin") this.needRelogin = true; renderSyncStatus(); } });
     await this.migrateOld();
     await this.reload(false);
-    if (this.engine.adapter) { this.mode = "cloud"; this.engine.sync().catch(e => { this.status = { state: "error", error: e }; renderSyncStatus(); }); }
-    setInterval(() => { if (this.engine.adapter && navigator.onLine) this.engine.sync().catch(() => {}); }, 60000);
-    addEventListener("online", () => this.engine.adapter && this.engine.sync().catch(() => {}));
-    document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible" && this.engine.adapter) this.engine.sync().catch(() => {}); });
+    if (this.engine.adapter) { this.mode = "cloud"; this.sync(); }
+    setInterval(() => { if (this.engine.adapter && navigator.onLine) this.sync(); }, 60000);
+    addEventListener("online", () => this.engine.adapter && this.sync());
+    document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible" && this.engine.adapter) this.sync(); });
+    // Google: tokenul expirat se reînnoiește la prima atingere (fereastra se închide singură)
+    const relogin = async () => {
+      const ad = this.engine.adapter; if (!this.needRelogin || !ad || !ad.connect || this._rl) return;
+      this._rl = true;
+      try { await ad.connect(true); this.needRelogin = false; this.sync(); } catch (e) { console.warn(e); } finally { this._rl = false; }
+    };
+    document.addEventListener("pointerdown", relogin, true); document.addEventListener("keydown", relogin, true);
+  },
+  needRelogin: false,
+  sync() {
+    return this.engine.sync().then(() => { this.needRelogin = false; }).catch(e => {
+      if (e && e.relogin) { this.needRelogin = true; this.status = { state: "relogin" }; renderSyncStatus(); return; }
+      this.status = { state: "error", error: e }; renderSyncStatus();
+    });
   },
   // datele vechi din browser (versiunea de PC / Claude) se mută o singură dată în noua bază
   async migrateOld() {
@@ -2867,7 +2881,7 @@ const Store = {
     await this.engine.local.queueAll?.();
     if (ad) await this.engine.sync();
   },
-  async disconnect() { try { localStorage.setItem(CLOUD_KEY, JSON.stringify({ type: "none" })); } catch (e) {} this.engine.adapter = null; this.engine.crypto = null; this.mode = "local"; this.status = { state: "off" }; renderSyncStatus(); }
+  async disconnect() { try { localStorage.setItem(CLOUD_KEY, JSON.stringify({ type: "none" })); } catch (e) {} this.engine.adapter?.forget?.(); this.engine.adapter = null; this.engine.crypto = null; this.mode = "local"; this.status = { state: "off" }; renderSyncStatus(); }
 };
 function showBanner(t) { const b = $("#banner"); b.textContent = t; b.classList.remove("hidden"); }
 async function safe(fn, okMsg) {
@@ -5033,9 +5047,9 @@ function renderSyncStatus() {
   const el = document.getElementById("sy-status"); if (!el) return;
   const cfg = Store.cloudCfg(), st = Store.status || {};
   const name = { google: "Google Drive", onedrive: "OneDrive", webdav: "Synology NAS" }[cfg.type];
-  $("#mode").textContent = cfg.type === "none" ? "Salvat pe acest dispozitiv" : `☁︎ ${name}` + (st.state === "syncing" ? " · sincronizez…" : st.state === "error" ? " · eroare" : "");
+  $("#mode").textContent = cfg.type === "none" ? "Salvat pe acest dispozitiv" : `☁︎ ${name}` + (st.state === "syncing" ? " · sincronizez…" : st.state === "relogin" ? " · atinge ca să reconectezi" : st.state === "error" ? " · eroare" : "");
   el.textContent = cfg.type === "none" ? "Datele sunt doar pe acest dispozitiv. Fă din când în când un backup." :
-    st.state === "syncing" ? "Sincronizez…" : st.state === "error" ? "Eroare la sincronizare: " + (st.error && st.error.message || st.error) + ". Se reîncearcă automat." :
+    st.state === "syncing" ? "Sincronizez…" : st.state === "relogin" ? "Google cere reînnoirea accesului (o dată pe oră). Atinge oriunde în aplicație – fereastra Google se deschide și se închide singură." : st.state === "error" ? "Eroare la sincronizare: " + (st.error && st.error.message || st.error) + ". Se reîncearcă automat." :
     st.state === "ok" ? `Sincronizat cu ${name} la ${new Date(st.at).toLocaleTimeString("ro-RO", { hour: "2-digit", minute: "2-digit" })}${st.unreadable ? " · unele fișiere nu pot fi citite (parolă de criptare diferită?)" : ""}.` : `Conectat la ${name}.`;
   const sel = document.getElementById("sy-type"); if (sel && !sel.dataset.touched) { sel.value = cfg.type; $("#sy-webdav").classList.toggle("hidden", cfg.type !== "webdav"); if (cfg.type === "webdav") { $("#sy-url").value = cfg.url || ""; $("#sy-user").value = cfg.user || ""; } }
 }
