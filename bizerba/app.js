@@ -70,7 +70,7 @@ function render() {
   $("#filters").classList.toggle("hidden", !ALL.length);
   if (!ALL.length) { m.innerHTML = `<div class="empty"><b>Încă nu ai încărcat nicio salvare.</b>Pune stick-ul de la casa Bizerba și apasă <b>📂 Alege folderul de pe stick</b> – alege folderul <b>fiscal_data</b> (sau tot stick-ul).<br>Bonurile se citesc doar pe acest calculator, nimic nu pleacă pe internet, și rămân salvate pentru data viitoare.</div>`; return; }
   const R = sel();
-  if (view === "days") renderDays(m, R); else if (view === "art") renderArt(m, R); else if (view === "bons") renderBons(m, R); else if (view === "ops") renderOps(m, R); else renderVat(m, R);
+  if (view === "days") renderDays(m, R); else if (view === "art") renderArt(m, R); else if (view === "bons") renderBons(m, R); else if (view === "ops") renderOps(m, R); else if (view === "stat") renderStat(m, R); else renderVat(m, R);
 }
 function kpis(R) {
   const t = { gross: 0, cash: 0, card: 0, other: 0 };
@@ -215,6 +215,64 @@ function showOp(x) {
   </div>
   <h2>Zilele lucrate</h2><div class="card"><table><tr><th>Data</th><th>Piața</th><th>Casa</th><th class="n">Primul–ultimul bon</th><th class="n">Ore</th><th class="n">Bonuri</th><th class="n">Vânzări</th><th class="n">Pe oră</th><th class="n">Storno</th></tr>
     ${x.dayList.map(d => { const h = Math.max(0, d.to - d.from); return `<tr><td>${WD[wdOf(d.date)]} ${fmtD(d.date)}</td><td>${esc(d.market)}</td><td>${esc(d.kasse)}</td><td class="n">${hm(d.from)}–${hm(d.to)}</td><td class="n">${hm(h)}</td><td class="n">${d.n}</td><td class="n"><b>${eur(r2(d.gross))}</b></td><td class="n">${h >= 30 ? eur(r2(d.gross / (h / 60))) : "–"}</td><td class="n ${d.voids ? "warn" : "muted"}">${d.voids || "–"}</td></tr>`; }).join("")}</table></div>`;
+}
+
+
+/* ---------- statistici ---------- */
+const selNoMonth = () => ALL.filter(r => (!F.kasse || r.kasse === F.kasse) && (!F.market || (F.market === "-" ? !marketOf(r.end.slice(0, 10), r.kasse) : marketOf(r.end.slice(0, 10), r.kasse) === F.market)));
+function heat(v, max) { const a = max ? v / max : 0; return `background:color-mix(in srgb, var(--acc) ${Math.round(a * 85)}%, transparent);color:${a > 0.55 ? "#fff" : "inherit"}`; }
+function renderStat(m, R) {
+  const A = selNoMonth();
+  // 1. luni × piețe (toată perioada), cu aceeași lună de anul trecut
+  const mon = {}, mks = new Set();
+  A.forEach(r => { const ym = r.end.slice(0, 7), mk = marketOf(r.end.slice(0, 10), r.kasse) || "fără piață"; mks.add(mk); const x = mon[ym] || (mon[ym] = { t: 0, n: 0, days: new Set() }); x[mk] = (x[mk] || 0) + r.grand; x.t += r.grand; x.n++; x.days.add(r.end.slice(0, 10)); });
+  const yms = Object.keys(mon).sort(), mkl = [...mks].sort((a, b) => a.localeCompare(b, "de"));
+  const ly = ym => (+ym.slice(0, 4) - 1) + ym.slice(4);
+  // 2. zi a săptămânii × oră (perioada aleasă)
+  const hw = Array.from({ length: 7 }, () => Array(24).fill(0)); let hmax = 0, hmin = 23, hmaxH = 0;
+  R.forEach(r => { const d = wdOf(r.end.slice(0, 10)), h = +r.end.slice(11, 13); hw[d][h] += r.grand; hmin = Math.min(hmin, h); hmaxH = Math.max(hmaxH, h); });
+  hw.forEach(row => row.forEach(v => hmax = Math.max(hmax, v)));
+  const nDays = d => new Set(R.filter(r => wdOf(r.end.slice(0, 10)) === d).map(r => r.end.slice(0, 10))).size;
+  // 3. mărimea bonurilor
+  const B = [[0, 2], [2, 5], [5, 10], [10, 20], [20, 50], [50, 1e9]], bc = B.map(() => ({ n: 0, s: 0 }));
+  R.forEach(r => { if (r.grand <= 0) return; const i = B.findIndex(([a, b]) => r.grand >= a && r.grand < b); bc[i].n++; bc[i].s += r.grand; });
+  const bmax = Math.max(...bc.map(x => x.n), 1), pos = R.filter(r => r.grand > 0).map(r => r.grand).sort((a, b) => a - b), med = pos.length ? pos[Math.floor(pos.length / 2)] : 0;
+  // 4. cumpărate împreună
+  const pair = {}, cnt = {}, multi = R.filter(r => new Set(r.items.filter(i => !i.void && !i.minus).map(i => i.name)).size > 1).length;
+  R.forEach(r => { const names = [...new Set(r.items.filter(i => !i.void && !i.minus).map(i => i.name))].sort(); names.forEach(n => cnt[n] = (cnt[n] || 0) + 1);
+    for (let i = 0; i < names.length; i++) for (let j = i + 1; j < names.length; j++) { const k = names[i] + " + " + names[j]; pair[k] = (pair[k] || 0) + 1; } });
+  const pairs = Object.entries(pair).sort((a, b) => b[1] - a[1]).slice(0, 12);
+  // 5. zile: cele mai bune / slabe (perioada aleasă), pe piață
+  const dm = {}; R.forEach(r => { const k = r.end.slice(0, 10) + "|" + (marketOf(r.end.slice(0, 10), r.kasse) || "fără piață"); dm[k] = (dm[k] || 0) + r.grand; });
+  const dl = Object.entries(dm).map(([k, v]) => ({ date: k.split("|")[0], mk: k.split("|")[1], v })).sort((a, b) => b.v - a.v);
+  const avgMk = {}; dl.forEach(d => { const x = avgMk[d.mk] || (avgMk[d.mk] = { s: 0, n: 0 }); x.s += d.v; x.n++; });
+  // 6. schimbări de preț: prețul de listă cel mai des folosit în ziua respectivă, pe articol și piață
+  const pd = {}; A.forEach(r => { const day = r.end.slice(0, 10), mk = marketOf(day, r.kasse) || "fără piață";
+    r.items.forEach(i => { const p = i.reg || i.price; if (i.void || i.minus || !p) return; const k = i.name + "|" + mk, x = (pd[k] ||= { kg: i.kg != null, d: {} }), y = (x.d[day] ||= {}); y[p] = (y[p] || 0) + 1; }); });
+  const chg = Object.entries(pd).map(([k, x]) => { const seq = [];
+    Object.keys(x.d).sort().forEach(day => { const p = +Object.entries(x.d[day]).sort((a, b) => b[1] - a[1])[0][0]; if (!seq.length || Math.abs(seq[seq.length - 1].p - p) > 0.001) seq.push({ p, d: day, kg: x.kg }); });
+    const [n, mk] = k.split("|"); return { n, mk, x: seq }; }).filter(c => c.x.length > 1).sort((a, b) => b.x[b.x.length - 1].d.localeCompare(a.x[a.x.length - 1].d)).slice(0, 30);
+  const card = (t, sub, body) => `<h2>${t}${sub ? ` <small class="muted" style="font-weight:400">– ${sub}</small>` : ""}</h2><div class="card">${body}</div>`;
+  m.innerHTML = `
+  ${card("Vânzări pe luni", "toată perioada salvată" + (yms.some(ym => mon[ly(ym)]) ? ", cu comparație față de anul trecut" : ""), `<table><tr><th>Luna</th>${mkl.map(k => `<th class="n">${esc(k)}</th>`).join("")}<th class="n">Total</th><th class="n">Zile</th><th class="n">Pe zi</th><th class="n">Bon mediu</th><th class="n">vs. an trecut</th></tr>
+    ${yms.slice().reverse().map(ym => { const x = mon[ym], p = mon[ly(ym)], d = p ? (x.t - p.t) / p.t * 100 : null;
+      return `<tr><td>${ymName(ym)}</td>${mkl.map(k => `<td class="n">${x[k] ? eur(r2(x[k])) : "<span class=muted>–</span>"}</td>`).join("")}<td class="n"><b>${eur(r2(x.t))}</b></td><td class="n">${x.days.size}</td><td class="n">${eur(r2(x.t / x.days.size))}</td><td class="n">${eur(r2(x.t / x.n))}</td>
+      <td class="n ${d == null ? "muted" : d >= 0 ? "ok" : "bad"}">${d == null ? "–" : (d >= 0 ? "+" : "") + d.toFixed(1).replace(".", ",") + " %"}</td></tr>`; }).join("")}</table>`)}
+  ${card("Când se vinde", "vânzări medii pe zi a săptămânii și oră, în perioada aleasă", `<table><tr><th></th>${Array.from({ length: hmaxH - hmin + 1 }, (_, i) => `<th class="n">${hmin + i}</th>`).join("")}<th class="n">Medie pe zi</th></tr>
+    ${[1, 2, 3, 4, 5, 6, 0].filter(d => hw[d].some(v => v)).map(d => { const nd = nDays(d) || 1; return `<tr><td>${WD[d]}</td>${hw[d].slice(hmin, hmaxH + 1).map(v => `<td class="n" style="${heat(v, hmax)}">${v ? Math.round(v / nd) : ""}</td>`).join("")}<td class="n"><b>${eur(r2(hw[d].reduce((a, b) => a + b, 0) / nd))}</b></td></tr>`; }).join("")}</table>`)}
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:12px">
+   <div>${card("Mărimea bonurilor", `bon median ${eur(r2(med))}`, `<table><tr><th>Bon</th><th class="n">Bonuri</th><th class="n">Vânzări</th><th style="width:40%"></th></tr>
+    ${B.map(([a, b], i) => `<tr><td>${b > 1e8 ? "peste " + a + " €" : a + "–" + b + " €"}</td><td class="n">${bc[i].n.toLocaleString("de-DE")}</td><td class="n">${eur(r2(bc[i].s))}</td><td><div class="bar" style="width:${bc[i].n / bmax * 100}%"></div></td></tr>`).join("")}</table>`)}
+    ${card("Media pe zi de piață", "perioada aleasă", `<table><tr><th>Piața</th><th class="n">Zile</th><th class="n">Medie pe zi</th></tr>${Object.entries(avgMk).sort((a, b) => b[1].s / b[1].n - a[1].s / a[1].n).map(([k, x]) => `<tr><td>${esc(k)}</td><td class="n">${x.n}</td><td class="n"><b>${eur(r2(x.s / x.n))}</b></td></tr>`).join("")}</table>`)}</div>
+   <div>${card("Cumpărate împreună", `${multi.toLocaleString("de-DE")} bonuri cu mai multe articole`, `<table><tr><th>Articole</th><th class="n">Bonuri</th><th class="n">din bonurile cu mai multe articole</th></tr>
+    ${pairs.map(([k, v]) => `<tr><td>${esc(k)}</td><td class="n">${v}</td><td class="n muted">${(v / multi * 100).toFixed(1).replace(".", ",")} %</td></tr>`).join("") || `<tr><td class="muted">–</td></tr>`}</table>`)}</div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:12px">
+   <div>${card("Cele mai bune zile", "perioada aleasă", `<table>${dl.slice(0, 8).map(d => `<tr><td>${WD[wdOf(d.date)]} ${fmtD(d.date)}</td><td>${esc(d.mk)}</td><td class="n"><b>${eur(r2(d.v))}</b></td></tr>`).join("")}</table>`)}</div>
+   <div>${card("Cele mai slabe zile", "perioada aleasă", `<table>${dl.slice(-8).reverse().map(d => `<tr><td>${WD[wdOf(d.date)]} ${fmtD(d.date)}</td><td>${esc(d.mk)}</td><td class="n">${eur(r2(d.v))}</td></tr>`).join("")}</table>`)}</div>
+  </div>
+  ${card("Schimbări de preț", "prețul de listă pe articol și piață, toată perioada salvată", `<table><tr><th>Articol</th><th>Piața</th><th>Prețuri (de la data)</th></tr>
+    ${chg.map(c => `<tr><td>${esc(c.n)}</td><td>${esc(c.mk)}</td><td style="white-space:normal">${c.x.map(p => `${eur(p.p)}${p.kg ? "/kg" : ""} <span class="muted">(${fmtD(p.d).slice(0, 6)}${p.d.slice(2, 4)})</span>`).join(" → ")}</td></tr>`).join("") || `<tr><td class="muted">Nicio schimbare de preț în perioada salvată.</td></tr>`}</table>`)}`;
 }
 
 function vatByMonth(R) {

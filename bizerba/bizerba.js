@@ -33,7 +33,7 @@ export function parseReceipt(xmlText) {
       const q = kid(s, A, "Quantity"), isKg = q && q.getAttribute("UnitOfMeasureCode") === "Kg";
       const amt = f(txt(s, A, "ExtendedAmount")), minus = txt(s, B, "PLUType") === "Minus" || s.localName === "Return", tx = kid(s, A, "Tax");
       r.items.push({ plu: txt(s, A, "ItemID"), name: txt(s, A, "Description"), kg: isKg ? f(q.getAttribute("Units")) : null,
-        qty: q && !isKg ? f(q.textContent) : null, price: f(txt(s, A, "ActualSalesUnitPrice")), amount: minus ? -amt : amt,
+        qty: q && !isKg ? f(q.textContent) : null, price: f(txt(s, A, "ActualSalesUnitPrice")), reg: f(txt(s, A, "RegularSalesUnitPrice")) || null, amount: minus ? -amt : amt,
         rate: tx ? f(txt(tx, A, "Percent")) : null, void: isVoid, minus, priceType: txt(s, B, "PriceType") });
       if (isVoid) r.voids++;
     }
