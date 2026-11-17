@@ -3789,6 +3789,17 @@ I18N_DE.push(["Sincronizare între dispozitive", "Synchronisierung zwischen Ger�
   ["Datele sunt doar pe acest dispozitiv. Fă din când în când un backup.", "Die Daten sind nur auf diesem Gerät. Bitte ab und zu ein Backup machen."],
   ["Sincronizez…", "Synchronisiere…"], [" · sincronizez…", " · synchronisiere…"], ["Mă conectez…", "Verbinde…"], ["Conectat. Datele se sincronizează.", "Verbunden. Die Daten werden synchronisiert."],
   ["Sincronizat.", "Synchronisiert."], ["Deconectat.", "Getrennt."], ["Citesc poza pe acest dispozitiv… (prima dată se încarcă motorul de citire, ~40 MB)", "Lese das Foto auf diesem Gerät… (beim ersten Mal wird die Texterkennung geladen, ~40 MB)"]);
+I18N_DE.push(["📥 Import casa Bizerba (folder)", "📥 Bizerba-Kasse importieren (Ordner)"], ["fișiere", "Dateien"], ["Import casa Bizerba", "Bizerba-Kasse importieren"],
+  ["Trece în Casă", "In die Kasse übernehmen"], ["Zile și piețe", "Tage und Märkte"], ["Ce se trece la Casă", "Was in die Kasse übernommen wird"], ["Raport lunar TVA", "Monatlicher USt-Bericht"],
+  ["Scrie piața la fiecare casă. Se ține minte pe zi a săptămânii, data viitoare se completează singură.", "Trage bei jeder Kasse den Markt ein. Er wird pro Wochentag gemerkt und nächstes Mal automatisch ausgefüllt."],
+  ["Piața", "Markt"], ["Bonuri", "Bons"], ["Numerar", "Bar"], ["Card", "Karte"], ["nou", "neu"],
+  ["✓ toate bonurile verificate", "✓ alle Bons geprüft"], [" bonuri nu se potrivesc la verificare", " Bons stimmen bei der Prüfung nicht"],
+  ["salvează ca raport lunar", "als Monatsbericht speichern"], ["înlocuiește raportul existent", "bestehenden Bericht ersetzen"], ["înlocuiește (acum ", "ersetzen (bisher "],
+  [" – doar sfârșitul lunii (restul e pe un stick mai vechi), nu se salvează automat ca raport lunar", " – nur das Monatsende (der Rest ist auf einem älteren Stick), wird nicht automatisch als Monatsbericht gespeichert"],
+  [" – luna nu e încă completă, importă din nou la sfârșitul lunii", " – der Monat ist noch nicht vollständig, am Monatsende erneut importieren"],
+  ["Unele case nu au piață – se trec fără oraș.", "Manche Kassen haben keinen Markt – sie werden ohne Ort übernommen."], ["Bonuri din ", "Bons vom "], [" până în ", " bis "],
+  [" zile noi", " neue Tage"], [" zile există deja (bifează doar dacă vrei să le înlocuiești cu sumele din casă)", " Tage gibt es schon (nur ankreuzen, wenn sie durch die Kassenbeträge ersetzt werden sollen)"],
+  ["Trecut la Casă: ", "In die Kasse übernommen: "], [" rapoarte lunare TVA", " monatliche USt-Berichte"], [" înlocuite", " ersetzt"]);
 const I18N_SHORT = {"mai": "Mai", "noi.": "Nov.", "oct.": "Okt.", "ian.": "Jan.", "feb.": "Feb.", "mar.": "März", "apr.": "Apr.", "iun.": "Jun.", "iul.": "Jul.", "aug.": "Aug.", "sept.": "Sept.", "dec.": "Dez.", "Ieși": "Verlassen", "Tot": "Alle", "Cota": "Satz", "Data": "Datum", "Net": "Netto", "Brut": "Brutto", "TVA": "USt.", "Total": "Summe", "Luna": "Monat", "Zile": "Tage", "Venit": "Einnahme", "Plată": "Zahlung", "Bancă": "Bank", "Card": "Karte", "Numerar": "Bar", "Stoc": "Bestand", "Casă": "Kasse", "Oraș": "Ort", "Țara": "Land", "Țară": "Land", "Sumă": "Betrag", "l": "l", "kg": "kg", "valoare": "Wert", "mai.": "Mai", "sep.": "Sep."};
 const UI_DEFAULT = (typeof window.__UI_DEFAULT__ === "string") ? window.__UI_DEFAULT__ : "ro";
 let uiLang = UI_DEFAULT, i18nBusy = false;
@@ -4065,6 +4076,7 @@ function renderInventory() {
         <select id="iv-year" style="width:auto">${years.map(y => `<option ${y === ivYear ? "selected" : ""}>${y}</option>`).join("")}</select></div>
       <div class="row" style="margin-top:10px;flex-wrap:nowrap"><span class="grow" style="font-size:14px">Fond de casă (rest care rămâne mereu în casă)</span>
         <input type="text" inputmode="decimal" id="iv-float" value="${esc(String(cashFloat()).replace(".", ","))}" style="width:100px;flex:none;text-align:right"><span>€</span></div>
+      <div class="row" style="margin-top:8px"><label class="btn grow" style="position:relative;text-align:center;overflow:hidden">📥 Import casa Bizerba (folder)<input type="file" webkitdirectory multiple data-bz style="position:absolute;left:0;top:0;width:1px;height:1px;opacity:0"></label><label class="btn" style="position:relative;text-align:center;overflow:hidden">fișiere<input type="file" accept=".json,application/json" multiple data-bz style="position:absolute;left:0;top:0;width:1px;height:1px;opacity:0"></label></div>
       <div class="row" style="margin-top:8px"><button class="btn grow" data-a="wm-xlsx">📊 Excel Wochenmarktumsätze ${esc(ivYear)}</button></div>
       <label class="chk" style="margin-top:10px"><input type="checkbox" id="iv-cashbooks" ${invCashOn() ? "checked" : ""}><span>Încasările din casă apar automat la Venituri în Contabilitate</span></label>
       <h2>Pe luni</h2>
@@ -5024,6 +5036,113 @@ $("#sy-connect").addEventListener("click", async () => {
 });
 $("#sy-now").addEventListener("click", () => { if (!Store.engine.adapter) { toast("Nu e conectat niciun cloud."); return; } Store.engine.sync().then(() => toast("Sincronizat.")).catch(e => toast("Eroare: " + e.message, 4000)); });
 $("#sy-off").addEventListener("click", async () => { if (await confirmBox("Deconectezi sincronizarea pe acest dispozitiv? Datele rămân aici și în cloud.", "Deconectează")) { await Store.disconnect(); toast("Deconectat."); } });
+
+/* ================= import casa Bizerba (stick USB) ================= */
+// Citește fișierele „…_jour_export.json” (jurnalul RKSV), le grupează pe zi și piață și le trece la Casă;
+// împărțirea pe cote TVA a lunii merge în raportul lunar. Piața se alege o dată pe zi și casă și se ține minte pe zi a săptămânii.
+const BZ_WD = ["dum.", "lun.", "mar.", "mie.", "joi", "vin.", "sâm."];
+const bzWd = iso => BZ_WD[new Date(iso + "T12:00:00").getDay()];
+const bzRate = k => String(parseFloat(k));
+function bzMarket(date, kasse) {
+  const m = S.settings.bzMarkets || {};
+  return m[date + "|" + kasse] ?? m["wd" + new Date(date + "T12:00:00").getDay() + "|" + kasse] ?? "";
+}
+async function bizerbaImport(fileList) {
+  const files = [...fileList].filter(f => /jour_export\.json$/i.test(f.name));
+  if (!files.length) { toast("N-am găsit fișiere „…_jour_export.json”. Alege folderul „fiscal_data” de pe stick sau fișierele din el.", 5000); return; }
+  const o = sheet(`<h3>Import casa Bizerba</h3><div class="hint" id="bz-st">Citesc ${files.length} fișier(e)…</div><div id="bz-out"></div>
+    <div class="row" style="justify-content:flex-end;margin-top:14px"><button class="btn" data-a="x">Renunță</button><button class="btn primary hidden" data-a="ok">Trece în Casă</button></div>`);
+  let rec;
+  try { rec = await CP.readJournals(files, (d, t) => { const st = o.querySelector("#bz-st"); if (st) st.textContent = `Citesc bonurile… ${d} / ${t}`; }); }
+  catch (e) { console.error(e); o.querySelector("#bz-st").textContent = "Fișierele nu au putut fi citite: " + e.message; return; }
+  if (!rec.length) { o.querySelector("#bz-st").textContent = "Nu am găsit bonuri în fișiere."; return; }
+  const mk = { ...(S.settings.bzMarkets || {}) };
+  const marketOf = (date, kasse) => mk[date + "|" + kasse] ?? mk["wd" + new Date(date + "T12:00:00").getDay() + "|" + kasse] ?? "";
+  // zi × casă
+  const dk = {};
+  rec.forEach(r => { const date = r.end.slice(0, 10), k = date + "|" + r.kasse;
+    const x = dk[k] || (dk[k] = { date, kasse: r.kasse, gross: 0, cash: 0, card: 0, other: 0, n: 0, ops: new Set() });
+    x.gross += r.grand; x.n++; if (r.operator) x.ops.add(r.operator);
+    Object.entries(r.tender).forEach(([t, v]) => { if (/cash|bar/i.test(t)) x.cash += v; else if (/card|karte|credit|debit|ec/i.test(t)) x.card += v; else x.other += v; }); });
+  const dlist = Object.values(dk).sort((a, b) => a.date.localeCompare(b.date) || String(a.kasse).localeCompare(String(b.kasse)));
+  // TVA pe luni (sume brute pe cotă)
+  const months = {};
+  rec.forEach(r => { const ym = r.end.slice(0, 7), m = months[ym] || (months[ym] = { gross: 0, split: {}, from: r.end.slice(0, 10), to: r.end.slice(0, 10) });
+    m.gross += r.grand; if (r.end.slice(0, 10) > m.to) m.to = r.end.slice(0, 10);
+    Object.entries(r.vat).forEach(([k, v]) => { const kk = bzRate(k); m.split[kk] = (m.split[kk] || 0) + v.base; }); });
+  const bad = rec.filter(r => !r.ok).length, gross = r2(rec.reduce((s, r) => s + r.grand, 0));
+  const known = [...new Set([...WM_PLACES, ...allPlaces(), ...Object.values(mk).filter(Boolean)])];
+  const groups = () => { const g = {};
+    dlist.forEach(x => { const m = marketOf(x.date, x.kasse); const k = x.date + "|" + normName(m);
+      const y = g[k] || (g[k] = { date: x.date, market: m, gross: 0, cash: 0, card: 0, other: 0, n: 0 }); ["gross", "cash", "card", "other", "n"].forEach(f => y[f] += x[f]); });
+    return Object.values(g).map(y => { ["gross", "cash", "card", "other"].forEach(f => y[f] = r2(y[f]));
+      y.ex = Object.values(S.cash).find(c => c.date === y.date && pidOf(c) === "at" && normName(c.place) === normName(y.market)); return y; }); };
+  const repl = new Set(), mOn = {};
+  const partial = (ym, m) => m.from > ym + "-07" || (ym >= localISO().slice(0, 7) && m.to < lastDay(ym));
+  Object.entries(months).forEach(([ym, m]) => { const cur = S.cashmonths[cmId("at", ym)]; mOn[ym] = !partial(ym, m) && (!cur || r2(cmSplit(cur).reduce((s, x) => s + x.gross, 0)) <= r2(m.gross)); });
+  const render = () => {
+    const gl = groups().sort((a, b) => a.date.localeCompare(b.date) || a.market.localeCompare(b.market, "de"));
+    const nNew = gl.filter(g => !g.ex).length, nEx = gl.length - nNew;
+    o.querySelector("#bz-st").innerHTML = `${rec.length} bonuri · ${esc(fmtDate(rec[0].end.slice(0, 10)))} – ${esc(fmtDate(rec[rec.length - 1].end.slice(0, 10)))} · total <b>${money(gross)}</b><br>
+      <span style="color:${bad ? "var(--warn)" : "var(--ok)"};font-weight:600">${bad ? bad + " bonuri nu se potrivesc la verificare" : "✓ toate bonurile verificate"}</span>`;
+    o.querySelector("#bz-out").innerHTML = `
+      <h2 style="margin-top:12px">Zile și piețe</h2>
+      <div class="hint" style="margin-top:-4px">Scrie piața la fiecare casă. Se ține minte pe zi a săptămânii, data viitoare se completează singură.</div>
+      <div class="card" style="padding:6px 8px;overflow-x:auto"><table class="t"><tr><th>Data</th><th>Casa</th><th>Bonuri</th><th>Total</th><th>Piața</th></tr>
+        ${dlist.map(x => `<tr><td>${bzWd(x.date)} ${esc(fmtDate(x.date).slice(0, 5))}</td><td>${esc(x.kasse)}</td><td>${x.n}</td><td>${money(r2(x.gross))}</td>
+          <td><input type="text" list="bz-mk" data-dk="${esc(x.date + "|" + x.kasse)}" value="${esc(marketOf(x.date, x.kasse))}" placeholder="piața" style="min-width:110px"></td></tr>`).join("")}</table>
+        <datalist id="bz-mk">${known.map(m => `<option value="${esc(m)}">`).join("")}</datalist></div>
+      <h2>Ce se trece la Casă</h2>
+      <div class="hint" style="margin-top:-4px">${nNew} zile noi${nEx ? ` · ${nEx} zile există deja (bifează doar dacă vrei să le înlocuiești cu sumele din casă)` : ""}.</div>
+      <div class="card" style="padding:6px 8px;overflow-x:auto"><table class="t"><tr><th>Data</th><th>Piața</th><th>Numerar</th><th>Card</th><th>Total</th><th></th></tr>
+        ${gl.map(g => { const k = g.date + "|" + normName(g.market), exT = g.ex ? cashTotal(g.ex) : 0, df = r2(g.gross - exT);
+          return `<tr><td>${esc(fmtDate(g.date).slice(0, 5))}</td><td>${esc(g.market || "—")}</td><td>${money(g.cash)}</td><td>${money(r2(g.card + g.other))}</td><td><b>${money(g.gross)}</b></td>
+          <td style="text-align:left">${!g.ex ? `<span class="pill paid">nou</span>` : `<label class="chk" style="margin:0;white-space:nowrap"><input type="checkbox" data-rp="${esc(k)}" ${repl.has(k) ? "checked" : ""}><span>înlocuiește (acum ${money(exT)}${Math.abs(df) >= 0.005 ? ", dif. " + money(df) : ", ✓ egal"})</span></label>`}</td></tr>`; }).join("")}</table></div>
+      ${gl.some(g => !g.market) ? `<div class="hint" style="color:var(--warn);font-weight:600">Unele case nu au piață – se trec fără oraș.</div>` : ""}
+      <h2>Raport lunar TVA</h2>
+      ${Object.entries(months).sort().map(([ym, m]) => { const cur = S.cashmonths[cmId("at", ym)];
+        return `<div class="card" style="padding:10px 12px"><label class="chk" style="margin:0 0 6px"><input type="checkbox" data-mo="${ym}" ${mOn[ym] ? "checked" : ""}><span><b>${esc(MONTHS[+ym.slice(5) - 1])} ${ym.slice(0, 4)}</b> – ${cur ? "înlocuiește raportul existent" : "salvează ca raport lunar"} (🇦🇹)</span></label>
+          <div class="hint" style="margin:0">${Object.entries(m.split).sort((a, b) => +a[0] - +b[0]).map(([r, g]) => `${pct(+r)}: ${money(r2(g))}`).join(" · ")} · total ${money(r2(m.gross))}
+          ${cur ? `<br>Acum: ${money(r2(cmSplit(cur).reduce((s, x) => s + x.gross, 0)))}` : ""}<br>Bonuri din ${esc(fmtDate(m.from))} până în ${esc(fmtDate(m.to))}${m.from > ym + "-07" ? " – doar sfârșitul lunii (restul e pe un stick mai vechi), nu se salvează automat ca raport lunar" : partial(ym, m) ? " – luna nu e încă completă, importă din nou la sfârșitul lunii" : ""}.</div></div>`; }).join("")}`;
+    o.querySelector('[data-a="ok"]').classList.remove("hidden");
+  };
+  render();
+  o.addEventListener("change", ev => {
+    const t = ev.target;
+    if (t.dataset.dk) { const [date, kasse] = t.dataset.dk.split("|"), v = t.value.trim(); mk[date + "|" + kasse] = v; mk["wd" + new Date(date + "T12:00:00").getDay() + "|" + kasse] = v; render(); }
+    else if (t.dataset.rp) { t.checked ? repl.add(t.dataset.rp) : repl.delete(t.dataset.rp); }
+    else if (t.dataset.mo) mOn[t.dataset.mo] = t.checked;
+  });
+  o.addEventListener("click", async ev => {
+    if (ev.target === o) return;
+    const a = ev.target.dataset.a; if (!a) return;
+    if (a === "x") return o.remove();
+    if (a !== "ok") return;
+    const btn = ev.target; btn.disabled = true;
+    try {
+      // memoria piețelor (doar pe zi a săptămânii + zilele importate acum) se sincronizează odată cu setările
+      const keep = {}; Object.entries(mk).forEach(([k, v]) => { if (k.startsWith("wd") || dlist.some(x => k === x.date + "|" + x.kasse)) keep[k] = v; });
+      S.settings.bzMarkets = { ...(S.settings.bzMarkets || {}), ...keep }; await Store.put("settings", S.settings);
+      let nNew = 0, nRep = 0, nMo = 0;
+      for (const g of groups()) {
+        const k = g.date + "|" + normName(g.market), bz = { gross: g.gross, cash: g.cash, card: g.card, other: g.other, n: g.n };
+        if (!g.ex) { await Store.put("cash", { id: newId(), date: g.date, place: g.market, cash: String(g.cash).replace(".", ","), card: g.card ? String(g.card).replace(".", ",") : "", other: g.other ? String(g.other).replace(".", ",") : "", note: `Casa Bizerba · ${g.n} bonuri`, profileId: "at", vat: "", bz }); nNew++; }
+        else if (repl.has(k)) { await Store.put("cash", { ...g.ex, cash: String(g.cash).replace(".", ","), card: g.card ? String(g.card).replace(".", ",") : "", other: g.other ? String(g.other).replace(".", ",") : "", denoms: undefined, bz }); nRep++; }
+        else await Store.put("cash", { ...g.ex, bz });
+      }
+      for (const [ym, m] of Object.entries(months)) {
+        if (!mOn[ym]) continue;
+        const split = {}; Object.entries(m.split).forEach(([r, gr]) => { if (Math.abs(gr) >= 0.005) split[r] = r2(gr).toFixed(2).replace(".", ","); });
+        const cur = S.cashmonths[cmId("at", ym)];
+        await Store.put("cashmonths", { ...(cur || {}), id: cmId("at", ym), pid: "at", month: ym, split, note: `Casa Bizerba, bonuri ${fmtDate(m.from)} – ${fmtDate(m.to)}` }); nMo++;
+      }
+      o.remove(); ivYear = rec[rec.length - 1].end.slice(0, 4); renderInventory(); if (S.view === "books") renderBooks();
+      toast(`Trecut la Casă: ${nNew} zile noi${nRep ? `, ${nRep} înlocuite` : ""}${nMo ? `, ${nMo} rapoarte lunare TVA` : ""}.`, 4500);
+    } catch (e) { console.error(e); toast("Eroare la salvare: " + e.message, 4500); btn.disabled = false; }
+  });
+}
+document.addEventListener("change", e => { const t = e.target; if (!t.matches || !t.matches("input[type=file][data-bz]")) return; const f = [...t.files]; t.value = ""; bizerbaImport(f); });
+
 
 /* ================= pornire ================= */
 (async function start() {
