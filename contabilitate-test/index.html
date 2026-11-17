@@ -7,8 +7,14 @@
 <script src="vendor/jspdf.umd.min.js"></script>
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#B8234F">
-<link rel="icon" href="icon-192.png">
-<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="icon" href="favicon-32.png" sizes="32x32">
+<link rel="icon" href="icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Contabilitate">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="description" content="Facturi, Lieferscheine, E-Rechnung, casă și contabilitate pentru firme mici din Germania și Austria.">
 <style>
 :root{
   --bg:#f6f4f2; --card:#fff; --ink:#1d1b1a; --muted:#6f6a66; --line:#e5e0dc;
@@ -371,6 +377,11 @@ input.den{-moz-appearance:textfield;appearance:textfield}
     <div class="sticky-actions"><button class="btn primary grow" id="s-save">Salvează setările</button></div>
 
     <h2>Sincronizare între dispozitive</h2>
+    <div class="card" id="install-card">
+      <h2 style="margin-top:0">Aplicația pe acest dispozitiv</h2>
+      <div class="hint" id="in-txt" style="margin-top:0"></div>
+      <div class="row" style="margin-top:8px"><button class="btn primary hidden" id="in-btn">📲 Instalează aplicația</button></div>
+    </div>
     <div class="card" id="sync-card">
       <div class="hint" style="margin:0 0 10px">Datele stau pe fiecare dispozitiv și se sincronizează prin cloud-ul tău (telefon, tabletă, PC). Programul merge și fără internet.</div>
       <div class="fld"><label class="f">Unde se sincronizează</label>
@@ -3800,6 +3811,12 @@ I18N_DE.push(["📥 Import casa Bizerba (folder)", "📥 Bizerba-Kasse importier
   ["Unele case nu au piață – se trec fără oraș.", "Manche Kassen haben keinen Markt – sie werden ohne Ort übernommen."], ["Bonuri din ", "Bons vom "], [" până în ", " bis "],
   [" zile noi", " neue Tage"], [" zile există deja (bifează doar dacă vrei să le înlocuiești cu sumele din casă)", " Tage gibt es schon (nur ankreuzen, wenn sie durch die Kassenbeträge ersetzt werden sollen)"],
   ["Trecut la Casă: ", "In die Kasse übernommen: "], [" rapoarte lunare TVA", " monatliche USt-Berichte"], [" înlocuite", " ersetzt"]);
+I18N_DE.push(["Aplicația pe acest dispozitiv", "Die App auf diesem Gerät"], ["📲 Instalează aplicația", "📲 App installieren"],
+  ["✓ Aplicația e instalată. O deschizi din lista de aplicații, ca pe oricare alta. Merge și fără internet.", "✓ Die App ist installiert. Du öffnest sie wie jede andere App. Sie funktioniert auch ohne Internet."],
+  ["Instalează aplicația: apare cu iconiță pe ecran / în meniul Start, se deschide în fereastra ei și merge și fără internet.", "App installieren: Sie erscheint mit Symbol auf dem Bildschirm / im Startmenü, öffnet sich im eigenen Fenster und funktioniert auch ohne Internet."],
+  ["Pe iPhone/iPad: deschide pagina în ", "Auf iPhone/iPad: Seite in "], [", apasă ", " öffnen, auf "], ["Partajare", "Teilen"], [" (pătratul cu săgeata în sus) → ", " (Quadrat mit Pfeil nach oben) tippen → "], ["Adaugă pe ecranul principal", "Zum Home-Bildschirm"],
+  ["Ca s-o instalezi: în meniul browserului (⋮ sau ≡) alege ", "Zum Installieren im Browser-Menü (⋮ oder ≡) "], ["Instalează aplicația", "App installieren"], [". Cel mai bine merge în Chrome sau Edge.", " wählen. Am besten in Chrome oder Edge."],
+  ["Aplicația a fost instalată.", "Die App wurde installiert."]);
 const I18N_SHORT = {"mai": "Mai", "noi.": "Nov.", "oct.": "Okt.", "ian.": "Jan.", "feb.": "Feb.", "mar.": "März", "apr.": "Apr.", "iun.": "Jun.", "iul.": "Jul.", "aug.": "Aug.", "sept.": "Sept.", "dec.": "Dez.", "Ieși": "Verlassen", "Tot": "Alle", "Cota": "Satz", "Data": "Datum", "Net": "Netto", "Brut": "Brutto", "TVA": "USt.", "Total": "Summe", "Luna": "Monat", "Zile": "Tage", "Venit": "Einnahme", "Plată": "Zahlung", "Bancă": "Bank", "Card": "Karte", "Numerar": "Bar", "Stoc": "Bestand", "Casă": "Kasse", "Oraș": "Ort", "Țara": "Land", "Țară": "Land", "Sumă": "Betrag", "l": "l", "kg": "kg", "valoare": "Wert", "mai.": "Mai", "sep.": "Sep."};
 const UI_DEFAULT = (typeof window.__UI_DEFAULT__ === "string") ? window.__UI_DEFAULT__ : "ro";
 let uiLang = UI_DEFAULT, i18nBusy = false;
@@ -5144,6 +5161,24 @@ async function bizerbaImport(fileList) {
 document.addEventListener("change", e => { const t = e.target; if (!t.matches || !t.matches("input[type=file][data-bz]")) return; const f = [...t.files]; t.value = ""; bizerbaImport(f); });
 
 
+
+/* ================= instalare ca aplicație ================= */
+let installEvt = null;
+const isStandalone = () => matchMedia("(display-mode: standalone)").matches || navigator.standalone === true;
+function renderInstall() {
+  const t = $("#in-txt"), b = $("#in-btn"); if (!t) return;
+  const ua = navigator.userAgent, ios = /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+  b.classList.toggle("hidden", !installEvt || isStandalone());
+  t.innerHTML = isStandalone() ? "✓ Aplicația e instalată. O deschizi din lista de aplicații, ca pe oricare alta. Merge și fără internet."
+    : installEvt ? "Instalează aplicația: apare cu iconiță pe ecran / în meniul Start, se deschide în fereastra ei și merge și fără internet."
+    : ios ? "Pe iPhone/iPad: deschide pagina în <b>Safari</b>, apasă <b>Partajare</b> (pătratul cu săgeata în sus) → <b>Adaugă pe ecranul principal</b>."
+    : "Ca s-o instalezi: în meniul browserului (⋮ sau ≡) alege <b>Instalează aplicația</b> / <b>Adaugă pe ecranul principal</b>. Cel mai bine merge în Chrome sau Edge.";
+  i18nNode(t);
+}
+addEventListener("beforeinstallprompt", e => { e.preventDefault(); installEvt = e; renderInstall(); });
+addEventListener("appinstalled", () => { installEvt = null; renderInstall(); toast("Aplicația a fost instalată."); });
+$("#in-btn").addEventListener("click", async () => { if (!installEvt) return; installEvt.prompt(); try { await installEvt.userChoice; } catch (e) {} installEvt = null; renderInstall(); });
+renderInstall();
 /* ================= pornire ================= */
 (async function start() {
   await Store.init();
