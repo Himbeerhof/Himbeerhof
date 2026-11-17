@@ -1,0 +1,46 @@
+name: Build Himbeer TV
+on:
+  push:
+    branches: [tv-player]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: android-actions/setup-android@v3
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.9'
+      - name: Build APK
+        id: build
+        run: |
+          set -o pipefail
+          gradle --no-daemon assembleRelease 2>&1 | tee build.log
+          cp app/build/outputs/apk/release/app-release.apk HimbeerTV.apk
+      - name: Publish APK
+        if: success()
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: tv-latest
+          name: Himbeer TV (ultima versiune)
+          prerelease: false
+          make_latest: false
+          body: "Aplicatia Himbeer TV pentru Android TV. Build ${{ github.run_number }}."
+          files: |
+            HimbeerTV.apk
+            build.log
+      - name: Publish build log on failure
+        if: failure()
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: tv-buildlog
+          name: Himbeer TV build log
+          prerelease: true
+          files: build.log
