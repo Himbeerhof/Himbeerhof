@@ -2780,7 +2780,7 @@ const flag = pid => `<span class="pill" style="background:var(--line);color:var(
 
 /* ================= stocare: db (cloud, privat) sau localStorage ================= */
 const CLOUD_KEY = "cp_cloud_v1", DEV_KEY = "cp_device_v1";
-const CLOUD_IDS = { google: "", microsoft: "" }; // se completează după înregistrarea aplicației la Google / Microsoft
+const CLOUD_IDS = { google: "1064945498511-slp6ff0nqhaj44rrons0jkecj07t5oa8.apps.googleusercontent.com", microsoft: "" }; // se completează după înregistrarea aplicației la Google / Microsoft
 const Store = {
   mode: "local", engine: null, LS: "facturare_v1", status: { state: "off" },
   device() { let d = ""; try { d = localStorage.getItem(DEV_KEY); } catch (e) {} if (!d) { d = "d" + Date.now().toString(36) + Math.random().toString(36).slice(2, 8); try { localStorage.setItem(DEV_KEY, d); } catch (e) {} } return d; },
