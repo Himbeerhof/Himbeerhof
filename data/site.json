@@ -7,11 +7,11 @@
   "hero_titel": "Frische Früchte",
   "hero_titel_kursiv": "direkt vom Hof & Markt",
   "hero_text": "Erntefrische Beeren, Steinobst, Gemüse & Ganzjahres-Klassiker – direkt von unserem Hof für Sie auf den Wochenmärkten in Bregenz, Dornbirn, Feldkirch & Hard!",
-  "hero_bild": "https://images.unsplash.com/photo-1577069861033-55d04ace4ef0?auto=format&fit=crop&w=1920&q=80",
+  "hero_bild": "https://images.unsplash.com/photo-1577069861033-55d04cec4ef5?auto=format&fit=crop&w=1920&q=80",
   "ueber_titel": "Leidenschaft für echten Fruchtgeschmack",
   "ueber_text": "Der **Himbeerhof Constantin Sidor** steht für nachhaltigen Obstbau, höchste Frische und unverfälschte Qualität. Auf unseren Feldern in Neukirch (Am Schorrenwald 2) reifen Früchte unter besten Bedingungen heran.",
   "ueber_text2": "Klicken Sie unten auf ein beliebiges Produkt, um alle Fotos direkt von unserer Farm und detaillierte Ernteinformationen zu sehen!",
-  "ueber_bild": "https://images.unsplash.com/photo-1595231712325-30ede1054238?auto=format&fit=crop&w=1000&q=80",
+  "ueber_bild": "https://images.unsplash.com/photo-1787218645202-a420179f18b5?auto=format&fit=crop&w=1000&q=80",
   "kontakt_text": "Bestellen Sie exotische Früchte oder größere Mengen ganz einfach vorab telefonisch oder per E-Mail!",
   "exoten": {
     "anzeigen": true,
@@ -29,7 +29,7 @@
         "bild": "https://images.unsplash.com/photo-1528825871115-3581a5387919?auto=format&fit=crop&w=800&q=80"
       },
       {
-        "bild": "https://images.unsplash.com/photo-1534531141161-e4160490ef81?auto=format&fit=crop&w=800&q=80"
+        "bild": "https://images.unsplash.com/photo-1760705186373-f0fccf98b88c?auto=format&fit=crop&w=800&q=80"
       }
     ]
   }
