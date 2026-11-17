@@ -70,7 +70,7 @@ function render() {
   $("#filters").classList.toggle("hidden", !ALL.length);
   if (!ALL.length) { m.innerHTML = `<div class="empty"><b>Încă nu ai încărcat nicio salvare.</b>Pune stick-ul de la casa Bizerba și apasă <b>📂 Alege folderul de pe stick</b> – alege folderul <b>fiscal_data</b> (sau tot stick-ul).<br>Bonurile se citesc doar pe acest calculator, nimic nu pleacă pe internet, și rămân salvate pentru data viitoare.</div>`; return; }
   const R = sel();
-  if (view === "days") renderDays(m, R); else if (view === "art") renderArt(m, R); else if (view === "bons") renderBons(m, R); else renderVat(m, R);
+  if (view === "days") renderDays(m, R); else if (view === "art") renderArt(m, R); else if (view === "bons") renderBons(m, R); else if (view === "ops") renderOps(m, R); else renderVat(m, R);
 }
 function kpis(R) {
   const t = { gross: 0, cash: 0, card: 0, other: 0 };
@@ -157,6 +157,66 @@ function showBon(r) {
   o.addEventListener("click", e => { if (e.target === o || e.target.closest("[data-x]")) o.remove(); });
   document.body.append(o);
 }
+
+/* ---------- vânzători ---------- */
+const hm = min => Math.floor(min / 60) + ":" + String(Math.round(min % 60)).padStart(2, "0");
+const minOf = t => +t.slice(11, 13) * 60 + +t.slice(14, 16) + +t.slice(17, 19) / 60;
+let opSort = "gross", opDir = -1, opSel = "";
+function opStats(R) {
+  const g = {};
+  R.forEach(r => {
+    const name = r.operator || "(fără nume)", date = r.end.slice(0, 10);
+    const x = g[name] || (g[name] = { name, n: 0, gross: 0, items: 0, voids: 0, voidAmt: 0, disc: 0, discN: 0, minus: 0, minusN: 0, zero: 0, days: {}, arts: {}, wd: Array(7).fill(0), hours: Array(24).fill(0), markets: {} });
+    x.n++; x.gross += r.grand; if (!r.grand) x.zero++;
+    if (r.discount) { x.disc += r.discount; x.discN++; }
+    const mk = marketOf(date, r.kasse) || "fără piață"; x.markets[mk] = (x.markets[mk] || 0) + r.grand;
+    x.wd[wdOf(date)] += r.grand; x.hours[+r.end.slice(11, 13)] += r.grand;
+    const dk = date + "|" + r.kasse, d = x.days[dk] || (x.days[dk] = { date, kasse: r.kasse, market: mk, n: 0, gross: 0, from: 1e9, to: 0, voids: 0 });
+    d.n++; d.gross += r.grand; d.from = Math.min(d.from, minOf(r.begin || r.end)); d.to = Math.max(d.to, minOf(r.end));
+    r.items.forEach(i => {
+      if (i.void) { x.voids++; d.voids++; x.voidAmt += Math.abs(i.amount); return; }
+      if (i.minus) { x.minus += i.amount; x.minusN++; }
+      x.items++; const a = x.arts[i.name] || (x.arts[i.name] = { name: i.name, amount: 0, kg: 0, qty: 0 }); a.amount += i.amount; if (i.kg != null) a.kg += i.kg; else a.qty += i.qty || 0;
+    });
+  });
+  return Object.values(g).map(x => {
+    const days = Object.values(x.days), mins = days.reduce((s, d) => s + Math.max(0, d.to - d.from), 0), dates = new Set(days.map(d => d.date)).size;
+    return { ...x, dayList: days.sort((a, b) => a.date.localeCompare(b.date) || a.kasse - b.kasse), dates, mins, gross: r2(x.gross), avg: x.n ? x.gross / x.n : 0, perDay: dates ? x.gross / dates : 0, perHour: mins >= 30 ? x.gross / (mins / 60) : 0, ipb: x.n ? x.items / x.n : 0, voidRate: (x.items + x.voids) ? x.voids / (x.items + x.voids) * 100 : 0 };
+  });
+}
+function renderOps(m, R) {
+  const all = opStats(R), tot = all.reduce((s, x) => s + x.gross, 0);
+  const rows = all.slice().sort((a, b) => opDir * (typeof a[opSort] === "string" ? a[opSort].localeCompare(b[opSort], "de") : a[opSort] - b[opSort]));
+  const th = (k, t, n) => `<th class="${n ? "n" : ""}" data-s="${k}">${t}${opSort === k ? (opDir < 0 ? " ▾" : " ▴") : ""}</th>`;
+  m.innerHTML = `<p class="muted" style="margin:12px 0">Pentru perioada, piața și casa alese sus. Ora de lucru = de la primul la ultimul bon al fiecărei zile pe casă (fără pauze). Click pe un vânzător pentru detalii.</p>
+  <div class="card"><table><tr>${th("name", "Vânzător")}${th("dates", "Zile", 1)}${th("mins", "Ore la casă", 1)}${th("n", "Bonuri", 1)}${th("gross", "Vânzări", 1)}${th("perDay", "Pe zi", 1)}${th("perHour", "Pe oră", 1)}${th("avg", "Bon mediu", 1)}${th("ipb", "Articole/bon", 1)}${th("voids", "Storno", 1)}${th("voidRate", "% storno", 1)}${th("disc", "Reduceri", 1)}<th style="width:12%">Parte</th></tr>
+    ${rows.map(x => `<tr class="click" data-op="${esc(x.name)}"><td><b>${esc(x.name)}</b></td><td class="n">${x.dates}</td><td class="n">${hm(x.mins)}</td><td class="n">${x.n.toLocaleString("de-DE")}</td><td class="n"><b>${eur(x.gross)}</b></td>
+      <td class="n">${eur(r2(x.perDay))}</td><td class="n">${x.perHour ? eur(r2(x.perHour)) : "–"}</td><td class="n">${eur(r2(x.avg))}</td><td class="n">${x.ipb.toFixed(1).replace(".", ",")}</td>
+      <td class="n ${x.voids ? "warn" : "muted"}">${x.voids || "–"}${x.voids ? ` <span class="muted">(${eur(r2(x.voidAmt))})</span>` : ""}</td><td class="n ${x.voidRate > 3 ? "warn" : "muted"}">${x.voidRate.toFixed(1).replace(".", ",")} %</td>
+      <td class="n ${x.disc ? "" : "muted"}">${x.disc ? eur(-r2(x.disc)) + ` <span class="muted">(${x.discN})</span>` : "–"}</td><td><div class="bar" style="width:${tot ? Math.max(1, x.gross / tot * 100) : 0}%"></div></td></tr>`).join("")}
+    <tr class="sum"><td>Total</td><td></td><td class="n">${hm(all.reduce((s, x) => s + x.mins, 0))}</td><td class="n">${R.length.toLocaleString("de-DE")}</td><td class="n">${eur(r2(tot))}</td><td colspan="8"></td></tr></table></div>
+  <div id="op-detail"></div>`;
+  m.querySelectorAll("th[data-s]").forEach(h => h.addEventListener("click", () => { const k = h.dataset.s; opDir = opSort === k ? -opDir : (k === "name" ? 1 : -1); opSort = k; renderOps(m, R); }));
+  m.querySelectorAll("tr[data-op]").forEach(tr => tr.addEventListener("click", () => { opSel = tr.dataset.op; showOp(all.find(x => x.name === opSel)); $("#op-detail").scrollIntoView({ behavior: "smooth" }); }));
+  if (opSel && all.find(x => x.name === opSel)) showOp(all.find(x => x.name === opSel));
+}
+function showOp(x) {
+  const maxWd = Math.max(...x.wd, 1), maxH = Math.max(...x.hours, 1), arts = Object.values(x.arts).sort((a, b) => b.amount - a.amount);
+  const hrs = x.hours.map((v, h) => ({ v, h })).filter(o => o.v);
+  $("#op-detail").innerHTML = `<h2 style="margin-top:22px">${esc(x.name)} <small class="muted" style="font-weight:400">– ${x.dates} zile, ${x.n.toLocaleString("de-DE")} bonuri, ${eur(x.gross)}</small></h2>
+  <div class="cards"><div class="kpi"><small>Vânzări pe zi</small><b>${eur(r2(x.perDay))}</b></div><div class="kpi"><small>Vânzări pe oră</small><b>${x.perHour ? eur(r2(x.perHour)) : "–"}</b></div>
+    <div class="kpi"><small>Bon mediu</small><b>${eur(r2(x.avg))}</b></div><div class="kpi"><small>Bonuri pe oră</small><b>${x.mins >= 30 ? (x.n / (x.mins / 60)).toFixed(1).replace(".", ",") : "–"}</b></div>
+    <div class="kpi"><small>Storno</small><b class="${x.voids ? "warn" : ""}">${x.voids} · ${eur(r2(x.voidAmt))}</b></div><div class="kpi"><small>Bonuri de 0 €</small><b>${x.zero}</b></div></div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px">
+    <div><h2>Pe piețe</h2><div class="card"><table>${Object.entries(x.markets).sort((a, b) => b[1] - a[1]).map(([k, v]) => `<tr><td>${esc(k)}</td><td class="n">${eur(r2(v))}</td><td style="width:40%"><div class="bar" style="width:${Math.max(1, v / x.gross * 100)}%"></div></td></tr>`).join("")}</table></div>
+      <h2>Pe zile ale săptămânii</h2><div class="card"><table>${[1, 2, 3, 4, 5, 6, 0].filter(d => x.wd[d]).map(d => `<tr><td>${WD[d]}</td><td class="n">${eur(r2(x.wd[d]))}</td><td style="width:50%"><div class="bar" style="width:${x.wd[d] / maxWd * 100}%"></div></td></tr>`).join("")}</table></div>
+      <h2>Pe ore</h2><div class="card"><table>${hrs.map(o => `<tr><td>${String(o.h).padStart(2, "0")}:00–${String(o.h + 1).padStart(2, "0")}:00</td><td class="n">${eur(r2(o.v))}</td><td style="width:50%"><div class="bar" style="width:${o.v / maxH * 100}%"></div></td></tr>`).join("")}</table></div></div>
+    <div><h2>Ce a vândut cel mai mult</h2><div class="card"><table><tr><th>Articol</th><th class="n">Cantitate</th><th class="n">Vânzări</th></tr>${arts.slice(0, 15).map(a => `<tr><td>${esc(a.name)}</td><td class="n">${a.kg ? kgf(r2(a.kg * 1000) / 1000) + " kg" : a.qty ? a.qty + " buc" : ""}</td><td class="n">${eur(r2(a.amount))}</td></tr>`).join("")}</table></div></div>
+  </div>
+  <h2>Zilele lucrate</h2><div class="card"><table><tr><th>Data</th><th>Piața</th><th>Casa</th><th class="n">Primul–ultimul bon</th><th class="n">Ore</th><th class="n">Bonuri</th><th class="n">Vânzări</th><th class="n">Pe oră</th><th class="n">Storno</th></tr>
+    ${x.dayList.map(d => { const h = Math.max(0, d.to - d.from); return `<tr><td>${WD[wdOf(d.date)]} ${fmtD(d.date)}</td><td>${esc(d.market)}</td><td>${esc(d.kasse)}</td><td class="n">${hm(d.from)}–${hm(d.to)}</td><td class="n">${hm(h)}</td><td class="n">${d.n}</td><td class="n"><b>${eur(r2(d.gross))}</b></td><td class="n">${h >= 30 ? eur(r2(d.gross / (h / 60))) : "–"}</td><td class="n ${d.voids ? "warn" : "muted"}">${d.voids || "–"}</td></tr>`; }).join("")}</table></div>`;
+}
+
 function vatByMonth(R) {
   const m = {};
   R.forEach(r => { const ym = r.end.slice(0, 7), x = m[ym] || (m[ym] = {}); Object.entries(r.vat).forEach(([k, v]) => { const y = x[k] || (x[k] = { base: 0, tax: 0 }); y.base += v.base; y.tax += v.tax; }); });
