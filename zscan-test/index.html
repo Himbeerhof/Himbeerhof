@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scanare Z – test</title>
+<meta name="theme-color" content="#B8234F">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<style>
+:root{--bg:#f6f4f2;--card:#fff;--ink:#1d1b1a;--muted:#6f6a66;--line:#e5e0dc;--acc:#B8234F;--ok:#1f7a4d;--okb:#e3f3ea;--bad:#a85d00;--badb:#fdf0dc;--red:#c62828;--redb:#fdecea}
+@media (prefers-color-scheme:dark){:root{--bg:#161413;--card:#211e1c;--ink:#f1ece8;--muted:#a39c96;--line:#36312e;--okb:#173226;--badb:#3a2a14;--redb:#3a1b1b;--ok:#5cc28d;--bad:#f0a64a}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:900px;margin:0 auto;padding:16px 14px 40px}
+h1{font-size:21px;margin:0 0 2px}h1 span{color:var(--acc)}
+.sub{color:var(--muted);font-size:13px;margin-bottom:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:12px}
+.btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:12px 16px;border-radius:12px;font:inherit;font-weight:650;cursor:pointer}
+.btn.primary{background:var(--acc);border-color:var(--acc);color:#fff}
+.btn input{display:none}
+#drop{border:2px dashed var(--line);border-radius:14px;padding:14px;text-align:center;color:var(--muted);margin-top:10px;font-size:13px}
+#drop.over{border-color:var(--acc);color:var(--acc)}
+#status{font-size:14px;margin-top:10px;color:var(--muted)}
+#status.busy::before{content:"";display:inline-block;width:12px;height:12px;border:2px solid var(--acc);border-right-color:transparent;border-radius:50%;margin-right:8px;vertical-align:-1px;animation:sp .8s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+#preview{max-height:220px;max-width:100%;border-radius:10px;display:block;margin-top:10px}
+.hidden{display:none!important}
+#hdr{display:grid;grid-template-columns:1fr 1fr 90px;gap:8px}
+#hdr label,.r2 label{display:flex;flex-direction:column;font-size:12px;color:var(--muted);gap:3px;min-width:0}
+#hdr input,.ln input{width:100%;padding:9px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:inherit;min-width:0}
+.ln{border-bottom:1px solid var(--line);padding:10px 0}
+.ln .r1{display:flex;align-items:center;gap:8px}
+.ln .art{color:var(--muted);min-width:28px;font-variant-numeric:tabular-nums}
+.ln .r2{display:grid;grid-template-columns:70px 1fr 1fr;gap:8px;margin-top:6px;padding-left:36px}
+.r2 input{text-align:right;font-variant-numeric:tabular-nums}
+.ln.low input{border-color:var(--red);background:var(--redb)}
+.ln .hint{padding-left:36px}
+.check div{display:flex;flex-direction:column}
+.check span{font-size:12px;color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+th{font-size:12px;color:var(--muted);text-align:left;padding:6px 4px;border-bottom:1px solid var(--line)}
+th.n{text-align:right}
+td{padding:4px;border-bottom:1px solid var(--line);vertical-align:top}
+td.art{color:var(--muted);width:36px;padding-top:12px}
+td input{width:100%;padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:inherit;min-width:0}
+td.n input{text-align:right}
+td.n{width:22%}td.n:nth-child(3){width:11%}
+tr.low input{border-color:var(--red);background:var(--redb)}
+.hint{font-size:11px;color:var(--muted);margin-top:2px}
+.fix{margin-top:4px;width:100%;border:1px solid #d4a017;background:#fff6d6;color:#6b4e00;border-radius:8px;padding:5px;font:inherit;font-size:12px;font-weight:700;cursor:pointer}
+.del{border:0;background:none;color:var(--muted);font-size:20px;cursor:pointer;padding:6px}
+.check{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;border-radius:12px;padding:12px;margin-top:10px}
+.check p{grid-column:1/-1;margin:4px 0 0;font-weight:650}
+.check.ok{background:var(--okb);color:var(--ok)}.check.bad{background:var(--badb);color:var(--bad)}
+.check input{width:110px;padding:4px 6px;border:1px solid var(--line);border-radius:6px;font:inherit;font-weight:700;background:var(--card);color:var(--ink)}
+details{margin-top:10px}pre{white-space:pre-wrap;font-size:12px;background:var(--bg);padding:10px;border-radius:8px;max-height:300px;overflow:auto}
+.foot{font-size:12px;color:var(--muted);margin-top:16px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Scanare <span>raport Z</span></h1>
+  <div class="sub">Versiune de test · citire locală pe dispozitiv (PaddleOCR) · nicio poză nu părăsește telefonul/PC-ul</div>
+
+  <div class="card">
+    <div class="btns">
+      <label class="btn primary">📷 Fotografiază<input id="cam" type="file" accept="image/*" capture="environment"></label>
+      <label class="btn">🖼 Alege poză<input id="pick" type="file" accept="image/*"></label>
+    </div>
+    <div id="drop">sau trage aici o poză (pe PC) · sau lipește cu Ctrl+V</div>
+    <div id="status">Pornesc…</div>
+    <img id="preview" class="hidden" alt="Poza raportului">
+  </div>
+
+  <div id="result" class="card hidden">
+    <div id="hdr"></div>
+    <div id="lines"></div>
+    <div class="btns" style="margin-top:8px"><button class="btn" id="add">+ Rând</button><button class="btn" id="csv">⤓ Export CSV</button></div>
+    <div id="check" class="check"></div>
+    <details><summary>Text citit (pentru verificare)</summary><pre id="raw"></pre></details>
+    <div class="foot">Numele corectate se rețin după numărul articolului și se completează singure data viitoare.</div>
+  </div>
+  <div class="foot">Himbeerhof · test intern</div>
+</div>
+<script type="module" src="app.js"></script>
+</body>
+</html>
