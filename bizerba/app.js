@@ -97,13 +97,26 @@ function renderDays(m, R) {
   m.innerHTML = kpis(R) + `
   <h2>Pe piețe</h2><div class="card"><table><tr><th>Piața</th><th class="n">Zile</th><th class="n">Bonuri</th><th class="n">Numerar</th><th class="n">Card</th><th class="n">Total</th><th style="width:30%"></th></tr>
     ${Object.entries(byM).sort((a, b) => b[1].gross - a[1].gross).map(([k, y]) => `<tr><td>${esc(k)}</td><td class="n">${y.days.size}</td><td class="n">${y.n}</td><td class="n">${eur(r2(y.cash))}</td><td class="n">${eur(r2(y.card))}</td><td class="n"><b>${eur(r2(y.gross))}</b></td><td><div class="bar" style="width:${tot ? Math.max(1, y.gross / tot * 100) : 0}%"></div></td></tr>`).join("")}</table></div>
-  <h2>Pe zile <small class="muted" style="font-weight:400">– scrie piața la fiecare casă; se ține minte pe zi a săptămânii</small></h2>
-  <div class="card"><table><tr><th>Data</th><th>Casa</th><th>Piața</th><th class="n">Bonuri</th><th class="n">Numerar</th><th class="n">Card</th><th class="n">Total</th><th>Vânzători</th><th class="n">Storno</th></tr>
-    ${rows.map(x => `<tr><td>${WD[wdOf(x.date)]} ${fmtD(x.date)}</td><td>Kasse ${esc(x.kasse)}</td><td><input type="text" list="mk-list" data-dk="${x.date}|${esc(x.kasse)}" value="${esc(x.market)}" placeholder="piața"></td>
-      <td class="n">${x.n}</td><td class="n">${eur(x.cash)}</td><td class="n">${eur(r2(x.card + x.other))}</td><td class="n"><b>${eur(x.gross)}</b></td><td class="muted">${esc([...x.ops].join(", "))}</td><td class="n ${x.voids ? "warn" : "muted"}">${x.voids || "–"}</td></tr>`).join("")}
+  <h2>Pe zile <small class="muted" style="font-weight:400">– casele din același oraș sunt adunate; click pe un rând ca să vezi fiecare casă și să schimbi piața</small></h2>
+  <div class="card"><table><tr><th>Data</th><th>Piața</th><th>Case</th><th class="n">Bonuri</th><th class="n">Numerar</th><th class="n">Card</th><th class="n">Total</th><th>Vânzători</th><th class="n">Storno</th></tr>
+    ${marketDays(rows).map(g => `<tr class="click" data-g="${esc(g.key)}"><td>${openDays.has(g.key) ? "▾" : "▸"} ${WD[wdOf(g.date)]} ${fmtD(g.date)}</td><td><b>${esc(g.market || "fără piață")}</b></td><td class="muted">${g.ks.map(x => esc(x.kasse)).join(" + ")}</td>
+      <td class="n">${g.n}</td><td class="n">${eur(r2(g.cash))}</td><td class="n">${eur(r2(g.card))}</td><td class="n"><b>${eur(r2(g.gross))}</b></td><td class="muted">${esc([...g.ops].join(", "))}</td><td class="n ${g.voids ? "warn" : "muted"}">${g.voids || "–"}</td></tr>
+      ${openDays.has(g.key) ? g.ks.map(x => `<tr style="background:var(--bg)"><td></td><td><input type="text" list="mk-list" data-dk="${x.date}|${esc(x.kasse)}" value="${esc(x.market)}" placeholder="piața"></td><td>Kasse ${esc(x.kasse)}</td>
+        <td class="n">${x.n}</td><td class="n">${eur(x.cash)}</td><td class="n">${eur(r2(x.card + x.other))}</td><td class="n">${eur(x.gross)}</td><td class="muted">${esc([...x.ops].join(", "))}</td><td class="n ${x.voids ? "warn" : "muted"}">${x.voids || "–"}</td></tr>`).join("") : ""}`).join("")}
     <tr class="sum"><td colspan="3">Total</td><td class="n">${R.length}</td><td class="n">${eur(r2(rows.reduce((s, x) => s + x.cash, 0)))}</td><td class="n">${eur(r2(rows.reduce((s, x) => s + x.card + x.other, 0)))}</td><td class="n">${eur(r2(tot))}</td><td colspan="2"></td></tr></table>
     <datalist id="mk-list">${mks.map(x => `<option value="${esc(x)}">`).join("")}</datalist></div>`;
-  m.querySelectorAll("[data-dk]").forEach(i => i.addEventListener("change", () => { const [d, k] = i.dataset.dk.split("|"); setMarket(d, k, i.value.trim()); fillFilters(); render(); }));
+  m.querySelectorAll("[data-dk]").forEach(i => { i.addEventListener("click", e => e.stopPropagation()); i.addEventListener("change", () => { const [d, k] = i.dataset.dk.split("|"); setMarket(d, k, i.value.trim()); openDays.add(d + "|" + normMk(i.value.trim())); fillFilters(); render(); }); });
+  m.querySelectorAll("tr[data-g]").forEach(tr => tr.addEventListener("click", () => { const k = tr.dataset.g; openDays.has(k) ? openDays.delete(k) : openDays.add(k); renderDays(m, R); }));
+}
+const openDays = new Set();
+const normMk = s => (s || "").trim().toLowerCase();
+// zi + piață: casele care au stat în același oraș în aceeași zi, adunate
+function marketDays(rows) {
+  const g = {};
+  rows.forEach(x => { const key = x.date + "|" + normMk(x.market);
+    const y = g[key] || (g[key] = { key, date: x.date, market: x.market, ks: [], n: 0, cash: 0, card: 0, gross: 0, voids: 0, ops: new Set() });
+    y.ks.push(x); y.n += x.n; y.cash += x.cash; y.card += x.card + x.other; y.gross += x.gross; y.voids += x.voids; x.ops.forEach(o => y.ops.add(o)); });
+  return Object.values(g).sort((a, b) => a.date.localeCompare(b.date) || (a.market || "~").localeCompare(b.market || "~", "de"));
 }
 function artRows(R) {
   const g = {};
@@ -299,7 +312,7 @@ function renderVat(m, R) {
   ["name", "street", "city"].forEach(k => $("#c-" + k).addEventListener("change", e => { co[k] = e.target.value.trim(); ls("bz_company", co); }));
   const tag = F.month === "*" ? "toate" : F.month;
   $("#x-wm").addEventListener("click", () => xl(async X => X.buildWochenmarkt({ company: co, days: dayRows(R).map(d => ({ date: d.date, market: d.market, gross: d.gross })), vat: V }), `Wochenmarktumsaetze_${tag}.xlsx`));
-  $("#x-det").addEventListener("click", () => xl(async X => X.buildDetail({ days: dayRows(R).map(d => ({ ...d, wd: WD[wdOf(d.date)], k: d.kasse, m: d.market })), articles: artRows(R).sort((a, b) => b.amount - a.amount), receipts: R.map(r => ({ ...r, market: marketOf(r.end.slice(0, 10), r.kasse) })) }), `Bizerba_${tag}.xlsx`));
+  $("#x-det").addEventListener("click", () => xl(async X => X.buildDetail({ days: marketDays(dayRows(R)).map(g => ({ date: g.date, wd: WD[wdOf(g.date)], k: g.ks.map(x => x.kasse).join("+"), m: g.market, n: g.n, cash: r2(g.cash), card: r2(g.card), other: 0, gross: r2(g.gross) })), articles: artRows(R).sort((a, b) => b.amount - a.amount), receipts: R.map(r => ({ ...r, market: marketOf(r.end.slice(0, 10), r.kasse) })) }), `Bizerba_${tag}.xlsx`));
   $("#x-del").addEventListener("click", async () => { if (!confirm("Ștergi toate bonurile salvate în acest browser? (Stick-ul nu se atinge.)")) return; await tx("readwrite", s => s.clear()); ALL = []; fillFilters(); render(); });
 }
 async function xl(build, name) {
