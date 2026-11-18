@@ -89,6 +89,7 @@
             document.querySelectorAll('[data-tel]').forEach(a => a.href = tel);
         }
         if (site.email) document.querySelectorAll('[data-mail]').forEach(a => a.href = 'mailto:' + site.email);
+        document.querySelectorAll('[data-fb]').forEach(a => { if (site.facebook) a.href = site.facebook; else a.style.display = 'none'; });
         if (site.hero_bild) {
             document.getElementById('hero').style.background =
                 `linear-gradient(180deg, rgba(139,0,50,0.78) 0%, rgba(35,25,20,0.88) 100%), url('${site.hero_bild.replace(/'/g, '%27')}') center/cover no-repeat`;

@@ -296,6 +296,11 @@ collections:
     - label: E-mail
       name: email
       widget: string
+    - label: Pagina de Facebook (link)
+      name: facebook
+      widget: string
+      required: false
+      hint: Lasă gol ca să ascunzi butoanele Facebook de pe site.
     - label: Adresa (subsol)
       name: adresse
       widget: object
