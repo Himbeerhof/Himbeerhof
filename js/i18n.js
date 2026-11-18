@@ -2,6 +2,12 @@
 // Textele de conținut (produse, piețe, texte principale) se editează din panou: /admin
 window.UI_TEXTE = {
     de: {
+        kalender_text: 'Wann ist was reif? Tippen Sie auf eine Frucht für Fotos und Details.',
+        jetzt_titel: 'Diesen Monat an unserem Stand',
+        jetzt_leer: 'Gerade ist Winterpause. Ab dem Frühjahr sind wir wieder für Sie da.',
+        monate: 'Jan,Feb,Mär,Apr,Mai,Jun,Jul,Aug,Sep,Okt,Nov,Dez',
+        schliessen: 'Schließen',
+        marktzeiten: 'Marktzeiten',
         _title: 'Himbeerhof – Frische Früchte vom Feld & Wochenmärkte in Vorarlberg',
         _description: 'Köstliche Himbeeren, Erdbeeren, Kirschen, Johannisbeeren, Zwetschgen, Spargel, Aprikosen, Pfirsiche, Tafeltrauben, Äpfel, Kartoffeln und Zitrusfrüchte vom Himbeerhof in Neukirch und ausgewählten Partnerbetrieben. Besuchen Sie uns auf den Wochenmärkten in Vorarlberg!',
         logo_sub: 'Obstbau Neukirch',
@@ -29,6 +35,12 @@ window.UI_TEXTE = {
         rechte: 'Alle Rechte vorbehalten.'
     },
     en: {
+        kalender_text: 'When is what in season? Tap a fruit for photos and details.',
+        jetzt_titel: 'At our stall this month',
+        jetzt_leer: 'We are on our winter break. See you again in spring.',
+        monate: 'Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec',
+        schliessen: 'Close',
+        marktzeiten: 'Market times',
         _title: 'Himbeerhof – Fresh Fruit from the Field & Weekly Markets in Vorarlberg',
         _description: 'Delicious raspberries, strawberries, cherries, currants, plums, asparagus, apricots, peaches, table grapes, apples, potatoes and citrus fruit from Himbeerhof in Neukirch and selected partner growers. Visit us at the weekly markets in Vorarlberg!',
         logo_sub: 'Fruit farm Neukirch',
@@ -56,6 +68,12 @@ window.UI_TEXTE = {
         rechte: 'All rights reserved.'
     },
     ro: {
+        kalender_text: 'Când se coace fiecare fruct? Apăsați pe un fruct pentru poze și detalii.',
+        jetzt_titel: 'Luna aceasta la taraba noastră',
+        jetzt_leer: 'Acum avem pauză de iarnă. Ne revedem în primăvară.',
+        monate: 'Ian,Feb,Mar,Apr,Mai,Iun,Iul,Aug,Sep,Oct,Noi,Dec',
+        schliessen: 'Închide',
+        marktzeiten: 'Orar piețe',
         _title: 'Himbeerhof – Fructe proaspete de pe câmp și piețele săptămânale din Vorarlberg',
         _description: 'Zmeură, căpșuni, cireșe, coacăze, prune, sparanghel, caise, piersici, struguri de masă, mere, cartofi și citrice de la Himbeerhof din Neukirch și de la fermieri parteneri aleși. Vizitați-ne la piețele săptămânale din Vorarlberg!',
         logo_sub: 'Livadă Neukirch',

@@ -110,9 +110,9 @@
       },
       "sichtbar": true,
       "saison": {
-        "de": "Juni – Juli",
-        "en": "June – July",
-        "ro": "Iunie – Iulie"
+        "de": "Juni – Mitte August",
+        "en": "June – mid-August",
+        "ro": "Iunie – mijlocul lui august"
       },
       "farbe": "rot",
       "kurz": {
@@ -422,9 +422,9 @@
       },
       "sichtbar": true,
       "saison": {
-        "de": "August – Oktober",
-        "en": "August – October",
-        "ro": "August – Octombrie"
+        "de": "August – Mitte Dezember",
+        "en": "August – mid-December",
+        "ro": "August – mijlocul lui decembrie"
       },
       "farbe": "gruen",
       "kurz": {

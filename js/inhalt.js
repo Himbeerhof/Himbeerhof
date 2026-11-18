@@ -1,19 +1,18 @@
-// Lädt die Inhalte aus /data/*.json (bearbeitbar über /admin) und baut die Seite auf.
+// Lädt die Inhalte aus data/*.json (bearbeitbar über /admin) und baut die Seite auf.
 (function () {
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
-    mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-    document.querySelectorAll('.mobile-link').forEach(a => a.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+    mobileMenuBtn.addEventListener('click', () => {
+        const offen = mobileMenu.classList.toggle('hidden') === false;
+        mobileMenuBtn.setAttribute('aria-expanded', offen);
+    });
+    document.querySelectorAll('.mobile-link').forEach(a => a.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden'); mobileMenuBtn.setAttribute('aria-expanded', 'false');
+    }));
 
-    const FARBEN = {
-        beere:  'bg-berry-100 text-berry-700',
-        rot:    'bg-red-100 text-red-800',
-        lila:   'bg-purple-100 text-purple-800',
-        gruen:  'bg-emerald-100 text-emerald-800',
-        gelb:   'bg-amber-100 text-amber-800',
-        orange: 'bg-orange-100 text-orange-800',
-        grau:   'bg-stone-200 text-stone-800'
-    };
+    // Farbe aus dem Admin-Feld "farbe" → Farbe des Balkens im Erntekalender
+    const FARBEN = { beere: '--f-beere', rot: '--f-rot', lila: '--f-lila', gruen: '--f-gruen', gelb: '--f-gelb', orange: '--f-orange', grau: '--f-grau' };
+    const farbe = (f) => `var(${FARBEN[f] || FARBEN.beere})`;
 
     const esc = (t) => String(t ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
     const fett = (t) => esc(t).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
@@ -31,9 +30,36 @@
         return SPRACHEN.includes(b) ? b : 'de';
     }
     let sprache = startSprache();
-    // Un câmp poate fi text simplu (vechi) sau {de, en, ro}; dacă lipsește traducerea, se folosește germana.
     const tx = (v) => (v && typeof v === 'object' && !Array.isArray(v)) ? (v[sprache] || v.de || '') : (v ?? '');
     const ui = (k) => (UI[sprache] && UI[sprache][k]) || (UI.de && UI.de[k]) || '';
+
+    // ---- Saison → Monate (aus dem deutschen Text, z. B. "Juni – Oktober", "September – April", "Ganzjährig") ----
+    const MONATE_DE = ['januar', 'februar', 'märz', 'april', 'mai', 'juni', 'juli', 'august', 'september', 'oktober', 'november', 'dezember'];
+    function monatIndex(wort) {
+        const w = wort.toLowerCase().replace('jänner', 'januar').replace('maerz', 'märz').trim();
+        return MONATE_DE.findIndex(m => w.startsWith(m.slice(0, 3)));
+    }
+    // "Mitte August" → halber Monat (Balken endet bzw. beginnt in der Monatsmitte)
+    function saisonMonate(saison) {
+        const de = (saison && typeof saison === 'object') ? (saison.de || '') : String(saison || '');
+        if (/ganzj/i.test(de)) return new Set([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]);
+        const set = new Set();
+        set.halbStart = new Set(); set.halbEnde = new Set();
+        de.split(/[,;&]| und /).forEach(teil => {
+            const stuecke = teil.split(/[–—]| - | bis /);
+            const w = stuecke.map(x => monatIndex(x.replace(/^\s*(mitte|ende|anfang)\s+/i, ''))).filter(i => i >= 0);
+            if (w.length >= 2) {
+                if (/^\s*mitte/i.test(stuecke[0])) set.halbStart.add(w[0]);
+                if (/^\s*mitte/i.test(stuecke[stuecke.length - 1])) set.halbEnde.add(w[1]);
+            }
+            if (w.length === 1) set.add(w[0]);
+            if (w.length >= 2) { let i = w[0]; for (let n = 0; n < 12; n++) { set.add(i); if (i === w[1]) break; i = (i + 1) % 12; } }
+        });
+        return set;
+    }
+    const heute = new Date().getMonth();
+    const monatsKurz = () => (ui('monate') || 'Jan,Feb,Mär,Apr,Mai,Jun,Jul,Aug,Sep,Okt,Nov,Dez').split(',');
+    const monatLang = () => { try { return new Date(2026, heute, 1).toLocaleDateString(sprache === 'de' ? 'de-AT' : sprache, { month: 'long' }); } catch (e) { return monatsKurz()[heute]; } };
 
     const daten = { site: null, produkte: null, maerkte: null };
     const produkteNachId = {};
@@ -47,21 +73,21 @@
             const v = ui(el.dataset.t); if (!v) return;
             if (el.hasAttribute('data-html')) el.innerHTML = v; else el.textContent = v;
         });
-        document.querySelectorAll('[data-t-aria]').forEach(el => el.setAttribute('aria-label', ui(el.dataset.tAria)));
-        document.querySelectorAll('[data-lang]').forEach(b => {
-            const aktiv = b.dataset.lang === sprache;
-            b.className = 'px-2 py-1 rounded-full transition-colors ' + (aktiv ? 'bg-berry-600 text-white' : 'text-stone-600 hover:text-berry-600');
-            b.setAttribute('aria-pressed', aktiv);
-        });
+        document.querySelectorAll('[data-t-aria]').forEach(el => { const v = ui(el.dataset.tAria); if (v) el.setAttribute('aria-label', v); });
+        document.querySelectorAll('[data-lang]').forEach(b => b.setAttribute('aria-pressed', b.dataset.lang === sprache));
+        const m = document.getElementById('jetzt-monat');
+        if (m) { const t = monatLang(); m.textContent = t.charAt(0).toUpperCase() + t.slice(1); }
     }
 
     function spracheWechseln(neu) {
         if (!SPRACHEN.includes(neu) || neu === sprache) return;
         sprache = neu;
         try { localStorage.setItem('sprache', neu); } catch (e) {}
-        const url = new URL(location.href);
-        if (neu === 'de') url.searchParams.delete('lang'); else url.searchParams.set('lang', neu);
-        history.replaceState(null, '', url);
+        try {
+            const url = new URL(location.href);
+            if (neu === 'de') url.searchParams.delete('lang'); else url.searchParams.set('lang', neu);
+            history.replaceState(null, '', url);
+        } catch (e) {}
         allesAnzeigen();
     }
     document.querySelectorAll('[data-lang]').forEach(b => b.addEventListener('click', () => spracheWechseln(b.dataset.lang)));
@@ -80,75 +106,86 @@
             if (el.dataset.format === 'fett') el.innerHTML = fett(v);
             else el.textContent = v;
         });
-        document.querySelectorAll('[data-bild]').forEach(el => {
-            const v = site[el.dataset.bild];
-            if (v) el.src = v;
-        });
+        document.querySelectorAll('[data-bild]').forEach(el => { const v = site[el.dataset.bild]; if (v) el.src = v; });
         if (site.telefon) {
             const tel = 'tel:' + site.telefon.replace(/[^\d+]/g, '');
             document.querySelectorAll('[data-tel]').forEach(a => a.href = tel);
         }
         if (site.email) document.querySelectorAll('[data-mail]').forEach(a => a.href = 'mailto:' + site.email);
         document.querySelectorAll('[data-fb]').forEach(a => { if (site.facebook) a.href = site.facebook; else a.style.display = 'none'; });
-        if (site.hero_bild) {
-            document.getElementById('hero').style.background =
-                `linear-gradient(180deg, rgba(139,0,50,0.78) 0%, rgba(35,25,20,0.88) 100%), url('${site.hero_bild.replace(/'/g, '%27')}') center/cover no-repeat`;
-        }
         const ex = site.exoten;
         if (ex && ex.anzeigen !== false) {
-            document.getElementById('exoten-banner').classList.remove('hidden');
-            produkteNachId.exoten = { titel: tx(ex.titel), saison: tx(ex.saison), untertitel: tx(ex.untertitel), beschreibung: tx(ex.beschreibung), herkunft: tx(ex.herkunft), fotos: ex.fotos };
-        }
+            produkteNachId.exoten = { titel: tx(ex.titel), name: tx(ex.titel), saison: tx(ex.saison), kurz: tx(ex.text), untertitel: tx(ex.untertitel), beschreibung: tx(ex.beschreibung), herkunft: tx(ex.herkunft), fotos: ex.fotos, bild: (ex.fotos && ex.fotos[0] && (ex.fotos[0].bild || ex.fotos[0])) || '' };
+        } else delete produkteNachId.exoten;
+        if (daten.produkte) produkteAnzeigen(daten.produkte);
+    }
+
+    function zeileHtml(id, p, monate, extraKlasse) {
+        const mk = monatsKurz();
+        const zellen = mk.map((k, i) => {
+            const an = monate.has(i);
+            const kl = ['k-m'];
+            if (an) {
+                kl.push('an');
+                if (!monate.has((i + 11) % 12) || i === 0) kl.push('start');
+                if (!monate.has((i + 1) % 12) || i === 11) kl.push('ende');
+                if (monate.halbEnde && monate.halbEnde.has(i)) kl.push('halb-ende');
+                if (monate.halbStart && monate.halbStart.has(i)) kl.push('halb-start');
+            }
+            if (i === heute) kl.push('ist-jetzt');
+            return `<span class="${kl.join(' ')}" aria-hidden="true">${esc(k.charAt(0))}</span>`;
+        }).join('');
+        return `
+            <button type="button" class="k-zeile ${extraKlasse || ''}" style="--f:${farbe(p.farbe)}" onclick="openProductModal('${id}')">
+                ${p.bild ? `<img class="k-bild" src="${esc(p.bild)}" alt="" loading="lazy">` : '<span></span>'}
+                <span class="k-name"><b>${esc(p.name)}</b>${p.saison ? `<small>${esc(p.saison)}</small>` : ''}</span>
+                <span class="k-monate">${zellen}</span>
+            </button>`;
     }
 
     function produkteAnzeigen(liste) {
         const grid = document.getElementById('produkte-grid');
-        grid.innerHTML = liste.filter(p => p.sichtbar !== false).map((p, i) => {
+        const mk = monatsKurz();
+        const kopf = `<div class="k-zeile k-kopf" aria-hidden="true"><span></span><span></span>${mk.map((k, i) => `<span class="${i === heute ? 'ist-jetzt' : ''}">${esc(k)}</span>`).join('')}</div>`;
+        const jetzt = [];
+        const zeilen = liste.filter(p => p.sichtbar !== false).map((roh, i) => {
             const id = 'p' + i;
-            p = { ...p, name: tx(p.name), saison: tx(p.saison), kurz: tx(p.kurz), titel: tx(p.titel), untertitel: tx(p.untertitel), beschreibung: tx(p.beschreibung), herkunft: tx(p.herkunft) };
+            const p = { ...roh, name: tx(roh.name), saison: tx(roh.saison), kurz: tx(roh.kurz), titel: tx(roh.titel), untertitel: tx(roh.untertitel), beschreibung: tx(roh.beschreibung), herkunft: tx(roh.herkunft) };
             produkteNachId[id] = p;
-            return `
-            <div onclick="openProductModal('${id}')" class="bg-white rounded-3xl overflow-hidden shadow-sm border border-cream-200 flex flex-col justify-between cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
-                <div>
-                    <div class="relative overflow-hidden">
-                        <img src="${esc(p.bild)}" alt="${esc(p.name)}" loading="lazy" class="w-full h-52 object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white font-semibold text-sm">
-                            <span class="bg-berry-600/90 backdrop-blur-sm px-4 py-2 rounded-full"><i class="fa-solid fa-eye mr-2"></i>${esc(ui('karte_hover'))}</span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        ${p.saison ? `<span class="text-xs ${FARBEN[p.farbe] || FARBEN.beere} px-3 py-1 rounded-full font-bold uppercase inline-block mb-2">${esc(p.saison)}</span>` : ''}
-                        <h3 class="font-serif text-xl font-bold text-stone-800 group-hover:text-berry-600 transition-colors">${esc(p.name)}</h3>
-                        <p class="text-stone-600 text-sm mt-2">${esc(p.kurz)}</p>
-                    </div>
-                </div>
-                <div class="px-6 pb-6 pt-2 text-berry-600 text-xs font-bold flex items-center gap-1">
-                    <span>${esc(ui('karte_mehr'))}</span>
-                    <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
-                </div>
-            </div>`;
+            const monate = saisonMonate(roh.saison);
+            if (monate.has(heute)) jetzt.push(p);
+            return zeileHtml(id, p, monate);
         }).join('');
+        const ex = produkteNachId.exoten ? zeileHtml('exoten', { ...produkteNachId.exoten, farbe: 'beere' }, new Set(), 'bestellung') : '';
+        grid.innerHTML = kopf + zeilen + ex;
+
+        const jl = document.getElementById('jetzt-liste');
+        if (jl) {
+            jl.innerHTML = jetzt.length
+                ? jetzt.map(p => `<li><i style="--f:${farbe(p.farbe)}"></i>${esc(p.name)}</li>`).join('')
+                : `<li><p>${esc(ui('jetzt_leer'))}</p></li>`;
+        }
     }
 
     function maerkteAnzeigen(liste) {
         const grid = document.getElementById('maerkte-grid');
         grid.innerHTML = liste.filter(m => m.sichtbar !== false).map(m => {
             m = { ...m, platz: tx(m.platz), zeiten: tx(m.zeiten), saison: tx(m.saison), ort: tx(m.ort) };
-            const rahmen = m.hervorheben ? 'border-2 border-berry-600 shadow-md' : 'border border-cream-200 shadow-sm';
-            const badgeFarbe = m.hervorheben ? 'bg-berry-600' : 'bg-leaf-600';
             return `
-            <div class="bg-white rounded-3xl p-6 ${rahmen} relative">
-                ${m.saison ? `<span class="absolute -top-3 right-4 ${badgeFarbe} text-white text-[10px] uppercase font-bold tracking-wider px-3 py-1 rounded-full">${esc(m.saison)}</span>` : ''}
-                <h3 class="font-serif text-2xl font-bold text-stone-800 mb-1">${esc(m.ort)}</h3>
-                <p class="text-xs text-stone-500 mb-4">${esc(m.platz)}</p>
-                <p class="text-sm font-semibold text-stone-700">${esc(m.zeiten)}</p>
-            </div>`;
+            <li class="markt ${m.hervorheben ? 'hervor' : ''}">
+                <h3>${esc(m.ort)}</h3>
+                <span class="platz">${esc(m.platz)}</span>
+                <span class="zeiten">${esc(m.zeiten)}</span>
+                <span class="saison">${esc(m.saison)}</span>
+            </li>`;
         }).join('');
     }
 
+    let zuletzt = null;
     window.openProductModal = function (id) {
         const p = produkteNachId[id];
         if (!p) return;
+        zuletzt = document.activeElement;
         document.getElementById('modal-title').textContent = p.titel || p.name;
         document.getElementById('modal-season').textContent = p.saison || '';
         document.getElementById('modal-subtitle').textContent = p.untertitel || p.kurz || '';
@@ -156,26 +193,24 @@
         document.getElementById('modal-herkunft').textContent = p.herkunft || 'Himbeerhof Neukirch';
         const fotos = (p.fotos || []).map(f => (typeof f === 'string' ? f : f.bild)).filter(Boolean);
         if (!fotos.length && p.bild) fotos.push(p.bild);
-        document.getElementById('modal-gallery').innerHTML = fotos.map((u, i) => `
-            <div class="rounded-2xl overflow-hidden h-48 border border-cream-200 shadow-sm">
-                <img src="${esc(u)}" alt="${esc(p.titel || p.name)} ${esc(ui('foto'))} ${i + 1}" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
-            </div>`).join('');
+        document.getElementById('modal-gallery').innerHTML = fotos.map((u, i) =>
+            `<img src="${esc(u)}" alt="${esc(p.titel || p.name)} – ${esc(ui('foto'))} ${i + 1}" loading="lazy">`).join('');
         document.getElementById('product-modal').classList.remove('hidden');
         document.body.style.overflow = 'hidden';
+        document.querySelector('.fenster-zu').focus();
     };
 
     window.closeProductModal = function () {
         document.getElementById('product-modal').classList.add('hidden');
-        document.body.style.overflow = 'auto';
+        document.body.style.overflow = '';
+        if (zuletzt) zuletzt.focus();
     };
 
-    document.getElementById('product-modal').addEventListener('click', function (e) {
-        if (e.target === this) window.closeProductModal();
-    });
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') window.closeProductModal(); });
+    document.getElementById('product-modal').addEventListener('click', function (e) { if (e.target === this) window.closeProductModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && !document.getElementById('product-modal').classList.contains('hidden')) window.closeProductModal(); });
 
     uiTexteSetzen();
-    holen('/data/site.json').then(d => { daten.site = d; seiteFuellen(d); }).catch(console.error);
-    holen('/data/produkte.json').then(d => { daten.produkte = d.produkte || []; produkteAnzeigen(daten.produkte); }).catch(console.error);
-    holen('/data/maerkte.json').then(d => { daten.maerkte = d.maerkte || []; maerkteAnzeigen(daten.maerkte); }).catch(console.error);
+    holen('data/site.json').then(d => { daten.site = d; seiteFuellen(d); }).catch(console.error);
+    holen('data/produkte.json').then(d => { daten.produkte = d.produkte || []; produkteAnzeigen(daten.produkte); }).catch(console.error);
+    holen('data/maerkte.json').then(d => { daten.maerkte = d.maerkte || []; maerkteAnzeigen(daten.maerkte); }).catch(console.error);
 })();
