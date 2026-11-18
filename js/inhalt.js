@@ -96,7 +96,7 @@
         const ex = site.exoten;
         if (ex && ex.anzeigen !== false) {
             document.getElementById('exoten-banner').classList.remove('hidden');
-            produkteNachId.exoten = { titel: tx(ex.titel), saison: tx(ex.saison), untertitel: tx(ex.untertitel), beschreibung: tx(ex.beschreibung), fotos: ex.fotos };
+            produkteNachId.exoten = { titel: tx(ex.titel), saison: tx(ex.saison), untertitel: tx(ex.untertitel), beschreibung: tx(ex.beschreibung), herkunft: tx(ex.herkunft), fotos: ex.fotos };
         }
     }
 
@@ -104,7 +104,7 @@
         const grid = document.getElementById('produkte-grid');
         grid.innerHTML = liste.filter(p => p.sichtbar !== false).map((p, i) => {
             const id = 'p' + i;
-            p = { ...p, name: tx(p.name), saison: tx(p.saison), kurz: tx(p.kurz), titel: tx(p.titel), untertitel: tx(p.untertitel), beschreibung: tx(p.beschreibung) };
+            p = { ...p, name: tx(p.name), saison: tx(p.saison), kurz: tx(p.kurz), titel: tx(p.titel), untertitel: tx(p.untertitel), beschreibung: tx(p.beschreibung), herkunft: tx(p.herkunft) };
             produkteNachId[id] = p;
             return `
             <div onclick="openProductModal('${id}')" class="bg-white rounded-3xl overflow-hidden shadow-sm border border-cream-200 flex flex-col justify-between cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
@@ -152,6 +152,7 @@
         document.getElementById('modal-season').textContent = p.saison || '';
         document.getElementById('modal-subtitle').textContent = p.untertitel || p.kurz || '';
         document.getElementById('modal-description').textContent = p.beschreibung || '';
+        document.getElementById('modal-herkunft').textContent = p.herkunft || 'Himbeerhof Neukirch';
         const fotos = (p.fotos || []).map(f => (typeof f === 'string' ? f : f.bild)).filter(Boolean);
         if (!fotos.length && p.bild) fotos.push(p.bild);
         document.getElementById('modal-gallery').innerHTML = fotos.map((u, i) => `

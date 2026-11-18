@@ -169,6 +169,24 @@ collections:
           label: 🇷🇴 Română
         required: false
         hint: Dacă lași gol EN sau RO, apare textul în germană.
+      - label: Proveniență (de unde vine)
+        name: herkunft
+        widget: object
+        required: false
+        hint: Apare în fereastra de detalii, la „Herkunft”. Dacă lași gol EN sau RO, apare textul în germană.
+        fields:
+        - widget: string
+          name: de
+          label: 🇩🇪 Deutsch
+          required: false
+        - widget: string
+          name: en
+          label: 🇬🇧 English
+          required: false
+        - widget: string
+          name: ro
+          label: 🇷🇴 Română
+          required: false
       - label: Galerie foto (din fermă)
         name: fotos
         widget: list
@@ -535,6 +553,24 @@ collections:
           label: 🇷🇴 Română
           required: false
         hint: Dacă lași gol EN sau RO, apare textul în germană.
+      - label: Proveniență (de unde vine)
+        name: herkunft
+        widget: object
+        required: false
+        hint: Apare în fereastra de detalii, la „Herkunft”. Dacă lași gol EN sau RO, apare textul în germană.
+        fields:
+        - widget: string
+          name: de
+          label: 🇩🇪 Deutsch
+          required: false
+        - widget: string
+          name: en
+          label: 🇬🇧 English
+          required: false
+        - widget: string
+          name: ro
+          label: 🇷🇴 Română
+          required: false
       - label: Poze
         name: fotos
         widget: list

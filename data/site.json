@@ -27,9 +27,9 @@
     "ro": "direct de la fermă și piață"
   },
   "hero_text": {
-    "de": "Erntefrische Beeren, Steinobst, Gemüse & Ganzjahres-Klassiker – direkt von unserem Hof für Sie auf den Wochenmärkten in Bregenz, Dornbirn, Feldkirch & Hard!",
-    "en": "Freshly harvested berries, stone fruit, vegetables & year-round classics – straight from our farm to the weekly markets in Bregenz, Dornbirn, Feldkirch & Hard!",
-    "ro": "Fructe de pădure, fructe cu sâmbure, legume și clasicii de tot anul, proaspăt recoltate – direct de la ferma noastră la piețele din Bregenz, Dornbirn, Feldkirch și Hard!"
+    "de": "Erntefrische Beeren, Steinobst, Gemüse & Ganzjahres-Klassiker – von unserem Hof und ausgewählten Partnerbetrieben für Sie auf den Wochenmärkten in Bregenz, Dornbirn, Feldkirch & Hard!",
+    "en": "Freshly harvested berries, stone fruit, vegetables & year-round classics – from our farm and selected partner growers to the weekly markets in Bregenz, Dornbirn, Feldkirch & Hard!",
+    "ro": "Fructe de pădure, fructe cu sâmbure, legume și clasicii de tot anul, proaspăt recoltate – de la ferma noastră și de la fermieri parteneri aleși, la piețele din Bregenz, Dornbirn, Feldkirch și Hard!"
   },
   "hero_bild": "https://images.unsplash.com/photo-1577069861033-55d04cec4ef5?auto=format&fit=crop&w=1920&q=80",
   "ueber_titel": {
@@ -43,9 +43,9 @@
     "ro": "**Himbeerhof Constantin Sidor** înseamnă pomicultură sustenabilă, prospețime maximă și calitate autentică. Pe câmpurile noastre din Neukirch (Am Schorrenwald 2), fructele se coc în cele mai bune condiții."
   },
   "ueber_text2": {
-    "de": "Klicken Sie unten auf ein beliebiges Produkt, um alle Fotos direkt von unserer Farm und detaillierte Ernteinformationen zu sehen!",
-    "en": "Click on any product below to see all photos and detailed harvest information!",
-    "ro": "Apăsați mai jos pe orice produs ca să vedeți toate pozele și detalii despre recoltă!"
+    "de": "Klicken Sie unten auf ein beliebiges Produkt, um Fotos, Herkunft und weitere Details zu sehen!",
+    "en": "Click on any product below to see photos, origin and more details!",
+    "ro": "Apăsați mai jos pe orice produs ca să vedeți poze, proveniența și alte detalii!"
   },
   "ueber_bild": "https://images.unsplash.com/photo-1787218645202-a420179f18b5?auto=format&fit=crop&w=1000&q=80",
   "kontakt_text": {
@@ -95,6 +95,11 @@
       {
         "bild": "https://images.unsplash.com/photo-1760705186373-f0fccf98b88c?auto=format&fit=crop&w=800&q=80"
       }
-    ]
+    ],
+    "herkunft": {
+      "de": "Ausgewählte Importware auf Bestellung",
+      "en": "Selected imports to order",
+      "ro": "Import ales, la comandă"
+    }
   }
 }

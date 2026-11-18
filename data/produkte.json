@@ -30,9 +30,9 @@
         "ro": "Pasiunea noastră: zmeură proaspătă și aromată, direct de pe câmpurile noastre din Neukirch."
       },
       "beschreibung": {
-        "de": "Unsere Himbeeren reifen geschützt auf unseren Plantagen in Neukirch heran. Wir pflücken täglich früh morgens von Hand, damit nur die perfekten, voll ausgereiften Beeren auf den Wochenmarkt gelangen. Süß, saftig und reich an Vitaminen!",
-        "en": "Our raspberries ripen in sheltered plantations in Neukirch. We hand-pick them early every morning so that only perfect, fully ripe berries make it to the market. Sweet, juicy and rich in vitamins!",
-        "ro": "Zmeura noastră se coace protejată în plantațiile din Neukirch. O culegem manual în fiecare dimineață devreme, ca la piață să ajungă doar fructe perfecte, complet coapte. Dulce, zemoasă și plină de vitamine!"
+        "de": "Unsere Himbeeren reifen geschützt auf unseren Plantagen in Neukirch heran. Wir pflücken jeden Tag von Hand, damit nur die perfekten, voll ausgereiften Beeren auf den Wochenmarkt gelangen. Süß, saftig und reich an Vitaminen!",
+        "en": "Our raspberries ripen in sheltered plantations in Neukirch. We hand-pick them every day so that only perfect, fully ripe berries make it to the weekly market. Sweet, juicy and rich in vitamins!",
+        "ro": "Zmeura noastră se coace protejată în plantațiile din Neukirch. O culegem manual în fiecare zi, ca la piață să ajungă doar fructe perfecte, complet coapte. Dulce, zemoasă și plină de vitamine!"
       },
       "fotos": [
         {
@@ -44,7 +44,12 @@
         {
           "bild": "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=800&q=80"
         }
-      ]
+      ],
+      "herkunft": {
+        "de": "Eigener Anbau – Himbeerhof Neukirch",
+        "en": "Own cultivation – Himbeerhof Neukirch",
+        "ro": "Producție proprie – Himbeerhof Neukirch"
+      }
     },
     {
       "name": {
@@ -76,9 +81,9 @@
         "ro": "Căpșuni coapte la soare, pline de dulceață naturală și o aromă de neegalat."
       },
       "beschreibung": {
-        "de": "Unsere Erdbeeren wachsen auf fruchtbarem Boden und werden mit viel Sorgfalt gepflegt. Durch den schonenden Anbau entwickeln sie ein intensives Rot und einen unverwechselbaren, natürlichen Geschmack.",
-        "en": "Our strawberries grow in fertile soil and are tended with great care. Gentle cultivation gives them an intense red colour and an unmistakable, natural taste.",
-        "ro": "Căpșunile noastre cresc în pământ fertil și sunt îngrijite cu multă atenție. Datorită cultivării blânde capătă o culoare roșie intensă și un gust natural, inconfundabil."
+        "de": "Unsere Erdbeeren stammen aus eigenem Anbau in Neukirch, wo sie mit viel Sorgfalt gepflegt werden. Ergänzend beziehen wir Erdbeeren von ausgewählten Obstbauern aus der Bodenseeregion – so haben wir die ganze Saison über frische Ware mit intensivem, natürlichem Geschmack.",
+        "en": "Our strawberries come from our own fields in Neukirch, where they are tended with great care. We also source strawberries from selected growers in the Lake Constance region – so we have fresh fruit with an intense, natural flavour all season long.",
+        "ro": "Căpșunile noastre vin din producția proprie din Neukirch, unde sunt îngrijite cu multă atenție. În plus, luăm căpșuni de la fermieri aleși din zona Bodensee – așa avem marfă proaspătă, cu gust intens și natural, tot sezonul."
       },
       "fotos": [
         {
@@ -90,7 +95,12 @@
         {
           "bild": "https://images.unsplash.com/photo-1588165171080-c89acfa5ee83?auto=format&fit=crop&w=800&q=80"
         }
-      ]
+      ],
+      "herkunft": {
+        "de": "Eigener Anbau & Partnerbetriebe aus der Bodenseeregion",
+        "en": "Own cultivation & partner farms from the Lake Constance region",
+        "ro": "Producție proprie și fermieri parteneri din zona Bodensee"
+      }
     },
     {
       "name": {
@@ -117,14 +127,14 @@
         "ro": "Cireșe"
       },
       "untertitel": {
-        "de": "Saftig, dunkelrot und zuckersüß.",
-        "en": "Juicy, dark red and sugar-sweet.",
-        "ro": "Zemoase, roșu închis și dulci ca mierea."
+        "de": "Saftig, dunkelrot und zuckersüß – vom Bodensee.",
+        "en": "Juicy, dark red and sugar-sweet – from Lake Constance.",
+        "ro": "Zemoase, roșu închis și dulci ca mierea – de la Bodensee."
       },
       "beschreibung": {
-        "de": "Unsere Süßkirschen werden in voller Reife gepflückt und kommen frisch auf den Markt – ideal zum Naschen, für Kuchen oder zum Einkochen.",
-        "en": "Our sweet cherries are picked fully ripe and brought fresh to the market – perfect for snacking, baking or preserving.",
-        "ro": "Cireșele noastre dulci sunt culese complet coapte și ajung proaspete la piață – perfecte de mâncat ca atare, pentru prăjituri sau pentru compot și dulceață."
+        "de": "Unsere Süßkirschen beziehen wir von einem Obstbauern aus Tettnang am Bodensee. Sie werden in voller Reife gepflückt und kommen frisch auf den Markt – ideal zum Naschen, für Kuchen oder zum Einkochen.",
+        "en": "We source our sweet cherries from a fruit grower in Tettnang on Lake Constance. They are picked fully ripe and brought fresh to the market – perfect for snacking, baking or preserving.",
+        "ro": "Cireșele dulci le luăm de la un fermier din Tettnang, de lângă lacul Bodensee. Sunt culese complet coapte și ajung proaspete la piață – perfecte de mâncat ca atare, pentru prăjituri sau pentru compot și dulceață."
       },
       "fotos": [
         {
@@ -136,7 +146,12 @@
         {
           "bild": "https://images.unsplash.com/photo-1621763668206-b9a47fc8727a?auto=format&fit=crop&w=800&q=80"
         }
-      ]
+      ],
+      "herkunft": {
+        "de": "Obstbauer aus Tettnang (Bodensee)",
+        "en": "Fruit grower from Tettnang (Lake Constance)",
+        "ro": "Fermier din Tettnang (Bodensee)"
+      }
     },
     {
       "name": {
@@ -182,7 +197,12 @@
         {
           "bild": "https://images.unsplash.com/photo-1625859641408-eb7b6bd53cd2?auto=format&fit=crop&w=800&q=80"
         }
-      ]
+      ],
+      "herkunft": {
+        "de": "Eigener Anbau – Himbeerhof Neukirch",
+        "en": "Own cultivation – Himbeerhof Neukirch",
+        "ro": "Producție proprie – Himbeerhof Neukirch"
+      }
     },
     {
       "name": {
@@ -231,7 +251,12 @@
         {
           "bild": "https://images.unsplash.com/photo-1532704868953-d85f24176d73?auto=format&fit=crop&w=800&q=80"
         }
-      ]
+      ],
+      "herkunft": {
+        "de": "Eigener Anbau – Himbeerhof Neukirch",
+        "en": "Own cultivation – Himbeerhof Neukirch",
+        "ro": "Producție proprie – Himbeerhof Neukirch"
+      }
     },
     {
       "name": {
@@ -251,7 +276,7 @@
         "en": "Freshly harvested white and green asparagus.",
         "ro": "Sparanghel alb și verde, proaspăt recoltat."
       },
-      "bild": "https://images.unsplash.com/photo-1515471209610-dae1c92d8777?auto=format&fit=crop&w=600&q=80",
+      "bild": "https://images.unsplash.com/photo-1552825898-5896ec192f9c?auto=format&fit=crop&w=600&q=80",
       "titel": {
         "de": "Spargel",
         "en": "Asparagus",
@@ -263,24 +288,29 @@
         "ro": "Sparanghel alb și verde fraged – regele legumelor de primăvară."
       },
       "beschreibung": {
-        "de": "Frisch gestochen kommt unser Spargel ohne Umwege direkt auf den Wochenmarkt. Knackig, zart und mit bestem Geschmack für feine Frühlingsgerichte.",
-        "en": "Freshly cut, our asparagus goes straight to the weekly market. Crisp, tender and full of flavour for fine spring dishes.",
-        "ro": "Proaspăt recoltat, sparanghelul nostru ajunge direct la piața săptămânală. Crocant, fraged și foarte gustos pentru preparate fine de primăvară."
+        "de": "Unseren Spargel beziehen wir frisch gestochen von einem Spargelbauern aus der Bodenseeregion – ohne Umwege direkt auf den Wochenmarkt. Knackig, zart und mit bestem Geschmack für feine Frühlingsgerichte.",
+        "en": "We source our asparagus freshly cut from a farmer in the Lake Constance region – straight to the weekly market. Crisp, tender and full of flavour for fine spring dishes.",
+        "ro": "Sparanghelul îl luăm proaspăt recoltat de la un fermier din zona Bodensee și îl aducem direct la piața săptămânală. Crocant, fraged și foarte gustos pentru preparate fine de primăvară."
       },
       "fotos": [
         {
-          "bild": "/images/spargel-feld.webp"
+          "bild": "https://images.unsplash.com/photo-1629875235163-2e52306e4018?auto=format&fit=crop&w=800&q=80"
+        },
+        {
+          "bild": "https://images.unsplash.com/photo-1745685532372-0e2ea562e8d9?auto=format&fit=crop&w=800&q=80"
+        },
+        {
+          "bild": "https://images.unsplash.com/photo-1779798201345-bf48c68dc089?auto=format&fit=crop&w=800&q=80"
         },
         {
           "bild": "https://images.unsplash.com/photo-1515471209610-dae1c92d8777?auto=format&fit=crop&w=800&q=80"
-        },
-        {
-          "bild": "https://images.unsplash.com/photo-1592681815227-2d817c2ca751?auto=format&fit=crop&w=800&q=80"
-        },
-        {
-          "bild": "https://images.unsplash.com/photo-1580130601254-05fa235abeab?auto=format&fit=crop&w=800&q=80"
         }
-      ]
+      ],
+      "herkunft": {
+        "de": "Spargelbauer aus der Bodenseeregion",
+        "en": "Asparagus farmer from the Lake Constance region",
+        "ro": "Fermier din zona Bodensee"
+      }
     },
     {
       "name": {
@@ -312,9 +342,9 @@
         "ro": "Caise catifelate, coapte la soare, cu aromă bogată."
       },
       "beschreibung": {
-        "de": "Unsere Aprikosen reifen perfekt an der Sonne, bis sie ihre wunderschöne Farbe und ihren saftig-süßen Geschmack entwickeln.",
-        "en": "Our apricots ripen perfectly in the sun until they develop their beautiful colour and juicy, sweet taste.",
-        "ro": "Caisele noastre se coc perfect la soare, până capătă culoarea frumoasă și gustul dulce și zemos."
+        "de": "Unsere Aprikosen kommen von Obstbauern aus der Bodenseeregion und aus Frankreich – dort wachsen für uns die besten Aprikosen. Sonnengereift, mit schöner Farbe und saftig-süßem Geschmack.",
+        "en": "Our apricots come from growers in the Lake Constance region and from France – where, in our opinion, the very best apricots grow. Sun-ripened, beautifully coloured, juicy and sweet.",
+        "ro": "Caisele le luăm de la fermieri din zona Bodensee și din Franța – de acolo vin, pentru noi, cele mai bune caise. Coapte la soare, cu o culoare frumoasă și un gust dulce și zemos."
       },
       "fotos": [
         {
@@ -324,12 +354,17 @@
           "bild": "https://images.unsplash.com/photo-1597663034228-e3efadddf134?auto=format&fit=crop&w=800&q=80"
         },
         {
-          "bild": "https://images.unsplash.com/photo-1528825871115-3581a5387919?auto=format&fit=crop&w=800&q=80"
+          "bild": "https://images.unsplash.com/photo-1783083531160-a368dec3a9f7?auto=format&fit=crop&w=800&q=80"
         },
         {
           "bild": "https://images.unsplash.com/photo-1627931754115-478ed65b4fef?auto=format&fit=crop&w=800&q=80"
         }
-      ]
+      ],
+      "herkunft": {
+        "de": "Bodenseeregion & Frankreich",
+        "en": "Lake Constance region & France",
+        "ro": "Zona Bodensee și Franța"
+      }
     },
     {
       "name": {
@@ -361,9 +396,9 @@
         "ro": "Zemoase, aromate și pline de vară."
       },
       "beschreibung": {
-        "de": "Pfirsiche mit samtiger Schale und glatte Nektarinen – reif geerntet, süß und saftig. Ein echter Genuss im Hochsommer.",
-        "en": "Velvety-skinned peaches and smooth nectarines – harvested ripe, sweet and juicy. A real treat in high summer.",
-        "ro": "Piersici cu coaja catifelată și nectarine netede – culese coapte, dulci și zemoase. O adevărată delicatesă în miezul verii."
+        "de": "Pfirsiche mit samtiger Schale und glatte Nektarinen aus der Bodenseeregion sowie aus Italien und Spanien – reif geerntet, süß und saftig. Ein echter Genuss im Hochsommer.",
+        "en": "Velvety-skinned peaches and smooth nectarines from the Lake Constance region as well as from Italy and Spain – harvested ripe, sweet and juicy. A real treat in high summer.",
+        "ro": "Piersici cu coaja catifelată și nectarine netede din zona Bodensee, dar și din Italia și Spania – culese coapte, dulci și zemoase. O adevărată delicatesă în miezul verii."
       },
       "fotos": [
         {
@@ -372,7 +407,12 @@
         {
           "bild": "https://images.unsplash.com/photo-1629828874514-c1e5103f2150?auto=format&fit=crop&w=800&q=80"
         }
-      ]
+      ],
+      "herkunft": {
+        "de": "Bodenseeregion, Italien & Spanien",
+        "en": "Lake Constance region, Italy & Spain",
+        "ro": "Zona Bodensee, Italia și Spania"
+      }
     },
     {
       "name": {
@@ -404,9 +444,9 @@
         "ro": "Proaspeți de pe viță, direct pe masa ta."
       },
       "beschreibung": {
-        "de": "Ausgesuchte Tafeltrauben in Hell und Dunkel – knackig, süß und ideal zum Naschen, für Obstsalate oder die Käseplatte.",
-        "en": "Selected white and red table grapes – crisp, sweet and ideal for snacking, fruit salads or a cheese platter.",
-        "ro": "Struguri de masă albi și roșii, aleși cu grijă – crocanți, dulci și ideali ca gustare, în salate de fructe sau pe un platou cu brânzeturi."
+        "de": "Ausgesuchte Tafeltrauben in Hell und Dunkel aus Italien und Frankreich – knackig, süß und ideal zum Naschen, für Obstsalate oder die Käseplatte.",
+        "en": "Selected white and red table grapes from Italy and France – crisp, sweet and ideal for snacking, fruit salads or a cheese platter.",
+        "ro": "Struguri de masă albi și roșii din Italia și Franța, aleși cu grijă – crocanți, dulci și ideali ca gustare, în salate de fructe sau pe un platou cu brânzeturi."
       },
       "fotos": [
         {
@@ -421,7 +461,12 @@
         {
           "bild": "https://images.unsplash.com/photo-1578829779691-99b60bd8c7be?auto=format&fit=crop&w=800&q=80"
         }
-      ]
+      ],
+      "herkunft": {
+        "de": "Italien & Frankreich",
+        "en": "Italy & France",
+        "ro": "Italia și Franța"
+      }
     },
     {
       "name": {
@@ -453,9 +498,9 @@
         "ro": "Soiuri de mere crocante din regiune, tot anul."
       },
       "beschreibung": {
-        "de": "Wir bieten Ihnen das ganze Jahr über erlesene Apfelsorten an – stets knackig, saftig und ideal gelagert für langanhaltende Frische.",
-        "en": "We offer select apple varieties all year round – always crisp, juicy and ideally stored for long-lasting freshness.",
-        "ro": "Vă oferim tot anul soiuri de mere alese – mereu crocante, zemoase și depozitate corect, ca să rămână proaspete mult timp."
+        "de": "Unsere Äpfel stammen ausschließlich aus der Bodenseeregion. Wir bieten Ihnen das ganze Jahr über erlesene Sorten an – stets knackig, saftig und ideal gelagert für langanhaltende Frische.",
+        "en": "Our apples come exclusively from the Lake Constance region. We offer select varieties all year round – always crisp, juicy and ideally stored for long-lasting freshness.",
+        "ro": "Merele noastre vin numai din zona Bodensee. Vă oferim tot anul soiuri alese – mereu crocante, zemoase și depozitate corect, ca să rămână proaspete mult timp."
       },
       "fotos": [
         {
@@ -467,7 +512,12 @@
         {
           "bild": "https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?auto=format&fit=crop&w=800&q=80"
         }
-      ]
+      ],
+      "herkunft": {
+        "de": "Bodenseeregion",
+        "en": "Lake Constance region",
+        "ro": "Zona Bodensee"
+      }
     },
     {
       "name": {
@@ -499,9 +549,9 @@
         "ro": "Cartofi excelenți pentru orice fel de mâncare."
       },
       "beschreibung": {
-        "de": "Aus gehaltvoller Erde geerntet bieten wir feine Kartoffeln, die durch hervorragenden Geschmack und beste Kocheigenschaften überzeugen.",
-        "en": "Harvested from rich soil, our fine potatoes stand out for their excellent taste and great cooking properties.",
-        "ro": "Recoltați din pământ bogat, cartofii noștri se remarcă prin gustul excelent și calitățile foarte bune la gătit."
+        "de": "Während der Spargelzeit gibt es bei uns die Sorte Sieglinde aus Italien. Ab Juni folgen Annabelle aus Deutschland und ab August die mehligkochende Sorte Sunita, ebenfalls aus Deutschland – für jedes Gericht die passende Kartoffel.",
+        "en": "During asparagus season we offer the Sieglinde variety from Italy. From June we switch to Annabelle from Germany, and from August to the floury Sunita variety, also from Germany – the right potato for every dish.",
+        "ro": "În sezonul sparanghelului avem soiul Sieglinde din Italia. Din iunie urmează Annabelle din Germania, iar din august soiul făinos Sunita, tot din Germania – pentru fiecare fel de mâncare cartoful potrivit."
       },
       "fotos": [
         {
@@ -513,7 +563,12 @@
         {
           "bild": "https://images.unsplash.com/photo-1582515073490-39981397c445?auto=format&fit=crop&w=800&q=80"
         }
-      ]
+      ],
+      "herkunft": {
+        "de": "Italien (Frühjahr) & Deutschland (ab Juni)",
+        "en": "Italy (spring) & Germany (from June)",
+        "ro": "Italia (primăvara) și Germania (din iunie)"
+      }
     },
     {
       "name": {
@@ -545,9 +600,9 @@
         "ro": "O bombă de vitamine pentru sezonul rece."
       },
       "beschreibung": {
-        "de": "Feinste Orangen, saftige Mandarinen und aromatische Zitronen – perfekt ausgewählt, um Sie im Herbst und Winter mit reichlich Vitamin C zu versorgen.",
-        "en": "The finest oranges, juicy mandarins and aromatic lemons – carefully selected to keep you supplied with plenty of vitamin C through autumn and winter.",
-        "ro": "Cele mai bune portocale, mandarine zemoase și lămâi aromate – alese cu grijă ca să aveți vitamina C din belșug toată toamna și iarna."
+        "de": "Feinste Orangen, saftige Mandarinen und aromatische Zitronen aus Italien – perfekt ausgewählt, um Sie im Herbst und Winter mit reichlich Vitamin C zu versorgen.",
+        "en": "The finest oranges, juicy mandarins and aromatic lemons from Italy – carefully selected to keep you supplied with plenty of vitamin C through autumn and winter.",
+        "ro": "Cele mai bune portocale, mandarine zemoase și lămâi aromate din Italia – alese cu grijă ca să aveți vitamina C din belșug toată toamna și iarna."
       },
       "fotos": [
         {
@@ -559,7 +614,12 @@
         {
           "bild": "https://images.unsplash.com/photo-1557800636-894a64c1696f?auto=format&fit=crop&w=800&q=80"
         }
-      ]
+      ],
+      "herkunft": {
+        "de": "Italien",
+        "en": "Italy",
+        "ro": "Italia"
+      }
     }
   ]
 }
