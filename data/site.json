@@ -1,26 +1,90 @@
 {
-  "ankuendigung": "Jede Woche frisch für Sie auf den Wochenmärkten in Vorarlberg!",
+  "ankuendigung": {
+    "de": "Jede Woche frisch für Sie auf den Wochenmärkten in Vorarlberg!",
+    "en": "Fresh for you every week at the weekly markets in Vorarlberg!",
+    "ro": "În fiecare săptămână proaspăt pentru dumneavoastră, la piețele din Vorarlberg!"
+  },
   "telefon": "+49 151 2472 2708",
   "email": "sidor@himbeerhof.com",
-  "adresse": "Am Schorrenwald 2, 88099 Neukirch, Deutschland",
-  "hero_badge": "Sorgfältig angebaut in Neukirch • Marktfrisch in Vorarlberg",
-  "hero_titel": "Frische Früchte",
-  "hero_titel_kursiv": "direkt vom Hof & Markt",
-  "hero_text": "Erntefrische Beeren, Steinobst, Gemüse & Ganzjahres-Klassiker – direkt von unserem Hof für Sie auf den Wochenmärkten in Bregenz, Dornbirn, Feldkirch & Hard!",
+  "adresse": {
+    "de": "Am Schorrenwald 2, 88099 Neukirch, Deutschland",
+    "en": "Am Schorrenwald 2, 88099 Neukirch, Germany",
+    "ro": "Am Schorrenwald 2, 88099 Neukirch, Germania"
+  },
+  "hero_badge": {
+    "de": "Sorgfältig angebaut in Neukirch • Marktfrisch in Vorarlberg",
+    "en": "Carefully grown in Neukirch • Market-fresh in Vorarlberg",
+    "ro": "Cultivate cu grijă în Neukirch • Proaspete la piață în Vorarlberg"
+  },
+  "hero_titel": {
+    "de": "Frische Früchte",
+    "en": "Fresh fruit",
+    "ro": "Fructe proaspete"
+  },
+  "hero_titel_kursiv": {
+    "de": "direkt vom Hof & Markt",
+    "en": "straight from farm & market",
+    "ro": "direct de la fermă și piață"
+  },
+  "hero_text": {
+    "de": "Erntefrische Beeren, Steinobst, Gemüse & Ganzjahres-Klassiker – direkt von unserem Hof für Sie auf den Wochenmärkten in Bregenz, Dornbirn, Feldkirch & Hard!",
+    "en": "Freshly harvested berries, stone fruit, vegetables & year-round classics – straight from our farm to the weekly markets in Bregenz, Dornbirn, Feldkirch & Hard!",
+    "ro": "Fructe de pădure, fructe cu sâmbure, legume și clasicii de tot anul, proaspăt recoltate – direct de la ferma noastră la piețele din Bregenz, Dornbirn, Feldkirch și Hard!"
+  },
   "hero_bild": "https://images.unsplash.com/photo-1577069861033-55d04cec4ef5?auto=format&fit=crop&w=1920&q=80",
-  "ueber_titel": "Leidenschaft für echten Fruchtgeschmack",
-  "ueber_text": "Der **Himbeerhof Constantin Sidor** steht für nachhaltigen Obstbau, höchste Frische und unverfälschte Qualität. Auf unseren Feldern in Neukirch (Am Schorrenwald 2) reifen Früchte unter besten Bedingungen heran.",
-  "ueber_text2": "Klicken Sie unten auf ein beliebiges Produkt, um alle Fotos direkt von unserer Farm und detaillierte Ernteinformationen zu sehen!",
+  "ueber_titel": {
+    "de": "Leidenschaft für echten Fruchtgeschmack",
+    "en": "A passion for real fruit flavour",
+    "ro": "Pasiune pentru gustul adevărat al fructelor"
+  },
+  "ueber_text": {
+    "de": "Der **Himbeerhof Constantin Sidor** steht für nachhaltigen Obstbau, höchste Frische und unverfälschte Qualität. Auf unseren Feldern in Neukirch (Am Schorrenwald 2) reifen Früchte unter besten Bedingungen heran.",
+    "en": "**Himbeerhof Constantin Sidor** stands for sustainable fruit growing, maximum freshness and genuine quality. On our fields in Neukirch (Am Schorrenwald 2), fruit ripens under the best conditions.",
+    "ro": "**Himbeerhof Constantin Sidor** înseamnă pomicultură sustenabilă, prospețime maximă și calitate autentică. Pe câmpurile noastre din Neukirch (Am Schorrenwald 2), fructele se coc în cele mai bune condiții."
+  },
+  "ueber_text2": {
+    "de": "Klicken Sie unten auf ein beliebiges Produkt, um alle Fotos direkt von unserer Farm und detaillierte Ernteinformationen zu sehen!",
+    "en": "Click on any product below to see all photos and detailed harvest information!",
+    "ro": "Apăsați mai jos pe orice produs ca să vedeți toate pozele și detalii despre recoltă!"
+  },
   "ueber_bild": "https://images.unsplash.com/photo-1787218645202-a420179f18b5?auto=format&fit=crop&w=1000&q=80",
-  "kontakt_text": "Bestellen Sie exotische Früchte oder größere Mengen ganz einfach vorab telefonisch oder per E-Mail!",
+  "kontakt_text": {
+    "de": "Bestellen Sie exotische Früchte oder größere Mengen ganz einfach vorab telefonisch oder per E-Mail!",
+    "en": "Order exotic fruit or larger quantities in advance – simply by phone or email!",
+    "ro": "Comandați fructe exotice sau cantități mai mari din timp – simplu, la telefon sau pe e-mail!"
+  },
   "exoten": {
     "anzeigen": true,
-    "titel": "Exotische Früchte auf Bestellung",
-    "text": "Suchen Sie etwas Besonderes? Auf Wunsch bestellen und liefern wir Ihnen gerne auch frische exotische Früchte!",
-    "button": "Details & Bestellung",
-    "saison": "Auf Bestellung",
-    "untertitel": "Exklusive Südfrüchte und Exoten ganz nach Ihren Wünschen.",
-    "beschreibung": "Möchten Sie Mangos, Ananas, Papayas oder andere exotische Früchte direkt frisch geliefert bekommen? Sprechen Sie uns an den Marktständen an oder rufen Sie uns an!",
+    "titel": {
+      "de": "Exotische Früchte auf Bestellung",
+      "en": "Exotic fruit to order",
+      "ro": "Fructe exotice la comandă"
+    },
+    "text": {
+      "de": "Suchen Sie etwas Besonderes? Auf Wunsch bestellen und liefern wir Ihnen gerne auch frische exotische Früchte!",
+      "en": "Looking for something special? On request, we are happy to order and deliver fresh exotic fruit for you!",
+      "ro": "Căutați ceva deosebit? La cerere, vă comandăm și vă aducem cu plăcere și fructe exotice proaspete!"
+    },
+    "button": {
+      "de": "Details & Bestellung",
+      "en": "Details & ordering",
+      "ro": "Detalii și comandă"
+    },
+    "saison": {
+      "de": "Auf Bestellung",
+      "en": "To order",
+      "ro": "La comandă"
+    },
+    "untertitel": {
+      "de": "Exklusive Südfrüchte und Exoten ganz nach Ihren Wünschen.",
+      "en": "Exclusive tropical and exotic fruit, just the way you want it.",
+      "ro": "Fructe tropicale și exotice deosebite, exact cum doriți."
+    },
+    "beschreibung": {
+      "de": "Möchten Sie Mangos, Ananas, Papayas oder andere exotische Früchte direkt frisch geliefert bekommen? Sprechen Sie uns an den Marktständen an oder rufen Sie uns an!",
+      "en": "Would you like mangos, pineapples, papayas or other exotic fruit delivered fresh? Talk to us at our market stalls or give us a call!",
+      "ro": "Doriți mango, ananas, papaya sau alte fructe exotice, livrate proaspete? Vorbiți cu noi la tarabă sau sunați-ne!"
+    },
     "fotos": [
       {
         "bild": "https://images.unsplash.com/photo-1550258987-190a2d41a8ba?auto=format&fit=crop&w=800&q=80"

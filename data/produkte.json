@@ -1,15 +1,39 @@
 {
   "produkte": [
     {
-      "name": "Himbeeren",
+      "name": {
+        "de": "Himbeeren",
+        "en": "Raspberries",
+        "ro": "Zmeură"
+      },
       "sichtbar": true,
-      "saison": "Juni – Oktober",
+      "saison": {
+        "de": "Juni – Oktober",
+        "en": "June – October",
+        "ro": "Iunie – Octombrie"
+      },
       "farbe": "beere",
-      "kurz": "Süß, saftig & täglich frisch von unserem Hof gepflückt.",
+      "kurz": {
+        "de": "Süß, saftig & täglich frisch von unserem Hof gepflückt.",
+        "en": "Sweet, juicy & picked fresh from our farm every day.",
+        "ro": "Dulce, zemoasă și culeasă proaspăt în fiecare zi de la ferma noastră."
+      },
       "bild": "https://images.unsplash.com/photo-1577069861033-55d04cec4ef5?auto=format&fit=crop&w=600&q=80",
-      "titel": "Himbeeren",
-      "untertitel": "Unsere Herzensangelegenheit: Frische, aromatische Himbeeren direkt von unseren Feldern in Neukirch.",
-      "beschreibung": "Unsere Himbeeren reifen geschützt auf unseren Plantagen in Neukirch heran. Wir pflücken täglich früh morgens von Hand, damit nur die perfekten, voll ausgereiften Beeren auf den Wochenmarkt gelangen. Süß, saftig und reich an Vitaminen!",
+      "titel": {
+        "de": "Himbeeren",
+        "en": "Raspberries",
+        "ro": "Zmeură"
+      },
+      "untertitel": {
+        "de": "Unsere Herzensangelegenheit: Frische, aromatische Himbeeren direkt von unseren Feldern in Neukirch.",
+        "en": "Our passion: fresh, aromatic raspberries straight from our fields in Neukirch.",
+        "ro": "Pasiunea noastră: zmeură proaspătă și aromată, direct de pe câmpurile noastre din Neukirch."
+      },
+      "beschreibung": {
+        "de": "Unsere Himbeeren reifen geschützt auf unseren Plantagen in Neukirch heran. Wir pflücken täglich früh morgens von Hand, damit nur die perfekten, voll ausgereiften Beeren auf den Wochenmarkt gelangen. Süß, saftig und reich an Vitaminen!",
+        "en": "Our raspberries ripen in sheltered plantations in Neukirch. We hand-pick them early every morning so that only perfect, fully ripe berries make it to the market. Sweet, juicy and rich in vitamins!",
+        "ro": "Zmeura noastră se coace protejată în plantațiile din Neukirch. O culegem manual în fiecare dimineață devreme, ca la piață să ajungă doar fructe perfecte, complet coapte. Dulce, zemoasă și plină de vitamine!"
+      },
       "fotos": [
         {
           "bild": "https://images.unsplash.com/photo-1783849294475-fceffa44f887?auto=format&fit=crop&w=800&q=80"
@@ -23,15 +47,39 @@
       ]
     },
     {
-      "name": "Erdbeeren",
+      "name": {
+        "de": "Erdbeeren",
+        "en": "Strawberries",
+        "ro": "Căpșuni"
+      },
       "sichtbar": true,
-      "saison": "Mai – Oktober",
+      "saison": {
+        "de": "Mai – Oktober",
+        "en": "May – October",
+        "ro": "Mai – Octombrie"
+      },
       "farbe": "beere",
-      "kurz": "Aromatisch, intensiver Geschmack & naturbelassen.",
+      "kurz": {
+        "de": "Aromatisch, intensiver Geschmack & naturbelassen.",
+        "en": "Aromatic, intense flavour & naturally grown.",
+        "ro": "Aromate, cu gust intens și crescute natural."
+      },
       "bild": "https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=600&q=80",
-      "titel": "Erdbeeren",
-      "untertitel": "Sonnengereifte Erdbeeren voller natürlicher Süße und unvergleichlichem Aroma.",
-      "beschreibung": "Unsere Erdbeeren wachsen auf fruchtbarem Boden und werden mit viel Sorgfalt gepflegt. Durch den schonenden Anbau entwickeln sie ein intensives Rot und einen unverwechselbaren, natürlichen Geschmack.",
+      "titel": {
+        "de": "Erdbeeren",
+        "en": "Strawberries",
+        "ro": "Căpșuni"
+      },
+      "untertitel": {
+        "de": "Sonnengereifte Erdbeeren voller natürlicher Süße und unvergleichlichem Aroma.",
+        "en": "Sun-ripened strawberries full of natural sweetness and unique aroma.",
+        "ro": "Căpșuni coapte la soare, pline de dulceață naturală și o aromă de neegalat."
+      },
+      "beschreibung": {
+        "de": "Unsere Erdbeeren wachsen auf fruchtbarem Boden und werden mit viel Sorgfalt gepflegt. Durch den schonenden Anbau entwickeln sie ein intensives Rot und einen unverwechselbaren, natürlichen Geschmack.",
+        "en": "Our strawberries grow in fertile soil and are tended with great care. Gentle cultivation gives them an intense red colour and an unmistakable, natural taste.",
+        "ro": "Căpșunile noastre cresc în pământ fertil și sunt îngrijite cu multă atenție. Datorită cultivării blânde capătă o culoare roșie intensă și un gust natural, inconfundabil."
+      },
       "fotos": [
         {
           "bild": "https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=800&q=80"
@@ -45,15 +93,39 @@
       ]
     },
     {
-      "name": "Kirschen",
+      "name": {
+        "de": "Kirschen",
+        "en": "Cherries",
+        "ro": "Cireșe"
+      },
       "sichtbar": true,
-      "saison": "Juni – Juli",
+      "saison": {
+        "de": "Juni – Juli",
+        "en": "June – July",
+        "ro": "Iunie – Iulie"
+      },
       "farbe": "rot",
-      "kurz": "Knackige, süße Kirschen frisch vom Baum.",
+      "kurz": {
+        "de": "Knackige, süße Kirschen frisch vom Baum.",
+        "en": "Crisp, sweet cherries fresh from the tree.",
+        "ro": "Cireșe crocante și dulci, proaspete din pom."
+      },
       "bild": "https://images.unsplash.com/photo-1520236060906-9c5ed525b025?auto=format&fit=crop&w=600&q=80",
-      "titel": "Kirschen",
-      "untertitel": "Saftig, dunkelrot und zuckersüß.",
-      "beschreibung": "Unsere Süßkirschen werden in voller Reife gepflückt und kommen frisch auf den Markt – ideal zum Naschen, für Kuchen oder zum Einkochen.",
+      "titel": {
+        "de": "Kirschen",
+        "en": "Cherries",
+        "ro": "Cireșe"
+      },
+      "untertitel": {
+        "de": "Saftig, dunkelrot und zuckersüß.",
+        "en": "Juicy, dark red and sugar-sweet.",
+        "ro": "Zemoase, roșu închis și dulci ca mierea."
+      },
+      "beschreibung": {
+        "de": "Unsere Süßkirschen werden in voller Reife gepflückt und kommen frisch auf den Markt – ideal zum Naschen, für Kuchen oder zum Einkochen.",
+        "en": "Our sweet cherries are picked fully ripe and brought fresh to the market – perfect for snacking, baking or preserving.",
+        "ro": "Cireșele noastre dulci sunt culese complet coapte și ajung proaspete la piață – perfecte de mâncat ca atare, pentru prăjituri sau pentru compot și dulceață."
+      },
       "fotos": [
         {
           "bild": "https://images.unsplash.com/photo-1759921037282-1467a5e125ef?auto=format&fit=crop&w=800&q=80"
@@ -67,15 +139,39 @@
       ]
     },
     {
-      "name": "Johannisbeeren",
+      "name": {
+        "de": "Johannisbeeren",
+        "en": "Currants",
+        "ro": "Coacăze"
+      },
       "sichtbar": true,
-      "saison": "Juni – August",
+      "saison": {
+        "de": "Juni – August",
+        "en": "June – August",
+        "ro": "Iunie – August"
+      },
       "farbe": "beere",
-      "kurz": "Rote und schwarze Johannisbeeren, fruchtig-säuerlich.",
+      "kurz": {
+        "de": "Rote und schwarze Johannisbeeren, fruchtig-säuerlich.",
+        "en": "Red and black currants, fruity and tangy.",
+        "ro": "Coacăze roșii și negre, fructate și acrișoare."
+      },
       "bild": "https://images.unsplash.com/photo-1624944962159-5d2224655ffb?auto=format&fit=crop&w=600&q=80",
-      "titel": "Johannisbeeren",
-      "untertitel": "Kleine Beeren mit großem Aroma.",
-      "beschreibung": "Rote und schwarze Johannisbeeren direkt vom Strauch – perfekt für Marmelade, Gelee, Säfte, Kuchen oder einfach frisch zum Müsli.",
+      "titel": {
+        "de": "Johannisbeeren",
+        "en": "Currants",
+        "ro": "Coacăze"
+      },
+      "untertitel": {
+        "de": "Kleine Beeren mit großem Aroma.",
+        "en": "Small berries with big flavour.",
+        "ro": "Fructe mici cu aromă mare."
+      },
+      "beschreibung": {
+        "de": "Rote und schwarze Johannisbeeren direkt vom Strauch – perfekt für Marmelade, Gelee, Säfte, Kuchen oder einfach frisch zum Müsli.",
+        "en": "Red and black currants straight from the bush – perfect for jam, jelly, juice, cakes or simply fresh on your muesli.",
+        "ro": "Coacăze roșii și negre direct din tufă – perfecte pentru gem, jeleu, suc, prăjituri sau pur și simplu proaspete în musli."
+      },
       "fotos": [
         {
           "bild": "https://images.unsplash.com/photo-1721118174490-352c942096d7?auto=format&fit=crop&w=800&q=80"
@@ -89,15 +185,39 @@
       ]
     },
     {
-      "name": "Zwetschgen",
+      "name": {
+        "de": "Zwetschgen",
+        "en": "Plums",
+        "ro": "Prune"
+      },
       "sichtbar": true,
-      "saison": "Juli – Oktober",
+      "saison": {
+        "de": "Juli – Oktober",
+        "en": "July – October",
+        "ro": "Iulie – Octombrie"
+      },
       "farbe": "lila",
-      "kurz": "Süß-aromatische Pflaumen aus regionalem Anbau.",
+      "kurz": {
+        "de": "Süß-aromatische Pflaumen aus regionalem Anbau.",
+        "en": "Sweet, aromatic plums from regional orchards.",
+        "ro": "Prune dulci și aromate din livezi din regiune."
+      },
       "bild": "https://images.unsplash.com/photo-1763256931625-ce439f5c2470?auto=format&fit=crop&w=600&q=80",
-      "titel": "Zwetschgen",
-      "untertitel": "Süß-aromatische Zwetschgen für den frischen Genuss oder köstliche Kuchen.",
-      "beschreibung": "Unsere regionalen Zwetschgen überzeugen durch ihr festes Fruchtfleisch und das perfekt ausgewogene Verhältnis von Süße und leicht feiner Säure. Ideal zum Frischverzehr oder zum Backen.",
+      "titel": {
+        "de": "Zwetschgen",
+        "en": "Plums",
+        "ro": "Prune"
+      },
+      "untertitel": {
+        "de": "Süß-aromatische Zwetschgen für den frischen Genuss oder köstliche Kuchen.",
+        "en": "Sweet, aromatic plums for eating fresh or for delicious cakes.",
+        "ro": "Prune dulci și aromate, de mâncat proaspete sau pentru prăjituri delicioase."
+      },
+      "beschreibung": {
+        "de": "Unsere regionalen Zwetschgen überzeugen durch ihr festes Fruchtfleisch und das perfekt ausgewogene Verhältnis von Süße und leicht feiner Säure. Ideal zum Frischverzehr oder zum Backen.",
+        "en": "Our regional plums impress with their firm flesh and a perfect balance of sweetness and a delicate tang. Ideal for eating fresh or for baking.",
+        "ro": "Prunele noastre din regiune au pulpa fermă și un echilibru perfect între dulce și o aciditate fină. Ideale de mâncat proaspete sau pentru copt."
+      },
       "fotos": [
         {
           "bild": "/images/zwetschgen-baum.webp"
@@ -114,15 +234,39 @@
       ]
     },
     {
-      "name": "Spargel",
+      "name": {
+        "de": "Spargel",
+        "en": "Asparagus",
+        "ro": "Sparanghel"
+      },
       "sichtbar": true,
-      "saison": "April – Juni",
+      "saison": {
+        "de": "April – Juni",
+        "en": "April – June",
+        "ro": "Aprilie – Iunie"
+      },
       "farbe": "gruen",
-      "kurz": "Erntefrischer weißer und grüner Spargel.",
+      "kurz": {
+        "de": "Erntefrischer weißer und grüner Spargel.",
+        "en": "Freshly harvested white and green asparagus.",
+        "ro": "Sparanghel alb și verde, proaspăt recoltat."
+      },
       "bild": "https://images.unsplash.com/photo-1515471209610-dae1c92d8777?auto=format&fit=crop&w=600&q=80",
-      "titel": "Spargel",
-      "untertitel": "Zarter weißer und grüner Spargel – das königliche Frühjahrsgemüse.",
-      "beschreibung": "Frisch gestochen kommt unser Spargel ohne Umwege direkt auf den Wochenmarkt. Knackig, zart und mit bestem Geschmack für feine Frühlingsgerichte.",
+      "titel": {
+        "de": "Spargel",
+        "en": "Asparagus",
+        "ro": "Sparanghel"
+      },
+      "untertitel": {
+        "de": "Zarter weißer und grüner Spargel – das königliche Frühjahrsgemüse.",
+        "en": "Tender white and green asparagus – the king of spring vegetables.",
+        "ro": "Sparanghel alb și verde fraged – regele legumelor de primăvară."
+      },
+      "beschreibung": {
+        "de": "Frisch gestochen kommt unser Spargel ohne Umwege direkt auf den Wochenmarkt. Knackig, zart und mit bestem Geschmack für feine Frühlingsgerichte.",
+        "en": "Freshly cut, our asparagus goes straight to the weekly market. Crisp, tender and full of flavour for fine spring dishes.",
+        "ro": "Proaspăt recoltat, sparanghelul nostru ajunge direct la piața săptămânală. Crocant, fraged și foarte gustos pentru preparate fine de primăvară."
+      },
       "fotos": [
         {
           "bild": "/images/spargel-feld.webp"
@@ -139,15 +283,39 @@
       ]
     },
     {
-      "name": "Aprikosen",
+      "name": {
+        "de": "Aprikosen",
+        "en": "Apricots",
+        "ro": "Caise"
+      },
       "sichtbar": true,
-      "saison": "Mai – August",
+      "saison": {
+        "de": "Mai – August",
+        "en": "May – August",
+        "ro": "Mai – August"
+      },
       "farbe": "gelb",
-      "kurz": "Sonnengereifte, samtige Früchte voller Süße.",
+      "kurz": {
+        "de": "Sonnengereifte, samtige Früchte voller Süße.",
+        "en": "Sun-ripened, velvety fruit full of sweetness.",
+        "ro": "Fructe catifelate, coapte la soare, pline de dulceață."
+      },
       "bild": "https://images.unsplash.com/photo-1780757718589-51cd6edf9636?auto=format&fit=crop&w=600&q=80",
-      "titel": "Aprikosen",
-      "untertitel": "Samtige, sonnengereifte Aprikosen mit vollem Aroma.",
-      "beschreibung": "Unsere Aprikosen reifen perfekt an der Sonne, bis sie ihre wunderschöne Farbe und ihren saftig-süßen Geschmack entwickeln.",
+      "titel": {
+        "de": "Aprikosen",
+        "en": "Apricots",
+        "ro": "Caise"
+      },
+      "untertitel": {
+        "de": "Samtige, sonnengereifte Aprikosen mit vollem Aroma.",
+        "en": "Velvety, sun-ripened apricots with full flavour.",
+        "ro": "Caise catifelate, coapte la soare, cu aromă bogată."
+      },
+      "beschreibung": {
+        "de": "Unsere Aprikosen reifen perfekt an der Sonne, bis sie ihre wunderschöne Farbe und ihren saftig-süßen Geschmack entwickeln.",
+        "en": "Our apricots ripen perfectly in the sun until they develop their beautiful colour and juicy, sweet taste.",
+        "ro": "Caisele noastre se coc perfect la soare, până capătă culoarea frumoasă și gustul dulce și zemos."
+      },
       "fotos": [
         {
           "bild": "/images/aprikosen-baum.webp"
@@ -164,15 +332,39 @@
       ]
     },
     {
-      "name": "Pfirsiche & Nektarinen",
+      "name": {
+        "de": "Pfirsiche & Nektarinen",
+        "en": "Peaches & Nectarines",
+        "ro": "Piersici și nectarine"
+      },
       "sichtbar": true,
-      "saison": "Juli – September",
+      "saison": {
+        "de": "Juli – September",
+        "en": "July – September",
+        "ro": "Iulie – Septembrie"
+      },
       "farbe": "orange",
-      "kurz": "Sonnengereifte Pfirsiche und Nektarinen.",
+      "kurz": {
+        "de": "Sonnengereifte Pfirsiche und Nektarinen.",
+        "en": "Sun-ripened peaches and nectarines.",
+        "ro": "Piersici și nectarine coapte la soare."
+      },
       "bild": "https://images.unsplash.com/photo-1639588473831-dd9d014646ae?auto=format&fit=crop&w=600&q=80",
-      "titel": "Pfirsiche & Nektarinen",
-      "untertitel": "Saftig, aromatisch und voller Sommer.",
-      "beschreibung": "Pfirsiche mit samtiger Schale und glatte Nektarinen – reif geerntet, süß und saftig. Ein echter Genuss im Hochsommer.",
+      "titel": {
+        "de": "Pfirsiche & Nektarinen",
+        "en": "Peaches & Nectarines",
+        "ro": "Piersici și nectarine"
+      },
+      "untertitel": {
+        "de": "Saftig, aromatisch und voller Sommer.",
+        "en": "Juicy, aromatic and full of summer.",
+        "ro": "Zemoase, aromate și pline de vară."
+      },
+      "beschreibung": {
+        "de": "Pfirsiche mit samtiger Schale und glatte Nektarinen – reif geerntet, süß und saftig. Ein echter Genuss im Hochsommer.",
+        "en": "Velvety-skinned peaches and smooth nectarines – harvested ripe, sweet and juicy. A real treat in high summer.",
+        "ro": "Piersici cu coaja catifelată și nectarine netede – culese coapte, dulci și zemoase. O adevărată delicatesă în miezul verii."
+      },
       "fotos": [
         {
           "bild": "https://images.unsplash.com/photo-1774329659426-1b83a12f0893?auto=format&fit=crop&w=800&q=80"
@@ -183,15 +375,39 @@
       ]
     },
     {
-      "name": "Tafeltrauben",
+      "name": {
+        "de": "Tafeltrauben",
+        "en": "Table Grapes",
+        "ro": "Struguri de masă"
+      },
       "sichtbar": true,
-      "saison": "August – Oktober",
+      "saison": {
+        "de": "August – Oktober",
+        "en": "August – October",
+        "ro": "August – Octombrie"
+      },
       "farbe": "gruen",
-      "kurz": "Helle und dunkle Tafeltrauben, süß und knackig.",
+      "kurz": {
+        "de": "Helle und dunkle Tafeltrauben, süß und knackig.",
+        "en": "White and red table grapes, sweet and crisp.",
+        "ro": "Struguri albi și roșii de masă, dulci și crocanți."
+      },
       "bild": "https://images.unsplash.com/photo-1632990951421-0f748857ad9a?auto=format&fit=crop&w=600&q=80",
-      "titel": "Tafeltrauben",
-      "untertitel": "Frisch von der Rebe auf Ihren Tisch.",
-      "beschreibung": "Ausgesuchte Tafeltrauben in Hell und Dunkel – knackig, süß und ideal zum Naschen, für Obstsalate oder die Käseplatte.",
+      "titel": {
+        "de": "Tafeltrauben",
+        "en": "Table Grapes",
+        "ro": "Struguri de masă"
+      },
+      "untertitel": {
+        "de": "Frisch von der Rebe auf Ihren Tisch.",
+        "en": "Fresh from the vine to your table.",
+        "ro": "Proaspeți de pe viță, direct pe masa ta."
+      },
+      "beschreibung": {
+        "de": "Ausgesuchte Tafeltrauben in Hell und Dunkel – knackig, süß und ideal zum Naschen, für Obstsalate oder die Käseplatte.",
+        "en": "Selected white and red table grapes – crisp, sweet and ideal for snacking, fruit salads or a cheese platter.",
+        "ro": "Struguri de masă albi și roșii, aleși cu grijă – crocanți, dulci și ideali ca gustare, în salate de fructe sau pe un platou cu brânzeturi."
+      },
       "fotos": [
         {
           "bild": "/images/tafeltrauben-rebe.webp"
@@ -208,15 +424,39 @@
       ]
     },
     {
-      "name": "Äpfel",
+      "name": {
+        "de": "Äpfel",
+        "en": "Apples",
+        "ro": "Mere"
+      },
       "sichtbar": true,
-      "saison": "Ganzjährig",
+      "saison": {
+        "de": "Ganzjährig",
+        "en": "All year",
+        "ro": "Tot anul"
+      },
       "farbe": "rot",
-      "kurz": "Knackige und saftige Apfelsorten das ganze Jahr über.",
+      "kurz": {
+        "de": "Knackige und saftige Apfelsorten das ganze Jahr über.",
+        "en": "Crisp and juicy apple varieties all year round.",
+        "ro": "Soiuri de mere crocante și zemoase, tot anul."
+      },
       "bild": "https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?auto=format&fit=crop&w=600&q=80",
-      "titel": "Äpfel",
-      "untertitel": "Knackige regionale Apfelsorten das ganze Jahr über.",
-      "beschreibung": "Wir bieten Ihnen das ganze Jahr über erlesene Apfelsorten an – stets knackig, saftig und ideal gelagert für langanhaltende Frische.",
+      "titel": {
+        "de": "Äpfel",
+        "en": "Apples",
+        "ro": "Mere"
+      },
+      "untertitel": {
+        "de": "Knackige regionale Apfelsorten das ganze Jahr über.",
+        "en": "Crisp regional apple varieties all year round.",
+        "ro": "Soiuri de mere crocante din regiune, tot anul."
+      },
+      "beschreibung": {
+        "de": "Wir bieten Ihnen das ganze Jahr über erlesene Apfelsorten an – stets knackig, saftig und ideal gelagert für langanhaltende Frische.",
+        "en": "We offer select apple varieties all year round – always crisp, juicy and ideally stored for long-lasting freshness.",
+        "ro": "Vă oferim tot anul soiuri de mere alese – mereu crocante, zemoase și depozitate corect, ca să rămână proaspete mult timp."
+      },
       "fotos": [
         {
           "bild": "https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?auto=format&fit=crop&w=800&q=80"
@@ -230,15 +470,39 @@
       ]
     },
     {
-      "name": "Kartoffeln",
+      "name": {
+        "de": "Kartoffeln",
+        "en": "Potatoes",
+        "ro": "Cartofi"
+      },
       "sichtbar": true,
-      "saison": "Ganzjährig",
+      "saison": {
+        "de": "Ganzjährig",
+        "en": "All year",
+        "ro": "Tot anul"
+      },
       "farbe": "grau",
-      "kurz": "Feine Speisekartoffeln für jeden Küchenbedarf.",
+      "kurz": {
+        "de": "Feine Speisekartoffeln für jeden Küchenbedarf.",
+        "en": "Fine table potatoes for every kitchen.",
+        "ro": "Cartofi de consum de calitate pentru orice bucătărie."
+      },
       "bild": "https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=600&q=80",
-      "titel": "Kartoffeln",
-      "untertitel": "Vorzügliche Speisekartoffeln für jeden Bedarf in der Küche.",
-      "beschreibung": "Aus gehaltvoller Erde geerntet bieten wir feine Kartoffeln, die durch hervorragenden Geschmack und beste Kocheigenschaften überzeugen.",
+      "titel": {
+        "de": "Kartoffeln",
+        "en": "Potatoes",
+        "ro": "Cartofi"
+      },
+      "untertitel": {
+        "de": "Vorzügliche Speisekartoffeln für jeden Bedarf in der Küche.",
+        "en": "Excellent table potatoes for every cooking need.",
+        "ro": "Cartofi excelenți pentru orice fel de mâncare."
+      },
+      "beschreibung": {
+        "de": "Aus gehaltvoller Erde geerntet bieten wir feine Kartoffeln, die durch hervorragenden Geschmack und beste Kocheigenschaften überzeugen.",
+        "en": "Harvested from rich soil, our fine potatoes stand out for their excellent taste and great cooking properties.",
+        "ro": "Recoltați din pământ bogat, cartofii noștri se remarcă prin gustul excelent și calitățile foarte bune la gătit."
+      },
       "fotos": [
         {
           "bild": "https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=800&q=80"
@@ -252,15 +516,39 @@
       ]
     },
     {
-      "name": "Zitrusfrüchte",
+      "name": {
+        "de": "Zitrusfrüchte",
+        "en": "Citrus Fruits",
+        "ro": "Citrice"
+      },
       "sichtbar": true,
-      "saison": "September – April",
+      "saison": {
+        "de": "September – April",
+        "en": "September – April",
+        "ro": "Septembrie – Aprilie"
+      },
       "farbe": "orange",
-      "kurz": "Vitaminreiche Orangen, Mandarinen & Zitronen.",
+      "kurz": {
+        "de": "Vitaminreiche Orangen, Mandarinen & Zitronen.",
+        "en": "Vitamin-rich oranges, mandarins & lemons.",
+        "ro": "Portocale, mandarine și lămâi bogate în vitamine."
+      },
       "bild": "https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?auto=format&fit=crop&w=600&q=80",
-      "titel": "Zitrusfrüchte",
-      "untertitel": "Vitaminbombe für die kältere Jahreszeit.",
-      "beschreibung": "Feinste Orangen, saftige Mandarinen und aromatische Zitronen – perfekt ausgewählt, um Sie im Herbst und Winter mit reichlich Vitamin C zu versorgen.",
+      "titel": {
+        "de": "Zitrusfrüchte",
+        "en": "Citrus Fruits",
+        "ro": "Citrice"
+      },
+      "untertitel": {
+        "de": "Vitaminbombe für die kältere Jahreszeit.",
+        "en": "A vitamin boost for the colder months.",
+        "ro": "O bombă de vitamine pentru sezonul rece."
+      },
+      "beschreibung": {
+        "de": "Feinste Orangen, saftige Mandarinen und aromatische Zitronen – perfekt ausgewählt, um Sie im Herbst und Winter mit reichlich Vitamin C zu versorgen.",
+        "en": "The finest oranges, juicy mandarins and aromatic lemons – carefully selected to keep you supplied with plenty of vitamin C through autumn and winter.",
+        "ro": "Cele mai bune portocale, mandarine zemoase și lămâi aromate – alese cu grijă ca să aveți vitamina C din belșug toată toamna și iarna."
+      },
       "fotos": [
         {
           "bild": "https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?auto=format&fit=crop&w=800&q=80"

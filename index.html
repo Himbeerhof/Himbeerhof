@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="alternate" hreflang="de" href="https://himbeerhof.com/">
+    <link rel="alternate" hreflang="en" href="https://himbeerhof.com/?lang=en">
+    <link rel="alternate" hreflang="ro" href="https://himbeerhof.com/?lang=ro">
     <title>Himbeerhof – Frische Früchte vom Feld & Wochenmärkte in Vorarlberg</title>
     <meta name="description" content="Köstliche Himbeeren, Erdbeeren, Kirschen, Johannisbeeren, Zwetschgen, Spargel, Aprikosen, Pfirsiche, Tafeltrauben, Äpfel, Kartoffeln, Zitrusfrüchte und exotische Früchte direkt vom Himbeerhof in Neukirch. Besuchen Sie uns auf den Wochenmärkten in Vorarlberg!">
     
@@ -85,20 +88,25 @@
                     </div>
                     <div class="flex flex-col">
                         <span class="font-serif text-2xl font-bold tracking-tight text-berry-600 group-hover:text-berry-700 transition-colors">Himbeerhof</span>
-                        <span class="text-[10px] tracking-widest uppercase text-leaf-600 font-semibold -mt-1">Obstbau Neukirch</span>
+                        <span class="text-[10px] tracking-widest uppercase text-leaf-600 font-semibold -mt-1" data-t="logo_sub">Obstbau Neukirch</span>
                     </div>
                 </a>
 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center gap-8 font-medium text-stone-700 text-sm">
-                    <a href="#ueber-uns" class="hover:text-berry-600 transition-colors">Über uns</a>
-                    <a href="#fruechte" class="hover:text-berry-600 transition-colors">Unsere Produkte</a>
-                    <a href="#wochenmaerkte" class="hover:text-berry-600 transition-colors">Wochenmärkte</a>
-                    <a href="#kontakt" class="hover:text-berry-600 transition-colors">Kontakt</a>
+                    <a href="#ueber-uns" class="hover:text-berry-600 transition-colors" data-t="nav_ueber">Über uns</a>
+                    <a href="#fruechte" class="hover:text-berry-600 transition-colors" data-t="nav_produkte">Unsere Produkte</a>
+                    <a href="#wochenmaerkte" class="hover:text-berry-600 transition-colors" data-t="nav_maerkte">Wochenmärkte</a>
+                    <a href="#kontakt" class="hover:text-berry-600 transition-colors" data-t="nav_kontakt">Kontakt</a>
                 </div>
 
                 <!-- Action Badge -->
                 <div class="hidden sm:flex items-center gap-3">
+                    <div class="lang-switch flex items-center gap-1 text-xs font-bold">
+                        <button data-lang="de" class="px-2 py-1 rounded-full">DE</button>
+                        <button data-lang="en" class="px-2 py-1 rounded-full">EN</button>
+                        <button data-lang="ro" class="px-2 py-1 rounded-full">RO</button>
+                    </div>
                     <a href="tel:+4915124722708" data-tel class="inline-flex items-center gap-2 bg-berry-600 hover:bg-berry-700 text-white px-5 py-2.5 rounded-full text-sm font-semibold shadow-sm transition-all duration-200">
                         <i class="fa-solid fa-phone"></i>
                         <span data-feld="telefon">+49 151 2472 2708</span>
@@ -106,8 +114,13 @@
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="p-2 rounded-lg text-stone-700 hover:text-berry-600 focus:outline-none" aria-label="Menü öffnen">
+                <div class="md:hidden flex items-center gap-1">
+                    <div class="lang-switch sm:hidden flex items-center gap-1 text-xs font-bold">
+                        <button data-lang="de" class="px-2 py-1 rounded-full">DE</button>
+                        <button data-lang="en" class="px-2 py-1 rounded-full">EN</button>
+                        <button data-lang="ro" class="px-2 py-1 rounded-full">RO</button>
+                    </div>
+                    <button id="mobile-menu-btn" class="p-2 rounded-lg text-stone-700 hover:text-berry-600 focus:outline-none" aria-label="Menü öffnen" data-t-aria="menu">
                         <i class="fa-solid fa-bars text-xl"></i>
                     </button>
                 </div>
@@ -116,12 +129,12 @@
 
         <!-- Mobile Navigation Drawer -->
         <div id="mobile-menu" class="hidden md:hidden bg-cream-50 border-b border-cream-200 px-4 pt-2 pb-6 space-y-3">
-            <a href="#ueber-uns" class="mobile-link block py-2 px-3 rounded-lg text-stone-700 font-medium hover:bg-cream-100 hover:text-berry-600">Über uns</a>
-            <a href="#fruechte" class="mobile-link block py-2 px-3 rounded-lg text-stone-700 font-medium hover:bg-cream-100 hover:text-berry-600">Unsere Produkte</a>
-            <a href="#wochenmaerkte" class="mobile-link block py-2 px-3 rounded-lg text-stone-700 font-medium hover:bg-cream-100 hover:text-berry-600">Wochenmärkte</a>
-            <a href="#kontakt" class="mobile-link block py-2 px-3 rounded-lg text-stone-700 font-medium hover:bg-cream-100 hover:text-berry-600">Kontakt</a>
+            <a href="#ueber-uns" class="mobile-link block py-2 px-3 rounded-lg text-stone-700 font-medium hover:bg-cream-100 hover:text-berry-600" data-t="nav_ueber">Über uns</a>
+            <a href="#fruechte" class="mobile-link block py-2 px-3 rounded-lg text-stone-700 font-medium hover:bg-cream-100 hover:text-berry-600" data-t="nav_produkte">Unsere Produkte</a>
+            <a href="#wochenmaerkte" class="mobile-link block py-2 px-3 rounded-lg text-stone-700 font-medium hover:bg-cream-100 hover:text-berry-600" data-t="nav_maerkte">Wochenmärkte</a>
+            <a href="#kontakt" class="mobile-link block py-2 px-3 rounded-lg text-stone-700 font-medium hover:bg-cream-100 hover:text-berry-600" data-t="nav_kontakt">Kontakt</a>
             <a href="tel:+4915124722708" data-tel class="mobile-link mt-2 flex items-center justify-center gap-2 bg-berry-600 text-white w-full py-2.5 rounded-xl font-semibold">
-                <i class="fa-solid fa-phone"></i> Anrufen
+                <i class="fa-solid fa-phone"></i> <span data-t="anrufen">Anrufen</span>
             </a>
         </div>
     </nav>
@@ -150,11 +163,11 @@
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
                 <a href="#wochenmaerkte" class="w-full sm:w-auto bg-berry-600 hover:bg-berry-500 text-white font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center gap-3">
                     <i class="fa-solid fa-calendar-days"></i>
-                    <span>Wochenmärkte entdecken</span>
+                    <span data-t="cta_maerkte">Wochenmärkte entdecken</span>
                 </a>
                 <a href="#fruechte" class="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-cream-50 border border-white/30 font-semibold px-8 py-4 rounded-full backdrop-blur-sm transition-all duration-200 flex items-center justify-center gap-3">
                     <i class="fa-solid fa-basket-shopping"></i>
-                    <span>Unsere Produkte</span>
+                    <span data-t="nav_produkte">Unsere Produkte</span>
                 </a>
             </div>
         </div>
@@ -177,7 +190,7 @@
                 <div class="space-y-6">
                     <div class="inline-flex items-center gap-2 text-leaf-600 font-semibold text-sm tracking-widest uppercase">
                         <i class="fa-solid fa-wheat-awn"></i>
-                        <span>Über den Himbeerhof</span>
+                        <span data-t="ueber_label">Über den Himbeerhof</span>
                     </div>
 
                     <h2 class="font-serif text-3xl sm:text-4xl font-bold text-stone-800 leading-tight" data-feld="ueber_titel">
@@ -202,8 +215,8 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
             <div class="text-center max-w-3xl mx-auto space-y-4 mb-12">
-                <span class="text-berry-600 font-semibold text-sm tracking-widest uppercase">Klicken Sie auf ein Produkt für Bilder & Details</span>
-                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-stone-800">Unsere Hofprodukte</h2>
+                <span class="text-berry-600 font-semibold text-sm tracking-widest uppercase" data-t="produkte_label">Klicken Sie auf ein Produkt für Bilder & Details</span>
+                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-stone-800" data-t="produkte_titel">Unsere Hofprodukte</h2>
             </div>
 
             <!-- Product Grid -->
@@ -234,8 +247,8 @@
     <section id="wochenmaerkte" class="py-20 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
-                <span class="text-leaf-600 font-semibold text-sm tracking-widest uppercase">Wochenmärkte in Vorarlberg</span>
-                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-stone-800">Hier finden Sie uns</h2>
+                <span class="text-leaf-600 font-semibold text-sm tracking-widest uppercase" data-t="maerkte_label">Wochenmärkte in Vorarlberg</span>
+                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-stone-800" data-t="maerkte_titel">Hier finden Sie uns</h2>
             </div>
 
             <div id="maerkte-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -247,7 +260,7 @@
     <!-- Kontakt Section -->
     <section id="kontakt" class="py-20 bg-stone-900 text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="font-serif text-3xl sm:text-4xl font-bold mb-6">Kontakt & Vorbestellungen</h2>
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold mb-6" data-t="kontakt_titel">Kontakt & Vorbestellungen</h2>
             <p class="text-stone-400 max-w-xl mx-auto mb-8" data-feld="kontakt_text">Bestellen Sie exotische Früchte oder größere Mengen ganz einfach vorab telefonisch oder per E-Mail!</p>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
                 <a href="tel:+4915124722708" data-tel class="bg-berry-600 hover:bg-berry-700 text-white px-8 py-4 rounded-full font-bold text-lg transition-colors">
@@ -282,7 +295,7 @@
                 <div>
                     <h3 class="font-serif text-xl font-bold text-stone-800 mb-4 flex items-center gap-2">
                         <i class="fa-solid fa-camera text-berry-600"></i>
-                        <span>Fotos von unserer Farm in Neukirch</span>
+                        <span data-t="modal_fotos">Fotos von unserer Farm in Neukirch</span>
                     </h3>
                     <div id="modal-gallery" class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                         <!-- Imagini din dinamica JS -->
@@ -294,7 +307,7 @@
                     <div>
                         <h4 class="font-bold text-stone-800 mb-2 flex items-center gap-2">
                             <i class="fa-solid fa-leaf text-leaf-600"></i>
-                            <span>Über den Anbau & Qualität</span>
+                            <span data-t="modal_anbau">Über den Anbau & Qualität</span>
                         </h4>
                         <p id="modal-description" class="text-stone-600 text-sm leading-relaxed">
                             Detailbeschreibung
@@ -303,25 +316,25 @@
                     <div class="space-y-3 text-sm">
                         <div class="flex items-center gap-3">
                             <i class="fa-solid fa-location-dot text-berry-600 w-5"></i>
-                            <span><strong>Herkunft:</strong> Himbeerhof Neukirch</span>
+                            <span data-t="modal_herkunft" data-html><strong>Herkunft:</strong> Himbeerhof Neukirch</span>
                         </div>
                         <div class="flex items-center gap-3">
                             <i class="fa-solid fa-store text-berry-600 w-5"></i>
-                            <span><strong>Erhältlich:</strong> Wochenmärkte Vorarlberg</span>
+                            <span data-t="modal_erhaeltlich" data-html><strong>Erhältlich:</strong> Wochenmärkte Vorarlberg</span>
                         </div>
                         <div class="flex items-center gap-3">
                             <i class="fa-solid fa-truck-field text-berry-600 w-5"></i>
-                            <span><strong>Frische:</strong> Täglich morgens geerntet</span>
+                            <span data-t="modal_frische" data-html><strong>Frische:</strong> Täglich morgens geerntet</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Footer Call to Action -->
                 <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-cream-200">
-                    <p class="text-xs text-stone-500">Möchten Sie eine größere Menge reservieren?</p>
+                    <p class="text-xs text-stone-500" data-t="modal_menge">Möchten Sie eine größere Menge reservieren?</p>
                     <a href="tel:+4915124722708" data-tel class="w-full sm:w-auto bg-berry-600 hover:bg-berry-700 text-white font-bold px-6 py-3 rounded-full text-center text-sm transition-colors flex items-center justify-center gap-2">
                         <i class="fa-solid fa-phone"></i>
-                        <span>Jetzt anrufen & bestellen</span>
+                        <span data-t="modal_anrufen">Jetzt anrufen & bestellen</span>
                     </a>
                 </div>
 
@@ -335,35 +348,36 @@
             <div class="flex flex-col md:flex-row justify-between items-center gap-4">
                 <div>
                     <p class="font-serif text-xl font-bold text-white">Himbeerhof</p>
-                    <p class="text-xs text-stone-500" data-feld="adresse">Am Schorrenwald 2, 88099 Neukirch, Deutschland</p>
+                    <p class="text-xs text-stone-500" data-feld="adresse">Am Schorrenwald 2, 88099 Neukirch, <span data-t="land">Deutschland</span></p>
                 </div>
                 <div class="flex gap-6 text-xs">
-                    <a href="#impressum" class="hover:text-white underline">Impressum</a>
-                    <a href="#datenschutz" class="hover:text-white underline">Datenschutzerklärung</a>
+                    <a href="#impressum" class="hover:text-white underline" data-t="impressum">Impressum</a>
+                    <a href="#datenschutz" class="hover:text-white underline" data-t="datenschutz">Datenschutzerklärung</a>
                 </div>
             </div>
 
             <!-- Impressum Block -->
             <div id="impressum" class="pt-8 border-t border-stone-800 text-xs text-stone-400 space-y-2">
-                <h4 class="font-bold text-white text-sm">Impressum</h4>
-                <p><strong>Angaben gemäß § 5 TMG / Verantwortlich für den Inhalt:</strong></p>
-                <p>Himbeerhof Constantin Sidor<br>Am Schorrenwald 2<br>88099 Neukirch, Deutschland</p>
-                <p><strong>Kontakt:</strong> Telefon: <span data-feld="telefon">+49 151 2472 2708</span> | E-Mail: <span data-feld="email">sidor@himbeerhof.com</span></p>
+                <h4 class="font-bold text-white text-sm" data-t="impressum">Impressum</h4>
+                <p><strong data-t="impressum_angaben">Angaben gemäß § 5 DDG / Verantwortlich für den Inhalt:</strong></p>
+                <p>Himbeerhof Constantin Sidor<br>Am Schorrenwald 2<br>88099 Neukirch, <span data-t="land">Deutschland</span></p>
+                <p><strong data-t="nav_kontakt">Kontakt</strong>: <span data-t="telefon">Telefon</span>: <span data-feld="telefon">+49 151 2472 2708</span> | E-Mail: <span data-feld="email">sidor@himbeerhof.com</span></p>
             </div>
 
             <!-- Datenschutz Block -->
             <div id="datenschutz" class="pt-4 border-t border-stone-800 text-xs text-stone-500 space-y-2">
-                <h4 class="font-bold text-white text-sm">Datenschutzerklärung</h4>
-                <p>Der Schutz Ihrer persönlichen Daten ist uns ein wichtiges Anliegen. Diese Website erhebt keine personenbezogenen Daten, es sei denn, Sie nehmen direkt per E-Mail oder Telefon Kontakt mit uns auf.</p>
+                <h4 class="font-bold text-white text-sm" data-t="datenschutz">Datenschutzerklärung</h4>
+                <p data-t="datenschutz_text">Der Schutz Ihrer persönlichen Daten ist uns ein wichtiges Anliegen. Diese Website erhebt keine personenbezogenen Daten, es sei denn, Sie nehmen direkt per E-Mail oder Telefon Kontakt mit uns auf.</p>
             </div>
 
             <div class="text-center text-xs text-stone-600 pt-4">
-                &copy; 2026 Himbeerhof. Alle Rechte vorbehalten.
+                &copy; 2026 Himbeerhof. <span data-t="rechte">Alle Rechte vorbehalten.</span>
             </div>
         </div>
     </footer>
 
     <!-- JavaScript logic pentru Pagina de Produs Modală -->
+    <script src="/js/i18n.js"></script>
     <script src="/js/inhalt.js"></script>
 </body>
 </html>

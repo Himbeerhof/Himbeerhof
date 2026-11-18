@@ -2,33 +2,81 @@
   "maerkte": [
     {
       "ort": "Hard",
-      "platz": "Wochenmarkt",
-      "zeiten": "Saisonal vor Ort",
-      "saison": "April – September",
+      "platz": {
+        "de": "Wochenmarkt",
+        "en": "Weekly market",
+        "ro": "Piața săptămânală"
+      },
+      "zeiten": {
+        "de": "Saisonal vor Ort",
+        "en": "On site in season",
+        "ro": "Prezenți în sezon"
+      },
+      "saison": {
+        "de": "April – September",
+        "en": "April – September",
+        "ro": "Aprilie – Septembrie"
+      },
       "hervorheben": true,
       "sichtbar": true
     },
     {
       "ort": "Feldkirch",
-      "platz": "Marktgasse",
-      "zeiten": "Dienstag & Samstag | 07:30 – 12:00 Uhr",
-      "saison": "April – Oktober",
+      "platz": {
+        "de": "Marktgasse",
+        "en": "Marktgasse",
+        "ro": "Marktgasse"
+      },
+      "zeiten": {
+        "de": "Dienstag & Samstag | 07:30 – 12:00 Uhr",
+        "en": "Tuesday & Saturday | 7:30 am – 12:00 pm",
+        "ro": "Marți și sâmbătă | 07:30 – 12:00"
+      },
+      "saison": {
+        "de": "April – Oktober",
+        "en": "April – October",
+        "ro": "Aprilie – Octombrie"
+      },
       "hervorheben": false,
       "sichtbar": true
     },
     {
       "ort": "Bregenz",
-      "platz": "Kornmarktplatz",
-      "zeiten": "Dienstag & Freitag | 07:00 – 12:00 Uhr",
-      "saison": "",
+      "platz": {
+        "de": "Kornmarktplatz",
+        "en": "Kornmarktplatz",
+        "ro": "Kornmarktplatz"
+      },
+      "zeiten": {
+        "de": "Dienstag & Freitag | 07:00 – 12:00 Uhr",
+        "en": "Tuesday & Friday | 7:00 am – 12:00 pm",
+        "ro": "Marți și vineri | 07:00 – 12:00"
+      },
+      "saison": {
+        "de": "",
+        "en": "",
+        "ro": ""
+      },
       "hervorheben": false,
       "sichtbar": true
     },
     {
       "ort": "Dornbirn",
-      "platz": "Marktplatz",
-      "zeiten": "Mittwoch & Samstag | 07:00 – 12:00 Uhr",
-      "saison": "",
+      "platz": {
+        "de": "Marktplatz",
+        "en": "Marktplatz",
+        "ro": "Marktplatz"
+      },
+      "zeiten": {
+        "de": "Mittwoch & Samstag | 07:00 – 12:00 Uhr",
+        "en": "Wednesday & Saturday | 7:00 am – 12:00 pm",
+        "ro": "Miercuri și sâmbătă | 07:00 – 12:00"
+      },
+      "saison": {
+        "de": "",
+        "en": "",
+        "ro": ""
+      },
       "hervorheben": false,
       "sichtbar": true
     }

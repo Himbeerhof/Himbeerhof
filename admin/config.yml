@@ -1,17 +1,15 @@
+# Panoul de control Himbeerhof (Sveltia CMS).
+# Textele au câte 3 variante: DE / EN / RO. Dacă EN sau RO e gol, pe site apare germana.
 backend:
   name: github
   repo: Himbeerhof/Himbeerhof
   branch: main
   commit_messages:
-    update: "Panou: actualizat {{collection}} – {{slug}}"
-
-site_url: "https://himbeerhof.com"
-display_url: "https://himbeerhof.com"
-
-media_folder: "images"
-public_folder: "/images"
-
-# Pozele încărcate sunt micșorate automat (max. 1600 px) și salvate ca WebP, ca site-ul să rămână rapid.
+    update: 'Panou: actualizat {{collection}} – {{slug}}'
+site_url: https://himbeerhof.com
+display_url: https://himbeerhof.com
+media_folder: images
+public_folder: /images
 media_libraries:
   default:
     config:
@@ -22,106 +20,527 @@ media_libraries:
           quality: 82
           width: 1600
           height: 1600
-
 collections:
-  - name: "continut"
-    label: "Conținut site"
-    editor:
-      preview: false
-    files:
-      # ---------------- PRODUSE ----------------
-      - name: "produse"
-        label: "🍓 Produse"
-        file: "data/produkte.json"
+- name: continut
+  label: Conținut site
+  editor:
+    preview: false
+  files:
+  - name: produse
+    label: 🍓 Produse
+    file: data/produkte.json
+    fields:
+    - label: Produse
+      name: produkte
+      widget: list
+      label_singular: produs
+      summary: '{{fields.name.de}} – {{fields.saison.de}}'
+      hint: Trage de produse ca să schimbi ordinea. Apasă pe ✕ ca să ștergi un produs.
+      fields:
+      - label: Nume (pe card)
+        name: name
+        widget: object
         fields:
-          - label: "Produse"
-            name: "produkte"
-            widget: "list"
-            label_singular: "produs"
-            summary: "{{fields.name}} – {{fields.saison}}"
-            hint: "Trage de produse ca să schimbi ordinea. Apasă pe ✕ ca să ștergi un produs."
-            fields:
-              - {label: "Nume (pe card)", name: "name", widget: "string"}
-              - {label: "Afișează pe site", name: "sichtbar", widget: "boolean", default: true, hint: "Dezactivează ca să ascunzi produsul temporar, fără să-l ștergi."}
-              - {label: "Sezon", name: "saison", widget: "string", required: false, hint: "Ex.: Juni – Oktober, Ganzjährig"}
-              - label: "Culoarea etichetei de sezon"
-                name: "farbe"
-                widget: "select"
-                default: "beere"
-                options:
-                  - {label: "Zmeură (roșu închis)", value: "beere"}
-                  - {label: "Roșu", value: "rot"}
-                  - {label: "Mov", value: "lila"}
-                  - {label: "Verde", value: "gruen"}
-                  - {label: "Galben", value: "gelb"}
-                  - {label: "Portocaliu", value: "orange"}
-                  - {label: "Gri", value: "grau"}
-              - {label: "Text scurt (pe card)", name: "kurz", widget: "string"}
-              - {label: "Poză principală (pe card)", name: "bild", widget: "image", choose_url: true}
-              - {label: "Titlu în fereastra de detalii", name: "titel", widget: "string", required: false}
-              - {label: "Subtitlu în fereastra de detalii", name: "untertitel", widget: "text", required: false}
-              - {label: "Descriere detaliată", name: "beschreibung", widget: "text", required: false}
-              - label: "Galerie foto (din fermă)"
-                name: "fotos"
-                widget: "list"
-                required: false
-                label_singular: "poză"
-                summary: "{{fields.bild}}"
-                fields:
-                  - {label: "Poză", name: "bild", widget: "image", choose_url: true}
-
-      # ---------------- PIEȚE ----------------
-      - name: "piete"
-        label: "📍 Piețe săptămânale"
-        file: "data/maerkte.json"
+        - widget: string
+          name: de
+          label: 🇩🇪 Deutsch
+        - widget: string
+          name: en
+          label: 🇬🇧 English
+          required: false
+        - widget: string
+          name: ro
+          label: 🇷🇴 Română
+          required: false
+        hint: Dacă lași gol EN sau RO, apare textul în germană.
+      - label: Afișează pe site
+        name: sichtbar
+        widget: boolean
+        default: true
+        hint: Dezactivează ca să ascunzi produsul temporar, fără să-l ștergi.
+      - label: Sezon
+        name: saison
+        widget: object
         fields:
-          - label: "Piețe"
-            name: "maerkte"
-            widget: "list"
-            label_singular: "piață"
-            summary: "{{fields.ort}} – {{fields.zeiten}}"
-            fields:
-              - {label: "Localitate", name: "ort", widget: "string", hint: "Ex.: Bregenz"}
-              - {label: "Loc / piață", name: "platz", widget: "string", hint: "Ex.: Kornmarktplatz"}
-              - {label: "Zile și ore", name: "zeiten", widget: "string", hint: "Ex.: Dienstag & Freitag | 07:00 – 12:00 Uhr"}
-              - {label: "Sezon (opțional)", name: "saison", widget: "string", required: false, hint: "Ex.: April – Oktober. Lasă gol dacă e tot anul."}
-              - {label: "Evidențiază (chenar roșu)", name: "hervorheben", widget: "boolean", default: false}
-              - {label: "Afișează pe site", name: "sichtbar", widget: "boolean", default: true}
-
-      # ---------------- SETĂRI GENERALE ----------------
-      - name: "general"
-        label: "⚙️ Texte, contact și imagini"
-        file: "data/site.json"
+        - widget: string
+          required: false
+          name: de
+          label: 🇩🇪 Deutsch
+        - widget: string
+          required: false
+          name: en
+          label: 🇬🇧 English
+        - widget: string
+          required: false
+          name: ro
+          label: 🇷🇴 Română
+        required: false
+        hint: 'Ex.: Juni – Oktober, Ganzjährig Dacă lași gol EN sau RO, apare textul în germană.'
+      - label: Culoarea etichetei de sezon
+        name: farbe
+        widget: select
+        default: beere
+        options:
+        - label: Zmeură (roșu închis)
+          value: beere
+        - label: Roșu
+          value: rot
+        - label: Mov
+          value: lila
+        - label: Verde
+          value: gruen
+        - label: Galben
+          value: gelb
+        - label: Portocaliu
+          value: orange
+        - label: Gri
+          value: grau
+      - label: Text scurt (pe card)
+        name: kurz
+        widget: object
         fields:
-          - {label: "Bara de anunț (sus de tot)", name: "ankuendigung", widget: "string"}
-          - {label: "Telefon", name: "telefon", widget: "string"}
-          - {label: "E-mail", name: "email", widget: "string"}
-          - {label: "Adresa (subsol)", name: "adresse", widget: "string"}
-          - {label: "Prima secțiune – eticheta mică", name: "hero_badge", widget: "string"}
-          - {label: "Prima secțiune – titlu", name: "hero_titel", widget: "string"}
-          - {label: "Prima secțiune – titlu (partea cursivă)", name: "hero_titel_kursiv", widget: "string"}
-          - {label: "Prima secțiune – text", name: "hero_text", widget: "text"}
-          - {label: "Prima secțiune – imagine de fundal", name: "hero_bild", widget: "image", choose_url: true}
-          - {label: "Despre noi – titlu", name: "ueber_titel", widget: "string"}
-          - {label: "Despre noi – text", name: "ueber_text", widget: "text", hint: "Pune **cuvinte** între două steluțe ca să apară îngroșate."}
-          - {label: "Despre noi – text 2", name: "ueber_text2", widget: "text"}
-          - {label: "Despre noi – poză", name: "ueber_bild", widget: "image", choose_url: true}
-          - {label: "Contact – text", name: "kontakt_text", widget: "text"}
-          - label: "🍍 Fructe exotice la comandă"
-            name: "exoten"
-            widget: "object"
-            collapsed: true
-            fields:
-              - {label: "Afișează banner-ul", name: "anzeigen", widget: "boolean", default: true}
-              - {label: "Titlu", name: "titel", widget: "string"}
-              - {label: "Text", name: "text", widget: "text"}
-              - {label: "Text buton", name: "button", widget: "string"}
-              - {label: "Etichetă în fereastra de detalii", name: "saison", widget: "string"}
-              - {label: "Subtitlu în fereastra de detalii", name: "untertitel", widget: "text"}
-              - {label: "Descriere detaliată", name: "beschreibung", widget: "text"}
-              - label: "Poze"
-                name: "fotos"
-                widget: "list"
-                label_singular: "poză"
-                fields:
-                  - {label: "Poză", name: "bild", widget: "image", choose_url: true}
+        - widget: string
+          name: de
+          label: 🇩🇪 Deutsch
+        - widget: string
+          name: en
+          label: 🇬🇧 English
+          required: false
+        - widget: string
+          name: ro
+          label: 🇷🇴 Română
+          required: false
+        hint: Dacă lași gol EN sau RO, apare textul în germană.
+      - label: Poză principală (pe card)
+        name: bild
+        widget: image
+        choose_url: true
+      - label: Titlu în fereastra de detalii
+        name: titel
+        widget: object
+        fields:
+        - widget: string
+          required: false
+          name: de
+          label: 🇩🇪 Deutsch
+        - widget: string
+          required: false
+          name: en
+          label: 🇬🇧 English
+        - widget: string
+          required: false
+          name: ro
+          label: 🇷🇴 Română
+        required: false
+        hint: Dacă lași gol EN sau RO, apare textul în germană.
+      - label: Subtitlu în fereastra de detalii
+        name: untertitel
+        widget: object
+        fields:
+        - widget: text
+          required: false
+          name: de
+          label: 🇩🇪 Deutsch
+        - widget: text
+          required: false
+          name: en
+          label: 🇬🇧 English
+        - widget: text
+          required: false
+          name: ro
+          label: 🇷🇴 Română
+        required: false
+        hint: Dacă lași gol EN sau RO, apare textul în germană.
+      - label: Descriere detaliată
+        name: beschreibung
+        widget: object
+        fields:
+        - widget: text
+          required: false
+          name: de
+          label: 🇩🇪 Deutsch
+        - widget: text
+          required: false
+          name: en
+          label: 🇬🇧 English
+        - widget: text
+          required: false
+          name: ro
+          label: 🇷🇴 Română
+        required: false
+        hint: Dacă lași gol EN sau RO, apare textul în germană.
+      - label: Galerie foto (din fermă)
+        name: fotos
+        widget: list
+        required: false
+        label_singular: poză
+        summary: '{{fields.bild}}'
+        fields:
+        - label: Poză
+          name: bild
+          widget: image
+          choose_url: true
+  - name: piete
+    label: 📍 Piețe săptămânale
+    file: data/maerkte.json
+    fields:
+    - label: Piețe
+      name: maerkte
+      widget: list
+      label_singular: piață
+      summary: '{{fields.ort}} – {{fields.zeiten.de}}'
+      fields:
+      - label: Localitate
+        name: ort
+        widget: string
+        hint: 'Ex.: Bregenz'
+      - label: Loc / piață
+        name: platz
+        widget: object
+        fields:
+        - widget: string
+          name: de
+          label: 🇩🇪 Deutsch
+        - widget: string
+          name: en
+          label: 🇬🇧 English
+          required: false
+        - widget: string
+          name: ro
+          label: 🇷🇴 Română
+          required: false
+        hint: 'Ex.: Kornmarktplatz Dacă lași gol EN sau RO, apare textul în germană.'
+      - label: Zile și ore
+        name: zeiten
+        widget: object
+        fields:
+        - widget: string
+          name: de
+          label: 🇩🇪 Deutsch
+        - widget: string
+          name: en
+          label: 🇬🇧 English
+          required: false
+        - widget: string
+          name: ro
+          label: 🇷🇴 Română
+          required: false
+        hint: 'Ex.: Dienstag & Freitag | 07:00 – 12:00 Uhr Dacă lași gol EN sau RO, apare textul în germană.'
+      - label: Sezon (opțional)
+        name: saison
+        widget: object
+        fields:
+        - widget: string
+          required: false
+          name: de
+          label: 🇩🇪 Deutsch
+        - widget: string
+          required: false
+          name: en
+          label: 🇬🇧 English
+        - widget: string
+          required: false
+          name: ro
+          label: 🇷🇴 Română
+        required: false
+        hint: 'Ex.: April – Oktober. Lasă gol dacă e tot anul. Dacă lași gol EN sau RO, apare textul în germană.'
+      - label: Evidențiază (chenar roșu)
+        name: hervorheben
+        widget: boolean
+        default: false
+      - label: Afișează pe site
+        name: sichtbar
+        widget: boolean
+        default: true
+  - name: general
+    label: ⚙️ Texte, contact și imagini
+    file: data/site.json
+    fields:
+    - label: Bara de anunț (sus de tot)
+      name: ankuendigung
+      widget: object
+      fields:
+      - widget: string
+        name: de
+        label: 🇩🇪 Deutsch
+      - widget: string
+        name: en
+        label: 🇬🇧 English
+        required: false
+      - widget: string
+        name: ro
+        label: 🇷🇴 Română
+        required: false
+      hint: Dacă lași gol EN sau RO, apare textul în germană.
+    - label: Telefon
+      name: telefon
+      widget: string
+    - label: E-mail
+      name: email
+      widget: string
+    - label: Adresa (subsol)
+      name: adresse
+      widget: object
+      fields:
+      - widget: string
+        name: de
+        label: 🇩🇪 Deutsch
+      - widget: string
+        name: en
+        label: 🇬🇧 English
+        required: false
+      - widget: string
+        name: ro
+        label: 🇷🇴 Română
+        required: false
+      hint: Dacă lași gol EN sau RO, apare textul în germană.
+    - label: Prima secțiune – eticheta mică
+      name: hero_badge
+      widget: object
+      fields:
+      - widget: string
+        name: de
+        label: 🇩🇪 Deutsch
+      - widget: string
+        name: en
+        label: 🇬🇧 English
+        required: false
+      - widget: string
+        name: ro
+        label: 🇷🇴 Română
+        required: false
+      hint: Dacă lași gol EN sau RO, apare textul în germană.
+    - label: Prima secțiune – titlu
+      name: hero_titel
+      widget: object
+      fields:
+      - widget: string
+        name: de
+        label: 🇩🇪 Deutsch
+      - widget: string
+        name: en
+        label: 🇬🇧 English
+        required: false
+      - widget: string
+        name: ro
+        label: 🇷🇴 Română
+        required: false
+      hint: Dacă lași gol EN sau RO, apare textul în germană.
+    - label: Prima secțiune – titlu (partea cursivă)
+      name: hero_titel_kursiv
+      widget: object
+      fields:
+      - widget: string
+        name: de
+        label: 🇩🇪 Deutsch
+      - widget: string
+        name: en
+        label: 🇬🇧 English
+        required: false
+      - widget: string
+        name: ro
+        label: 🇷🇴 Română
+        required: false
+      hint: Dacă lași gol EN sau RO, apare textul în germană.
+    - label: Prima secțiune – text
+      name: hero_text
+      widget: object
+      fields:
+      - widget: text
+        name: de
+        label: 🇩🇪 Deutsch
+      - widget: text
+        name: en
+        label: 🇬🇧 English
+        required: false
+      - widget: text
+        name: ro
+        label: 🇷🇴 Română
+        required: false
+      hint: Dacă lași gol EN sau RO, apare textul în germană.
+    - label: Prima secțiune – imagine de fundal
+      name: hero_bild
+      widget: image
+      choose_url: true
+    - label: Despre noi – titlu
+      name: ueber_titel
+      widget: object
+      fields:
+      - widget: string
+        name: de
+        label: 🇩🇪 Deutsch
+      - widget: string
+        name: en
+        label: 🇬🇧 English
+        required: false
+      - widget: string
+        name: ro
+        label: 🇷🇴 Română
+        required: false
+      hint: Dacă lași gol EN sau RO, apare textul în germană.
+    - label: Despre noi – text
+      name: ueber_text
+      widget: object
+      fields:
+      - widget: text
+        name: de
+        label: 🇩🇪 Deutsch
+      - widget: text
+        name: en
+        label: 🇬🇧 English
+        required: false
+      - widget: text
+        name: ro
+        label: 🇷🇴 Română
+        required: false
+      hint: Pune **cuvinte** între două steluțe ca să apară îngroșate. Dacă lași gol EN sau RO, apare textul în germană.
+    - label: Despre noi – text 2
+      name: ueber_text2
+      widget: object
+      fields:
+      - widget: text
+        name: de
+        label: 🇩🇪 Deutsch
+      - widget: text
+        name: en
+        label: 🇬🇧 English
+        required: false
+      - widget: text
+        name: ro
+        label: 🇷🇴 Română
+        required: false
+      hint: Dacă lași gol EN sau RO, apare textul în germană.
+    - label: Despre noi – poză
+      name: ueber_bild
+      widget: image
+      choose_url: true
+    - label: Contact – text
+      name: kontakt_text
+      widget: object
+      fields:
+      - widget: text
+        name: de
+        label: 🇩🇪 Deutsch
+      - widget: text
+        name: en
+        label: 🇬🇧 English
+        required: false
+      - widget: text
+        name: ro
+        label: 🇷🇴 Română
+        required: false
+      hint: Dacă lași gol EN sau RO, apare textul în germană.
+    - label: 🍍 Fructe exotice la comandă
+      name: exoten
+      widget: object
+      collapsed: true
+      fields:
+      - label: Afișează banner-ul
+        name: anzeigen
+        widget: boolean
+        default: true
+      - label: Titlu
+        name: titel
+        widget: object
+        fields:
+        - widget: string
+          name: de
+          label: 🇩🇪 Deutsch
+        - widget: string
+          name: en
+          label: 🇬🇧 English
+          required: false
+        - widget: string
+          name: ro
+          label: 🇷🇴 Română
+          required: false
+        hint: Dacă lași gol EN sau RO, apare textul în germană.
+      - label: Text
+        name: text
+        widget: object
+        fields:
+        - widget: text
+          name: de
+          label: 🇩🇪 Deutsch
+        - widget: text
+          name: en
+          label: 🇬🇧 English
+          required: false
+        - widget: text
+          name: ro
+          label: 🇷🇴 Română
+          required: false
+        hint: Dacă lași gol EN sau RO, apare textul în germană.
+      - label: Text buton
+        name: button
+        widget: object
+        fields:
+        - widget: string
+          name: de
+          label: 🇩🇪 Deutsch
+        - widget: string
+          name: en
+          label: 🇬🇧 English
+          required: false
+        - widget: string
+          name: ro
+          label: 🇷🇴 Română
+          required: false
+        hint: Dacă lași gol EN sau RO, apare textul în germană.
+      - label: Etichetă în fereastra de detalii
+        name: saison
+        widget: object
+        fields:
+        - widget: string
+          name: de
+          label: 🇩🇪 Deutsch
+        - widget: string
+          name: en
+          label: 🇬🇧 English
+          required: false
+        - widget: string
+          name: ro
+          label: 🇷🇴 Română
+          required: false
+        hint: Dacă lași gol EN sau RO, apare textul în germană.
+      - label: Subtitlu în fereastra de detalii
+        name: untertitel
+        widget: object
+        fields:
+        - widget: text
+          name: de
+          label: 🇩🇪 Deutsch
+        - widget: text
+          name: en
+          label: 🇬🇧 English
+          required: false
+        - widget: text
+          name: ro
+          label: 🇷🇴 Română
+          required: false
+        hint: Dacă lași gol EN sau RO, apare textul în germană.
+      - label: Descriere detaliată
+        name: beschreibung
+        widget: object
+        fields:
+        - widget: text
+          name: de
+          label: 🇩🇪 Deutsch
+        - widget: text
+          name: en
+          label: 🇬🇧 English
+          required: false
+        - widget: text
+          name: ro
+          label: 🇷🇴 Română
+          required: false
+        hint: Dacă lași gol EN sau RO, apare textul în germană.
+      - label: Poze
+        name: fotos
+        widget: list
+        label_singular: poză
+        fields:
+        - label: Poză
+          name: bild
+          widget: image
+          choose_url: true
