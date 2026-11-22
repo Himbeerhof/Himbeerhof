@@ -694,19 +694,67 @@
       "varianten": [
         {
           "name": {
-            "de": "MoorAnnabelle",
-            "en": "MoorAnnabelle",
-            "ro": "MoorAnnabelle"
+            "de": "Sunita, mehligkochend",
+            "en": "Sunita, floury",
+            "ro": "Sunita, făinoși"
           },
-          "preis": 3.2,
+          "preis": 3,
           "einheit": "kg",
           "staffel": [
             {
               "ab_menge": 3,
-              "preis": 3
+              "preis": 2.8
             }
           ],
           "sichtbar": true
+        },
+        {
+          "name": {
+            "de": "Annabelle, festkochend",
+            "en": "Annabelle, waxy",
+            "ro": "Annabelle, consistenți la fiert"
+          },
+          "preis": 3,
+          "einheit": "kg",
+          "staffel": [
+            {
+              "ab_menge": 3,
+              "preis": 2.8
+            }
+          ],
+          "sichtbar": true
+        },
+        {
+          "name": {
+            "de": "Moor-Annabelle, festkochend",
+            "en": "Moorland Annabelle, waxy",
+            "ro": "Annabelle Moor, consistenți la fiert"
+          },
+          "preis": 3,
+          "einheit": "kg",
+          "staffel": [
+            {
+              "ab_menge": 3,
+              "preis": 2.8
+            }
+          ],
+          "sichtbar": true
+        },
+        {
+          "name": {
+            "de": "Sieglinde, festkochend (Frühjahr)",
+            "en": "Sieglinde, waxy (spring)",
+            "ro": "Sieglinde, consistenți la fiert (primăvara)"
+          },
+          "preis": 3,
+          "einheit": "kg",
+          "staffel": [
+            {
+              "ab_menge": 3,
+              "preis": 2.8
+            }
+          ],
+          "sichtbar": false
         }
       ],
       "saison": {
