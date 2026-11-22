@@ -25,18 +25,28 @@
     function produkte() {
         const heute = new Date().getMonth();
         const preisVon = (x) => Number(x) > 0 ? Number(x) : null;
+        const staffelVon = (liste) => (liste || []).map(t => ({ ab: Number(t.ab_menge), preis: Number(t.preis) }))
+            .filter(t => t.ab > 0 && t.preis > 0).sort((a, b) => a.ab - b.ab);
         return (H.daten.produkte || []).filter(p => p.sichtbar !== false && p.bestellbar !== false && H.saisonMonate(p.saison).has(heute))
             .flatMap(p => {
                 const basisDe = (p.name && p.name.de) || tx(p.name);
                 const varianten = (p.varianten || []).filter(v => v && v.name && v.sichtbar !== false);
-                if (!varianten.length) return [{ key: basisDe, produkt: basisDe, name: tx(p.name), nameDe: basisDe, bild: p.bild, preis: preisVon(p.preis), einheit: p.einheit || 'kg' }];
+                if (!varianten.length) return [{ key: basisDe, produkt: basisDe, name: tx(p.name), nameDe: basisDe, bild: p.bild, preis: preisVon(p.preis), einheit: p.einheit || 'kg', staffel: staffelVon(p.staffel) }];
                 return varianten.map(v => {
                     const vDe = (v.name && v.name.de) || tx(v.name);
                     return { key: basisDe + ' | ' + vDe, produkt: basisDe, name: `${tx(p.name)} – ${tx(v.name)}`, nameDe: `${basisDe} – ${vDe}`,
-                             bild: v.bild || p.bild, preis: preisVon(v.preis), einheit: v.einheit || p.einheit || 'kg' };
+                             bild: v.bild || p.bild, preis: preisVon(v.preis), einheit: v.einheit || p.einheit || 'kg', staffel: staffelVon(v.staffel) };
                 });
             });
     }
+
+    // Preis pro Einheit bei der gewählten Menge (Staffelpreis, z. B. ab 3 kg günstiger)
+    function stueckPreis(p, n) {
+        let pr = p.preis;
+        (p.staffel || []).forEach(t => { if (n >= t.ab) pr = t.preis; });
+        return pr;
+    }
+    const staffelAktiv = (p, n) => (p.staffel || []).some(t => n >= t.ab);
 
     function maerkte() {
         return (H.daten.maerkte || []).filter(m => m.sichtbar !== false && m.bestellbar !== false && Array.isArray(m.bestelltage) && m.bestelltage.length && termine(m).length);
@@ -83,7 +93,8 @@
 
         const zeilen = ps.map(p => {
             const n = korb[p.key] || 0;
-            const preis = p.preis ? `${zahl(p.preis)} € / ${esc(einheitText(p.einheit))}` : esc(ui('best_preis_stand'));
+            let preis = p.preis ? `${zahl(p.preis)} € / ${esc(einheitText(p.einheit))}` : esc(ui('best_preis_stand'));
+            if (p.preis && p.staffel.length) preis += p.staffel.map(t => ` · <span class="${n >= t.ab ? 'staffel-an' : ''}">${esc(ui('best_ab'))} ${menge(t.ab)} ${esc(einheitText(p.einheit))}: ${zahl(t.preis)} €</span>`).join('');
             return `<li class="best-p ${n ? 'gewaehlt' : ''}">
                 ${p.bild ? `<img src="${esc(p.bild)}" alt="" loading="lazy">` : '<span></span>'}
                 <span class="best-p-name"><b>${esc(p.name)}</b><small>${preis}</small></span>
@@ -164,7 +175,7 @@
         const gewaehlt = ps.filter(p => korb[p.key]);
         if (!gewaehlt.length) return esc(ui('best_noch_nichts'));
         const mitPreis = gewaehlt.filter(p => p.preis);
-        const summe = mitPreis.reduce((s, p) => s + p.preis * korb[p.key], 0);
+        const summe = mitPreis.reduce((s, p) => s + stueckPreis(p, korb[p.key]) * korb[p.key], 0);
         let t = mitPreis.length ? `${esc(ui('best_summe'))} <b>${zahl(summe)} €</b>` : '';
         if (!mitPreis.length) return esc(ui('best_alle_stand'));
         if (mitPreis.length < gewaehlt.length) t += ' · ' + esc(ui('best_rest_stand'));
@@ -175,12 +186,13 @@
     function nachricht(ps, markt, f) {
         const tag = new Date(gewaehlterTag + 'T12:00:00');
         const zeilen = ps.filter(p => korb[p.key]).map(p => {
-            const preis = p.preis ? ` (ca. ${(p.preis * korb[p.key]).toFixed(2).replace('.', ',')} €)` : '';
+            const ep = stueckPreis(p, korb[p.key]);
+            const preis = p.preis ? ` (ca. ${(ep * korb[p.key]).toFixed(2).replace('.', ',')} €${staffelAktiv(p, korb[p.key]) ? `, Staffelpreis ${ep.toFixed(2).replace('.', ',')} €/${einheitText(p.einheit, 'de')}` : ''})` : '';
             const n = String(korb[p.key]).replace('.', ',');
             return p.einheit === 'kg' ? `• ${n} kg ${p.nameDe}${preis}` : `• ${n} × ${einheitText(p.einheit, 'de')} ${p.nameDe}${preis}`;
         });
         const mitPreis = ps.filter(p => korb[p.key] && p.preis);
-        const summe = mitPreis.reduce((s, p) => s + p.preis * korb[p.key], 0);
+        const summe = mitPreis.reduce((s, p) => s + stueckPreis(p, korb[p.key]) * korb[p.key], 0);
         return [
             'Vorbestellung Himbeerhof',
             `Markt: ${markt.ort} – ${datumText(tag, 'de')}`,

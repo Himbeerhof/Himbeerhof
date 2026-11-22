@@ -270,3 +270,5 @@ button.k-zeile:hover .k-name b { color: var(--himbeer); }
     .best-menge output { min-width: 3.6rem; }
     .best-knoepfe .knopf { width: 100%; justify-content: center; }
 }
+
+.best-p-name .staffel-an { color: var(--blatt); font-weight: 600; }

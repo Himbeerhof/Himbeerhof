@@ -594,7 +594,13 @@
       },
       "bestellbar": true,
       "einheit": "kg",
-      "preis": null
+      "preis": null,
+      "staffel": [
+        {
+          "ab_menge": 3,
+          "preis": null
+        }
+      ]
     },
     {
       "name": {
@@ -648,7 +654,13 @@
       },
       "bestellbar": true,
       "einheit": "kg",
-      "preis": null
+      "preis": null,
+      "staffel": [
+        {
+          "ab_menge": 3,
+          "preis": null
+        }
+      ]
     },
     {
       "name": {
