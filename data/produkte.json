@@ -7,6 +7,11 @@
         "ro": "Zmeură"
       },
       "sichtbar": true,
+      "bestellbar": true,
+      "preis": "5.50",
+      "einheit": "schale250",
+      "staffel": [],
+      "varianten": [],
       "saison": {
         "de": "Juni – Oktober",
         "en": "June – October",
@@ -34,6 +39,11 @@
         "en": "Our raspberries ripen in sheltered plantations in Neukirch. We hand-pick them every day so that only perfect, fully ripe berries make it to the weekly market. Sweet, juicy and rich in vitamins!",
         "ro": "Zmeura noastră se coace protejată în plantațiile din Neukirch. O culegem manual în fiecare zi, ca la piață să ajungă doar fructe perfecte, complet coapte. Dulce, zemoasă și plină de vitamine!"
       },
+      "herkunft": {
+        "de": "Eigener Anbau – Himbeerhof Neukirch",
+        "en": "Own cultivation – Himbeerhof Neukirch",
+        "ro": "Producție proprie – Himbeerhof Neukirch"
+      },
       "fotos": [
         {
           "bild": "https://images.unsplash.com/photo-1783849294475-fceffa44f887?auto=format&fit=crop&w=800&q=80"
@@ -44,15 +54,7 @@
         {
           "bild": "https://images.unsplash.com/photo-1774709781906-820bcb12f218?auto=format&fit=crop&w=800&q=80"
         }
-      ],
-      "herkunft": {
-        "de": "Eigener Anbau – Himbeerhof Neukirch",
-        "en": "Own cultivation – Himbeerhof Neukirch",
-        "ro": "Producție proprie – Himbeerhof Neukirch"
-      },
-      "bestellbar": true,
-      "einheit": "schale250",
-      "preis": null
+      ]
     },
     {
       "name": {
@@ -61,6 +63,11 @@
         "ro": "Căpșuni"
       },
       "sichtbar": true,
+      "bestellbar": true,
+      "preis": "5.50",
+      "einheit": "schale500",
+      "staffel": [],
+      "varianten": [],
       "saison": {
         "de": "Mai – Oktober",
         "en": "May – October",
@@ -88,6 +95,11 @@
         "en": "Our strawberries come from our own fields in Neukirch, where they are tended with great care. We also source strawberries from selected growers in the Lake Constance region – so we have fresh fruit with an intense, natural flavour all season long.",
         "ro": "Căpșunile noastre vin din producția proprie din Neukirch, unde sunt îngrijite cu multă atenție. În plus, luăm căpșuni de la fermieri aleși din zona Bodensee – așa avem marfă proaspătă, cu gust intens și natural, tot sezonul."
       },
+      "herkunft": {
+        "de": "Eigener Anbau & Partnerbetriebe aus der Bodenseeregion",
+        "en": "Own cultivation & partner farms from the Lake Constance region",
+        "ro": "Producție proprie și fermieri parteneri din zona Bodensee"
+      },
       "fotos": [
         {
           "bild": "https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=800&q=80"
@@ -98,15 +110,7 @@
         {
           "bild": "https://images.unsplash.com/photo-1588165171080-c89acfa5ee83?auto=format&fit=crop&w=800&q=80"
         }
-      ],
-      "herkunft": {
-        "de": "Eigener Anbau & Partnerbetriebe aus der Bodenseeregion",
-        "en": "Own cultivation & partner farms from the Lake Constance region",
-        "ro": "Producție proprie și fermieri parteneri din zona Bodensee"
-      },
-      "bestellbar": true,
-      "einheit": "schale500",
-      "preis": null
+      ]
     },
     {
       "name": {
@@ -115,6 +119,11 @@
         "ro": "Cireșe"
       },
       "sichtbar": true,
+      "bestellbar": true,
+      "preis": "12",
+      "einheit": "kg",
+      "staffel": [],
+      "varianten": [],
       "saison": {
         "de": "Juni – Mitte August",
         "en": "June – mid-August",
@@ -142,6 +151,11 @@
         "en": "We source our sweet cherries from a fruit grower in Tettnang on Lake Constance. They are picked fully ripe and brought fresh to the market – perfect for snacking, baking or preserving.",
         "ro": "Cireșele dulci le luăm de la un fermier din Tettnang, de lângă lacul Bodensee. Sunt culese complet coapte și ajung proaspete la piață – perfecte de mâncat ca atare, pentru prăjituri sau pentru compot și dulceață."
       },
+      "herkunft": {
+        "de": "Obstbauer aus Tettnang (Bodensee)",
+        "en": "Fruit grower from Tettnang (Lake Constance)",
+        "ro": "Fermier din Tettnang (Bodensee)"
+      },
       "fotos": [
         {
           "bild": "https://images.unsplash.com/photo-1759921037282-1467a5e125ef?auto=format&fit=crop&w=800&q=80"
@@ -152,15 +166,7 @@
         {
           "bild": "https://images.unsplash.com/photo-1621763668206-b9a47fc8727a?auto=format&fit=crop&w=800&q=80"
         }
-      ],
-      "herkunft": {
-        "de": "Obstbauer aus Tettnang (Bodensee)",
-        "en": "Fruit grower from Tettnang (Lake Constance)",
-        "ro": "Fermier din Tettnang (Bodensee)"
-      },
-      "bestellbar": true,
-      "einheit": "kg",
-      "preis": null
+      ]
     },
     {
       "name": {
@@ -169,6 +175,52 @@
         "ro": "Coacăze"
       },
       "sichtbar": true,
+      "bestellbar": true,
+      "preis": null,
+      "einheit": "schale500",
+      "staffel": [],
+      "varianten": [
+        {
+          "name": {
+            "de": "Rot",
+            "en": "Red",
+            "ro": "Roșii"
+          },
+          "preis": 5,
+          "einheit": "schale500",
+          "staffel": [
+            {
+              "ab_menge": 3,
+              "preis": 4.8
+            },
+            {
+              "ab_menge": 10,
+              "preis": 4.6
+            }
+          ],
+          "sichtbar": true
+        },
+        {
+          "name": {
+            "de": "Schwarz",
+            "en": "Black",
+            "ro": "Negre"
+          },
+          "preis": 6.5,
+          "einheit": "schale500",
+          "staffel": [
+            {
+              "ab_menge": 3,
+              "preis": 6.2
+            },
+            {
+              "ab_menge": 10,
+              "preis": 5.9
+            }
+          ],
+          "sichtbar": true
+        }
+      ],
       "saison": {
         "de": "Juni – August",
         "en": "June – August",
@@ -196,6 +248,11 @@
         "en": "Red and black currants straight from the bush – perfect for jam, jelly, juice, cakes or simply fresh on your muesli.",
         "ro": "Coacăze roșii și negre direct din tufă – perfecte pentru gem, jeleu, suc, prăjituri sau pur și simplu proaspete în musli."
       },
+      "herkunft": {
+        "de": "Eigener Anbau – Himbeerhof Neukirch",
+        "en": "Own cultivation – Himbeerhof Neukirch",
+        "ro": "Producție proprie – Himbeerhof Neukirch"
+      },
       "fotos": [
         {
           "bild": "https://images.unsplash.com/photo-1721118174490-352c942096d7?auto=format&fit=crop&w=800&q=80"
@@ -206,36 +263,6 @@
         {
           "bild": "https://images.unsplash.com/photo-1625859641408-eb7b6bd53cd2?auto=format&fit=crop&w=800&q=80"
         }
-      ],
-      "herkunft": {
-        "de": "Eigener Anbau – Himbeerhof Neukirch",
-        "en": "Own cultivation – Himbeerhof Neukirch",
-        "ro": "Producție proprie – Himbeerhof Neukirch"
-      },
-      "bestellbar": true,
-      "einheit": "schale250",
-      "preis": null,
-      "varianten": [
-        {
-          "name": {
-            "de": "Rot",
-            "en": "Red",
-            "ro": "Roșii"
-          },
-          "preis": null,
-          "einheit": "schale250",
-          "sichtbar": true
-        },
-        {
-          "name": {
-            "de": "Schwarz",
-            "en": "Black",
-            "ro": "Negre"
-          },
-          "preis": null,
-          "einheit": "schale250",
-          "sichtbar": true
-        }
       ]
     },
     {
@@ -245,6 +272,11 @@
         "ro": "Prune"
       },
       "sichtbar": true,
+      "bestellbar": true,
+      "preis": 2.2,
+      "einheit": "kg",
+      "staffel": [],
+      "varianten": [],
       "saison": {
         "de": "Juli – Oktober",
         "en": "July – October",
@@ -272,6 +304,11 @@
         "en": "Our regional plums impress with their firm flesh and a perfect balance of sweetness and a delicate tang. Ideal for eating fresh or for baking.",
         "ro": "Prunele noastre din regiune au pulpa fermă și un echilibru perfect între dulce și o aciditate fină. Ideale de mâncat proaspete sau pentru copt."
       },
+      "herkunft": {
+        "de": "Eigener Anbau – Himbeerhof Neukirch",
+        "en": "Own cultivation – Himbeerhof Neukirch",
+        "ro": "Producție proprie – Himbeerhof Neukirch"
+      },
       "fotos": [
         {
           "bild": "/images/zwetschgen-baum.webp"
@@ -285,15 +322,7 @@
         {
           "bild": "https://images.unsplash.com/photo-1564750497011-ead0ce4b9448?auto=format&fit=crop&w=800&q=80"
         }
-      ],
-      "herkunft": {
-        "de": "Eigener Anbau – Himbeerhof Neukirch",
-        "en": "Own cultivation – Himbeerhof Neukirch",
-        "ro": "Producție proprie – Himbeerhof Neukirch"
-      },
-      "bestellbar": true,
-      "einheit": "kg",
-      "preis": null
+      ]
     },
     {
       "name": {
@@ -302,6 +331,67 @@
         "ro": "Sparanghel"
       },
       "sichtbar": true,
+      "bestellbar": true,
+      "preis": null,
+      "einheit": "kg",
+      "staffel": [],
+      "varianten": [
+        {
+          "name": {
+            "de": "Weiß, Klasse I",
+            "en": "White, class I",
+            "ro": "Alb, categoria 1"
+          },
+          "preis": 17,
+          "einheit": "kg",
+          "staffel": [],
+          "sichtbar": true
+        },
+        {
+          "name": {
+            "de": "Weiß, Klasse II",
+            "en": "White, class II",
+            "ro": "Alb, categoria 2"
+          },
+          "preis": 16,
+          "einheit": "kg",
+          "staffel": [],
+          "sichtbar": true
+        },
+        {
+          "name": {
+            "de": "Weiß, Klasse III",
+            "en": "White, class III",
+            "ro": "Alb, categoria 3"
+          },
+          "preis": 12,
+          "einheit": "kg",
+          "staffel": [],
+          "sichtbar": true
+        },
+        {
+          "name": {
+            "de": "Grün",
+            "en": "Green",
+            "ro": "Verde"
+          },
+          "preis": 20,
+          "einheit": "kg",
+          "staffel": [],
+          "sichtbar": true
+        },
+        {
+          "name": {
+            "de": "Grün, Bund 500 g",
+            "en": "Green, 500 g bunch",
+            "ro": "Verde, legătură 500 g"
+          },
+          "preis": 10,
+          "einheit": "bund",
+          "staffel": [],
+          "sichtbar": true
+        }
+      ],
       "saison": {
         "de": "April – Juni",
         "en": "April – June",
@@ -329,6 +419,11 @@
         "en": "We source our asparagus freshly cut from a farmer in the Lake Constance region – straight to the weekly market. Crisp, tender and full of flavour for fine spring dishes.",
         "ro": "Sparanghelul îl luăm proaspăt recoltat de la un fermier din zona Bodensee și îl aducem direct la piața săptămânală. Crocant, fraged și foarte gustos pentru preparate fine de primăvară."
       },
+      "herkunft": {
+        "de": "Spargelbauer aus der Bodenseeregion",
+        "en": "Asparagus farmer from the Lake Constance region",
+        "ro": "Fermier din zona Bodensee"
+      },
       "fotos": [
         {
           "bild": "https://images.unsplash.com/photo-1629875235163-2e52306e4018?auto=format&fit=crop&w=800&q=80"
@@ -342,61 +437,6 @@
         {
           "bild": "https://images.unsplash.com/photo-1515471209610-dae1c92d8777?auto=format&fit=crop&w=800&q=80"
         }
-      ],
-      "herkunft": {
-        "de": "Spargelbauer aus der Bodenseeregion",
-        "en": "Asparagus farmer from the Lake Constance region",
-        "ro": "Fermier din zona Bodensee"
-      },
-      "bestellbar": true,
-      "einheit": "kg",
-      "preis": null,
-      "varianten": [
-        {
-          "name": {
-            "de": "Weiß, Klasse I",
-            "en": "White, class I",
-            "ro": "Alb, categoria 1"
-          },
-          "preis": null,
-          "einheit": "kg"
-        },
-        {
-          "name": {
-            "de": "Weiß, Klasse II",
-            "en": "White, class II",
-            "ro": "Alb, categoria 2"
-          },
-          "preis": null,
-          "einheit": "kg"
-        },
-        {
-          "name": {
-            "de": "Weiß, Klasse III",
-            "en": "White, class III",
-            "ro": "Alb, categoria 3"
-          },
-          "preis": null,
-          "einheit": "kg"
-        },
-        {
-          "name": {
-            "de": "Grün",
-            "en": "Green",
-            "ro": "Verde"
-          },
-          "preis": null,
-          "einheit": "kg"
-        },
-        {
-          "name": {
-            "de": "Grün, Bund 500 g",
-            "en": "Green, 500 g bunch",
-            "ro": "Verde, legătură 500 g"
-          },
-          "preis": null,
-          "einheit": "bund"
-        }
       ]
     },
     {
@@ -406,6 +446,11 @@
         "ro": "Caise"
       },
       "sichtbar": true,
+      "bestellbar": true,
+      "preis": 8.4,
+      "einheit": "kg",
+      "staffel": [],
+      "varianten": [],
       "saison": {
         "de": "Mai – August",
         "en": "May – August",
@@ -433,6 +478,11 @@
         "en": "Our apricots come from growers in the Lake Constance region and from France – where, in our opinion, the very best apricots grow. Sun-ripened, beautifully coloured, juicy and sweet.",
         "ro": "Caisele le luăm de la fermieri din zona Bodensee și din Franța – de acolo vin, pentru noi, cele mai bune caise. Coapte la soare, cu o culoare frumoasă și un gust dulce și zemos."
       },
+      "herkunft": {
+        "de": "Bodenseeregion & Frankreich",
+        "en": "Lake Constance region & France",
+        "ro": "Zona Bodensee și Franța"
+      },
       "fotos": [
         {
           "bild": "/images/aprikosen-baum.webp"
@@ -446,15 +496,7 @@
         {
           "bild": "https://images.unsplash.com/photo-1627931754115-478ed65b4fef?auto=format&fit=crop&w=800&q=80"
         }
-      ],
-      "herkunft": {
-        "de": "Bodenseeregion & Frankreich",
-        "en": "Lake Constance region & France",
-        "ro": "Zona Bodensee și Franța"
-      },
-      "bestellbar": true,
-      "einheit": "kg",
-      "preis": null
+      ]
     },
     {
       "name": {
@@ -463,6 +505,11 @@
         "ro": "Piersici și nectarine"
       },
       "sichtbar": true,
+      "bestellbar": true,
+      "preis": 7.4,
+      "einheit": "kg",
+      "staffel": [],
+      "varianten": [],
       "saison": {
         "de": "Juli – September",
         "en": "July – September",
@@ -490,6 +537,11 @@
         "en": "Velvety-skinned peaches and smooth nectarines from the Lake Constance region as well as from Italy and Spain – harvested ripe, sweet and juicy. A real treat in high summer.",
         "ro": "Piersici cu coaja catifelată și nectarine netede din zona Bodensee, dar și din Italia și Spania – culese coapte, dulci și zemoase. O adevărată delicatesă în miezul verii."
       },
+      "herkunft": {
+        "de": "Bodenseeregion, Italien & Spanien",
+        "en": "Lake Constance region, Italy & Spain",
+        "ro": "Zona Bodensee, Italia și Spania"
+      },
       "fotos": [
         {
           "bild": "https://images.unsplash.com/photo-1774329659426-1b83a12f0893?auto=format&fit=crop&w=800&q=80"
@@ -497,15 +549,7 @@
         {
           "bild": "https://images.unsplash.com/photo-1629828874514-c1e5103f2150?auto=format&fit=crop&w=800&q=80"
         }
-      ],
-      "herkunft": {
-        "de": "Bodenseeregion, Italien & Spanien",
-        "en": "Lake Constance region, Italy & Spain",
-        "ro": "Zona Bodensee, Italia și Spania"
-      },
-      "bestellbar": true,
-      "einheit": "kg",
-      "preis": null
+      ]
     },
     {
       "name": {
@@ -514,6 +558,11 @@
         "ro": "Struguri de masă"
       },
       "sichtbar": true,
+      "bestellbar": true,
+      "preis": 9.9,
+      "einheit": "kg",
+      "staffel": [],
+      "varianten": [],
       "saison": {
         "de": "August – Mitte Dezember",
         "en": "August – mid-December",
@@ -541,6 +590,11 @@
         "en": "Selected white and red table grapes from Italy and France – crisp, sweet and ideal for snacking, fruit salads or a cheese platter.",
         "ro": "Struguri de masă albi și roșii din Italia și Franța, aleși cu grijă – crocanți, dulci și ideali ca gustare, în salate de fructe sau pe un platou cu brânzeturi."
       },
+      "herkunft": {
+        "de": "Italien & Frankreich",
+        "en": "Italy & France",
+        "ro": "Italia și Franța"
+      },
       "fotos": [
         {
           "bild": "/images/tafeltrauben-rebe.webp"
@@ -554,15 +608,7 @@
         {
           "bild": "https://images.unsplash.com/photo-1578829779691-99b60bd8c7be?auto=format&fit=crop&w=800&q=80"
         }
-      ],
-      "herkunft": {
-        "de": "Italien & Frankreich",
-        "en": "Italy & France",
-        "ro": "Italia și Franța"
-      },
-      "bestellbar": true,
-      "einheit": "kg",
-      "preis": null
+      ]
     },
     {
       "name": {
@@ -571,6 +617,20 @@
         "ro": "Mere"
       },
       "sichtbar": true,
+      "bestellbar": true,
+      "preis": 3,
+      "einheit": "kg",
+      "staffel": [
+        {
+          "ab_menge": 3,
+          "preis": 2.8
+        },
+        {
+          "ab_menge": 20,
+          "preis": 2.6
+        }
+      ],
+      "varianten": [],
       "saison": {
         "de": "Ganzjährig",
         "en": "All year",
@@ -598,6 +658,11 @@
         "en": "Our apples come exclusively from the Lake Constance region. We offer select varieties all year round – always crisp, juicy and ideally stored for long-lasting freshness.",
         "ro": "Merele noastre vin numai din zona Bodensee. Vă oferim tot anul soiuri alese – mereu crocante, zemoase și depozitate corect, ca să rămână proaspete mult timp."
       },
+      "herkunft": {
+        "de": "Bodenseeregion",
+        "en": "Lake Constance region",
+        "ro": "Zona Bodensee"
+      },
       "fotos": [
         {
           "bild": "https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?auto=format&fit=crop&w=800&q=80"
@@ -608,20 +673,6 @@
         {
           "bild": "https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?auto=format&fit=crop&w=800&q=80"
         }
-      ],
-      "herkunft": {
-        "de": "Bodenseeregion",
-        "en": "Lake Constance region",
-        "ro": "Zona Bodensee"
-      },
-      "bestellbar": true,
-      "einheit": "kg",
-      "preis": null,
-      "staffel": [
-        {
-          "ab_menge": 3,
-          "preis": null
-        }
       ]
     },
     {
@@ -631,6 +682,33 @@
         "ro": "Cartofi"
       },
       "sichtbar": true,
+      "bestellbar": true,
+      "preis": 3,
+      "einheit": "kg",
+      "staffel": [
+        {
+          "ab_menge": 3,
+          "preis": 2.8
+        }
+      ],
+      "varianten": [
+        {
+          "name": {
+            "de": "MoorAnnabelle",
+            "en": "MoorAnnabelle",
+            "ro": "MoorAnnabelle"
+          },
+          "preis": 3.2,
+          "einheit": "kg",
+          "staffel": [
+            {
+              "ab_menge": 3,
+              "preis": 3
+            }
+          ],
+          "sichtbar": true
+        }
+      ],
       "saison": {
         "de": "Ganzjährig",
         "en": "All year",
@@ -658,6 +736,11 @@
         "en": "During asparagus season we offer the Sieglinde variety from Italy. From June we switch to Annabelle from Germany, and from August to the floury Sunita variety, also from Germany – the right potato for every dish.",
         "ro": "În sezonul sparanghelului avem soiul Sieglinde din Italia. Din iunie urmează Annabelle din Germania, iar din august soiul făinos Sunita, tot din Germania – pentru fiecare fel de mâncare cartoful potrivit."
       },
+      "herkunft": {
+        "de": "Italien (Frühjahr) & Deutschland (ab Juni)",
+        "en": "Italy (spring) & Germany (from June)",
+        "ro": "Italia (primăvara) și Germania (din iunie)"
+      },
       "fotos": [
         {
           "bild": "https://images.unsplash.com/photo-1784043436697-4458ec4097b7?auto=format&fit=crop&w=800&q=80"
@@ -668,20 +751,6 @@
         {
           "bild": "https://images.unsplash.com/photo-1563012678-bdfec255931b?auto=format&fit=crop&w=800&q=80"
         }
-      ],
-      "herkunft": {
-        "de": "Italien (Frühjahr) & Deutschland (ab Juni)",
-        "en": "Italy (spring) & Germany (from June)",
-        "ro": "Italia (primăvara) și Germania (din iunie)"
-      },
-      "bestellbar": true,
-      "einheit": "kg",
-      "preis": null,
-      "staffel": [
-        {
-          "ab_menge": 3,
-          "preis": null
-        }
       ]
     },
     {
@@ -691,6 +760,11 @@
         "ro": "Citrice"
       },
       "sichtbar": true,
+      "bestellbar": true,
+      "preis": 6,
+      "einheit": "kg",
+      "staffel": [],
+      "varianten": [],
       "saison": {
         "de": "September – April",
         "en": "September – April",
@@ -718,6 +792,11 @@
         "en": "The finest oranges, juicy mandarins and aromatic lemons from Italy – carefully selected to keep you supplied with plenty of vitamin C through autumn and winter.",
         "ro": "Cele mai bune portocale, mandarine zemoase și lămâi aromate din Italia – alese cu grijă ca să aveți vitamina C din belșug toată toamna și iarna."
       },
+      "herkunft": {
+        "de": "Italien",
+        "en": "Italy",
+        "ro": "Italia"
+      },
       "fotos": [
         {
           "bild": "https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?auto=format&fit=crop&w=800&q=80"
@@ -728,15 +807,7 @@
         {
           "bild": "https://images.unsplash.com/photo-1557800636-894a64c1696f?auto=format&fit=crop&w=800&q=80"
         }
-      ],
-      "herkunft": {
-        "de": "Italien",
-        "en": "Italy",
-        "ro": "Italia"
-      },
-      "bestellbar": true,
-      "einheit": "kg",
-      "preis": null
+      ]
     }
   ]
 }
