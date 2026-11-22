@@ -8,7 +8,7 @@
       },
       "sichtbar": true,
       "bestellbar": true,
-      "preis": "5.50",
+      "preis": 5.5,
       "einheit": "schale250",
       "staffel": [],
       "varianten": [],
@@ -64,7 +64,7 @@
       },
       "sichtbar": true,
       "bestellbar": true,
-      "preis": "5.50",
+      "preis": 5.5,
       "einheit": "schale500",
       "staffel": [],
       "varianten": [],
@@ -120,7 +120,7 @@
       },
       "sichtbar": true,
       "bestellbar": true,
-      "preis": "12",
+      "preis": 12,
       "einheit": "kg",
       "staffel": [],
       "varianten": [],
@@ -764,7 +764,41 @@
       "preis": 6,
       "einheit": "kg",
       "staffel": [],
-      "varianten": [],
+      "varianten": [
+        {
+          "name": {
+            "de": "BlattClementinen",
+            "en": "BlattClementinen",
+            "ro": "BlattClementinen"
+          },
+          "preis": 6,
+          "einheit": "kg",
+          "staffel": [],
+          "sichtbar": true
+        },
+        {
+          "name": {
+            "de": "BlattOrangen Unbehandelte",
+            "en": "LeafOranges Untreated",
+            "ro": "Portocale Netratate"
+          },
+          "preis": 6,
+          "einheit": "kg",
+          "staffel": [],
+          "sichtbar": true
+        },
+        {
+          "name": {
+            "de": "BlattZitronen Unbehandelte",
+            "en": "LeafLemons Untreated",
+            "ro": "Lamai netratate"
+          },
+          "preis": 6,
+          "einheit": "kg",
+          "staffel": [],
+          "sichtbar": true
+        }
+      ],
       "saison": {
         "de": "September – April",
         "en": "September – April",
