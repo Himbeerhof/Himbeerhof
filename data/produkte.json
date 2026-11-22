@@ -214,7 +214,29 @@
       },
       "bestellbar": true,
       "einheit": "schale250",
-      "preis": null
+      "preis": null,
+      "varianten": [
+        {
+          "name": {
+            "de": "Rot",
+            "en": "Red",
+            "ro": "Roșii"
+          },
+          "preis": null,
+          "einheit": "schale250",
+          "sichtbar": true
+        },
+        {
+          "name": {
+            "de": "Schwarz",
+            "en": "Black",
+            "ro": "Negre"
+          },
+          "preis": null,
+          "einheit": "schale250",
+          "sichtbar": true
+        }
+      ]
     },
     {
       "name": {
