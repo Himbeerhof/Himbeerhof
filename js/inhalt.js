@@ -172,16 +172,60 @@
         }
     }
 
+    // ---- Nächster Markttag: aus "bestelltage" (di, sa …), Saison und Endzeit in "zeiten" ----
+    const WOCHENTAGE = ['so', 'mo', 'di', 'mi', 'do', 'fr', 'sa'];
+    function naechsterTermin(m) {
+        const tage = Array.isArray(m.bestelltage) ? m.bestelltage : [];
+        if (!tage.length) return null;
+        const saison = saisonMonate(m.saison);
+        const ganzjahr = saison.size === 0;
+        const zeitenDe = (m.zeiten && typeof m.zeiten === 'object') ? (m.zeiten.de || '') : String(m.zeiten || '');
+        const uhr = zeitenDe.match(/(\d{1,2}):(\d{2})(?!.*\d{1,2}:\d{2})/);
+        const ende = uhr ? (+uhr[1]) * 60 + (+uhr[2]) : 12 * 60;
+        const jetzt = new Date();
+        for (let n = 0; n < 120; n++) {
+            const d = new Date(jetzt.getFullYear(), jetzt.getMonth(), jetzt.getDate() + n);
+            if (!tage.includes(WOCHENTAGE[d.getDay()])) continue;
+            if (!ganzjahr && !saison.has(d.getMonth())) continue;
+            if (n === 0 && jetzt.getHours() * 60 + jetzt.getMinutes() >= ende) continue;
+            return { datum: d, inTagen: n };
+        }
+        return null;
+    }
+    function terminText(t, kurz) {
+        if (!t) return '';
+        if (t.inTagen === 0) return ui('heute');
+        if (t.inTagen === 1) return ui('morgen');
+        const opt = kurz ? { weekday: 'short', day: 'numeric', month: 'short' } : { weekday: 'long', day: 'numeric', month: 'long' };
+        try { return t.datum.toLocaleDateString(ui('locale') || 'de-AT', opt); } catch (e) { return t.datum.toLocaleDateString(); }
+    }
+    const nurUhrzeit = (z) => { const teile = String(z || '').split('|'); return (teile[1] || '').trim(); };
+
+    function tafelAnzeigen(liste) {
+        const tagEl = document.getElementById('tafel-tag');
+        const orteEl = document.getElementById('tafel-orte');
+        if (!tagEl || !orteEl) return;
+        const mitTermin = liste.filter(m => m.sichtbar !== false).map(m => ({ m, t: naechsterTermin(m) })).filter(x => x.t);
+        if (!mitTermin.length) { tagEl.textContent = ui('tafel_leer'); orteEl.innerHTML = ''; return; }
+        const erster = Math.min(...mitTermin.map(x => x.t.inTagen));
+        const heute_ = mitTermin.filter(x => x.t.inTagen === erster);
+        const txt = terminText(heute_[0].t, false);
+        tagEl.textContent = txt.charAt(0).toUpperCase() + txt.slice(1);
+        orteEl.innerHTML = heute_.map(({ m }) => `<li><b>${esc(tx(m.ort))}</b>, ${esc(tx(m.platz))}<span>${esc(nurUhrzeit(tx(m.zeiten)))}</span></li>`).join('');
+    }
+
     function maerkteAnzeigen(liste) {
         const grid = document.getElementById('maerkte-grid');
-        grid.innerHTML = liste.filter(m => m.sichtbar !== false).map(m => {
-            m = { ...m, platz: tx(m.platz), zeiten: tx(m.zeiten), saison: tx(m.saison), ort: tx(m.ort) };
+        tafelAnzeigen(liste);
+        grid.innerHTML = liste.filter(m => m.sichtbar !== false).map(roh => {
+            const t = naechsterTermin(roh);
+            const m = { ...roh, platz: tx(roh.platz), zeiten: tx(roh.zeiten), saison: tx(roh.saison), ort: tx(roh.ort) };
+            const naechst = t ? `<span class="naechst"><small>${esc(ui('naechster'))}</small>${esc(terminText(t, true))}</span>` : `<span class="naechst"><small>&nbsp;</small>${esc(m.saison)}</span>`;
             return `
             <li class="markt ${m.hervorheben ? 'hervor' : ''}">
                 <h3>${esc(m.ort)}</h3>
-                <span class="platz">${esc(m.platz)}</span>
-                <span class="zeiten">${esc(m.zeiten)}</span>
-                <span class="saison">${esc(m.saison)}</span>
+                <span class="markt-info"><span class="platz">${esc(m.platz)}</span><span class="zeiten">${esc(m.zeiten)}</span>${t && m.saison ? `<span class="saison">${esc(m.saison)}</span>` : ''}</span>
+                ${naechst}
             </li>`;
         }).join('');
     }
