@@ -767,35 +767,32 @@
       "varianten": [
         {
           "name": {
-            "de": "BlattClementinen",
-            "en": "BlattClementinen",
-            "ro": "BlattClementinen"
+            "de": "Orangen mit Blatt, unbehandelt",
+            "en": "Oranges with leaves, untreated",
+            "ro": "Portocale cu frunze, netratate"
           },
-          "preis": 6,
+          "preis": null,
           "einheit": "kg",
-          "staffel": [],
           "sichtbar": true
         },
         {
           "name": {
-            "de": "BlattOrangen Unbehandelte",
-            "en": "LeafOranges Untreated",
-            "ro": "Portocale Netratate"
+            "de": "Zitronen mit Blatt, unbehandelt",
+            "en": "Lemons with leaves, untreated",
+            "ro": "Lămâi cu frunze, netratate"
           },
-          "preis": 6,
+          "preis": null,
           "einheit": "kg",
-          "staffel": [],
           "sichtbar": true
         },
         {
           "name": {
-            "de": "BlattZitronen Unbehandelte",
-            "en": "LeafLemons Untreated",
-            "ro": "Lamai netratate"
+            "de": "Clementinen / Mandarinen mit Blatt",
+            "en": "Clementines / mandarins with leaves",
+            "ro": "Clementine / mandarine cu frunze"
           },
-          "preis": 6,
+          "preis": null,
           "einheit": "kg",
-          "staffel": [],
           "sichtbar": true
         }
       ],
@@ -806,9 +803,9 @@
       },
       "farbe": "orange",
       "kurz": {
-        "de": "Vitaminreiche Orangen, Mandarinen & Zitronen.",
-        "en": "Vitamin-rich oranges, mandarins & lemons.",
-        "ro": "Portocale, mandarine și lămâi bogate în vitamine."
+        "de": "Orangen & Zitronen unbehandelt mit Blatt, Clementinen und Mandarinen mit Blatt.",
+        "en": "Untreated oranges & lemons with leaves, clementines and mandarins with leaves.",
+        "ro": "Portocale și lămâi netratate cu frunze, clementine și mandarine cu frunze."
       },
       "bild": "https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?auto=format&fit=crop&w=600&q=80",
       "titel": {
@@ -822,9 +819,9 @@
         "ro": "O bombă de vitamine pentru sezonul rece."
       },
       "beschreibung": {
-        "de": "Feinste Orangen, saftige Mandarinen und aromatische Zitronen aus Italien – perfekt ausgewählt, um Sie im Herbst und Winter mit reichlich Vitamin C zu versorgen.",
-        "en": "The finest oranges, juicy mandarins and aromatic lemons from Italy – carefully selected to keep you supplied with plenty of vitamin C through autumn and winter.",
-        "ro": "Cele mai bune portocale, mandarine zemoase și lămâi aromate din Italia – alese cu grijă ca să aveți vitamina C din belșug toată toamna și iarna."
+        "de": "Unbehandelte Orangen und Zitronen mit Blatt sowie Clementinen und Mandarinen mit Blatt aus Italien – frisch und aromatisch, ideal, um Sie im Herbst und Winter mit reichlich Vitamin C zu versorgen. Die Schale der unbehandelten Früchte können Sie bedenkenlos zum Backen und Kochen verwenden.",
+        "en": "Untreated oranges and lemons with leaves, plus clementines and mandarins with leaves, from Italy – fresh and aromatic, perfect for keeping you supplied with plenty of vitamin C through autumn and winter. The peel of the untreated fruit is safe to use for baking and cooking.",
+        "ro": "Portocale și lămâi netratate, cu frunze, plus clementine și mandarine cu frunze, din Italia – proaspete și aromate, ideale ca să aveți vitamina C din belșug toamna și iarna. Coaja fructelor netratate o puteți folosi liniștit la copt și gătit."
       },
       "herkunft": {
         "de": "Italien",
