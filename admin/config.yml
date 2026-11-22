@@ -75,7 +75,7 @@ collections:
         name: einheit
         widget: select
         default: kg
-        options:
+        options: &id001
         - label: kg
           value: kg
         - label: Caserolă 250 g
@@ -86,6 +86,45 @@ collections:
           value: stueck
         - label: Legătură
           value: bund
+      - label: 🛒 Variante (categorii, ambalaje)
+        name: varianten
+        widget: list
+        required: false
+        label_singular: variantă
+        summary: '{{fields.name.de}} – {{fields.preis}} €'
+        hint: Opțional. Dacă adaugi variante (ex. categoria 1, 2, 3 sau kg / legătură), clientul le alege separat, fiecare cu prețul ei, iar prețul și unitatea de mai sus nu se mai folosesc.
+        fields:
+        - label: Denumire
+          name: name
+          widget: object
+          fields:
+          - widget: string
+            name: de
+            label: 🇩🇪 Deutsch
+          - widget: string
+            name: en
+            label: 🇬🇧 English
+            required: false
+          - widget: string
+            name: ro
+            label: 🇷🇴 Română
+            required: false
+        - label: Preț (€)
+          name: preis
+          widget: number
+          value_type: float
+          min: 0
+          step: 0.1
+          required: false
+        - name: einheit
+          widget: select
+          default: kg
+          options: *id001
+          label: Unitate
+        - label: Afișează la comandă
+          name: sichtbar
+          widget: boolean
+          default: true
       - label: Sezon
         name: saison
         widget: object

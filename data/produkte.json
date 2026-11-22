@@ -328,7 +328,54 @@
       },
       "bestellbar": true,
       "einheit": "kg",
-      "preis": null
+      "preis": null,
+      "varianten": [
+        {
+          "name": {
+            "de": "Weiß, Klasse I",
+            "en": "White, class I",
+            "ro": "Alb, categoria 1"
+          },
+          "preis": null,
+          "einheit": "kg"
+        },
+        {
+          "name": {
+            "de": "Weiß, Klasse II",
+            "en": "White, class II",
+            "ro": "Alb, categoria 2"
+          },
+          "preis": null,
+          "einheit": "kg"
+        },
+        {
+          "name": {
+            "de": "Weiß, Klasse III",
+            "en": "White, class III",
+            "ro": "Alb, categoria 3"
+          },
+          "preis": null,
+          "einheit": "kg"
+        },
+        {
+          "name": {
+            "de": "Grün",
+            "en": "Green",
+            "ro": "Verde"
+          },
+          "preis": null,
+          "einheit": "kg"
+        },
+        {
+          "name": {
+            "de": "Grün, Bund 500 g",
+            "en": "Green, 500 g bunch",
+            "ro": "Verde, legătură 500 g"
+          },
+          "preis": null,
+          "einheit": "bund"
+        }
+      ]
     },
     {
       "name": {

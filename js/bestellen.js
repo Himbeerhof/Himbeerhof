@@ -24,9 +24,18 @@
     // ---- Was ist jetzt bestellbar? ----
     function produkte() {
         const heute = new Date().getMonth();
+        const preisVon = (x) => Number(x) > 0 ? Number(x) : null;
         return (H.daten.produkte || []).filter(p => p.sichtbar !== false && p.bestellbar !== false && H.saisonMonate(p.saison).has(heute))
-            .map(p => ({ key: (p.name && p.name.de) || tx(p.name), name: tx(p.name), nameDe: (p.name && p.name.de) || tx(p.name),
-                         bild: p.bild, preis: Number(p.preis) > 0 ? Number(p.preis) : null, einheit: p.einheit || 'kg' }));
+            .flatMap(p => {
+                const basisDe = (p.name && p.name.de) || tx(p.name);
+                const varianten = (p.varianten || []).filter(v => v && v.name && v.sichtbar !== false);
+                if (!varianten.length) return [{ key: basisDe, produkt: basisDe, name: tx(p.name), nameDe: basisDe, bild: p.bild, preis: preisVon(p.preis), einheit: p.einheit || 'kg' }];
+                return varianten.map(v => {
+                    const vDe = (v.name && v.name.de) || tx(v.name);
+                    return { key: basisDe + ' | ' + vDe, produkt: basisDe, name: `${tx(p.name)} – ${tx(v.name)}`, nameDe: `${basisDe} – ${vDe}`,
+                             bild: v.bild || p.bild, preis: preisVon(v.preis), einheit: v.einheit || p.einheit || 'kg' };
+                });
+            });
     }
 
     function maerkte() {
@@ -234,13 +243,14 @@
 
     // Aus dem Produktfenster: "Vorbestellen"
     window.vorbestellen = function (nameDe) {
-        const p = produkte().find(x => x.key === nameDe);
+        const passend = produkte().filter(x => x.produkt === nameDe);
+        const p = passend.length === 1 ? passend[0] : null;   // bei Varianten wählt der Kunde selbst
         if (p && !korb[p.key]) korb[p.key] = EINHEIT_SCHRITT[p.einheit] || 1;
         if (window.closeProductModal) window.closeProductModal();
         gesendet = null; formWerte(); anzeigen();
         el('bestellen').scrollIntoView({ block: 'start' });
     };
-    H.istBestellbar = (nameDe) => !!produkte().find(x => x.key === nameDe) && einst().aktiv !== false;
+    H.istBestellbar = (nameDe) => !!produkte().find(x => x.produkt === nameDe) && einst().aktiv !== false;
 
     document.addEventListener('himbeer:update', () => { formWerte(); anzeigen(); });
     anzeigen();
