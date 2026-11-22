@@ -58,6 +58,34 @@ collections:
         widget: boolean
         default: true
         hint: Dezactivează ca să ascunzi produsul temporar, fără să-l ștergi.
+      - label: 🛒 Se poate comanda online
+        name: bestellbar
+        widget: boolean
+        default: true
+        hint: Apare la comandă doar în lunile din sezon (după câmpul Sezon).
+      - label: 🛒 Preț (€)
+        name: preis
+        widget: number
+        value_type: float
+        min: 0
+        step: 0.1
+        required: false
+        hint: Lasă gol ca să apară „Preț la tarabă”.
+      - label: 🛒 Unitate
+        name: einheit
+        widget: select
+        default: kg
+        options:
+        - label: kg
+          value: kg
+        - label: Caserolă 250 g
+          value: schale250
+        - label: Caserolă 500 g
+          value: schale500
+        - label: Bucată
+          value: stueck
+        - label: Legătură
+          value: bund
       - label: Sezon
         name: saison
         widget: object
@@ -270,6 +298,31 @@ collections:
         name: sichtbar
         widget: boolean
         default: true
+      - label: 🛒 Se poate ridica o comandă aici
+        name: bestellbar
+        widget: boolean
+        default: false
+      - label: 🛒 Zilele de piață (pentru comenzi)
+        name: bestelltage
+        widget: select
+        multiple: true
+        required: false
+        options:
+        - label: Luni
+          value: mo
+        - label: Marți
+          value: di
+        - label: Miercuri
+          value: mi
+        - label: Joi
+          value: do
+        - label: Vineri
+          value: fr
+        - label: Sâmbătă
+          value: sa
+        - label: Duminică
+          value: so
+        hint: Clientul poate alege doar aceste zile. Dacă piața are sezon (ex. Aprilie – Octombrie), în afara lui nu se poate comanda.
   - name: general
     label: ⚙️ Texte, contact și imagini
     file: data/site.json
@@ -585,3 +638,46 @@ collections:
           name: bild
           widget: image
           choose_url: true
+    - label: 🛒 Comenzi online
+      name: bestellung
+      widget: object
+      collapsed: true
+      fields:
+      - label: Comenzile online sunt pornite
+        name: aktiv
+        widget: boolean
+        default: true
+      - label: Cheia Web3Forms (pentru comenzi pe e-mail)
+        name: web3forms_key
+        widget: string
+        required: false
+        hint: O primești gratuit pe web3forms.com pentru sidor@himbeerhof.com. Fără cheie, clientul poate trimite doar pe WhatsApp.
+      - label: Număr WhatsApp
+        name: whatsapp
+        widget: string
+        required: false
+        hint: Cu prefix, ex. +49 151 2472 2708. Gol = fără WhatsApp.
+      - label: 'Termen comenzi: ziua dinainte, până la ora'
+        name: bestellschluss_stunde
+        widget: number
+        value_type: int
+        min: 0
+        max: 23
+        default: 18
+      - label: Notă sub formular
+        name: hinweis
+        widget: object
+        required: false
+        fields:
+        - widget: text
+          name: de
+          label: 🇩🇪 Deutsch
+          required: false
+        - widget: text
+          name: en
+          label: 🇬🇧 English
+          required: false
+        - widget: text
+          name: ro
+          label: 🇷🇴 Română
+          required: false

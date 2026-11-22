@@ -49,7 +49,10 @@
         "de": "Eigener Anbau – Himbeerhof Neukirch",
         "en": "Own cultivation – Himbeerhof Neukirch",
         "ro": "Producție proprie – Himbeerhof Neukirch"
-      }
+      },
+      "bestellbar": true,
+      "einheit": "schale250",
+      "preis": null
     },
     {
       "name": {
@@ -100,7 +103,10 @@
         "de": "Eigener Anbau & Partnerbetriebe aus der Bodenseeregion",
         "en": "Own cultivation & partner farms from the Lake Constance region",
         "ro": "Producție proprie și fermieri parteneri din zona Bodensee"
-      }
+      },
+      "bestellbar": true,
+      "einheit": "schale500",
+      "preis": null
     },
     {
       "name": {
@@ -151,7 +157,10 @@
         "de": "Obstbauer aus Tettnang (Bodensee)",
         "en": "Fruit grower from Tettnang (Lake Constance)",
         "ro": "Fermier din Tettnang (Bodensee)"
-      }
+      },
+      "bestellbar": true,
+      "einheit": "kg",
+      "preis": null
     },
     {
       "name": {
@@ -202,7 +211,10 @@
         "de": "Eigener Anbau – Himbeerhof Neukirch",
         "en": "Own cultivation – Himbeerhof Neukirch",
         "ro": "Producție proprie – Himbeerhof Neukirch"
-      }
+      },
+      "bestellbar": true,
+      "einheit": "schale250",
+      "preis": null
     },
     {
       "name": {
@@ -256,7 +268,10 @@
         "de": "Eigener Anbau – Himbeerhof Neukirch",
         "en": "Own cultivation – Himbeerhof Neukirch",
         "ro": "Producție proprie – Himbeerhof Neukirch"
-      }
+      },
+      "bestellbar": true,
+      "einheit": "kg",
+      "preis": null
     },
     {
       "name": {
@@ -310,7 +325,10 @@
         "de": "Spargelbauer aus der Bodenseeregion",
         "en": "Asparagus farmer from the Lake Constance region",
         "ro": "Fermier din zona Bodensee"
-      }
+      },
+      "bestellbar": true,
+      "einheit": "kg",
+      "preis": null
     },
     {
       "name": {
@@ -364,7 +382,10 @@
         "de": "Bodenseeregion & Frankreich",
         "en": "Lake Constance region & France",
         "ro": "Zona Bodensee și Franța"
-      }
+      },
+      "bestellbar": true,
+      "einheit": "kg",
+      "preis": null
     },
     {
       "name": {
@@ -412,7 +433,10 @@
         "de": "Bodenseeregion, Italien & Spanien",
         "en": "Lake Constance region, Italy & Spain",
         "ro": "Zona Bodensee, Italia și Spania"
-      }
+      },
+      "bestellbar": true,
+      "einheit": "kg",
+      "preis": null
     },
     {
       "name": {
@@ -466,7 +490,10 @@
         "de": "Italien & Frankreich",
         "en": "Italy & France",
         "ro": "Italia și Franța"
-      }
+      },
+      "bestellbar": true,
+      "einheit": "kg",
+      "preis": null
     },
     {
       "name": {
@@ -517,7 +544,10 @@
         "de": "Bodenseeregion",
         "en": "Lake Constance region",
         "ro": "Zona Bodensee"
-      }
+      },
+      "bestellbar": true,
+      "einheit": "kg",
+      "preis": null
     },
     {
       "name": {
@@ -568,7 +598,10 @@
         "de": "Italien (Frühjahr) & Deutschland (ab Juni)",
         "en": "Italy (spring) & Germany (from June)",
         "ro": "Italia (primăvara) și Germania (din iunie)"
-      }
+      },
+      "bestellbar": true,
+      "einheit": "kg",
+      "preis": null
     },
     {
       "name": {
@@ -619,7 +652,10 @@
         "de": "Italien",
         "en": "Italy",
         "ro": "Italia"
-      }
+      },
+      "bestellbar": true,
+      "einheit": "kg",
+      "preis": null
     }
   ]
 }

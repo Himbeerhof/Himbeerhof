@@ -102,5 +102,16 @@
       "ro": "Import ales, la comandă"
     }
   },
-  "facebook": "https://www.facebook.com/profile.php?id=61596530077610"
+  "facebook": "https://www.facebook.com/profile.php?id=61596530077610",
+  "bestellung": {
+    "aktiv": true,
+    "web3forms_key": "",
+    "whatsapp": "+49 151 2472 2708",
+    "bestellschluss_stunde": 18,
+    "hinweis": {
+      "de": "Unverbindliche Vorbestellung · Bezahlung bei Abholung am Stand. Gewicht und Preis können leicht abweichen.",
+      "en": "Non-binding pre-order · Pay when you pick up at our stall. Weight and price may vary slightly.",
+      "ro": "Comandă fără obligații · Plata la ridicare, la tarabă. Greutatea și prețul pot varia puțin."
+    }
+  }
 }

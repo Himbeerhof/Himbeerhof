@@ -18,7 +18,9 @@
         "ro": "Aprilie – Septembrie"
       },
       "hervorheben": true,
-      "sichtbar": true
+      "sichtbar": true,
+      "bestelltage": [],
+      "bestellbar": false
     },
     {
       "ort": "Feldkirch",
@@ -38,7 +40,12 @@
         "ro": "Aprilie – Octombrie"
       },
       "hervorheben": false,
-      "sichtbar": true
+      "sichtbar": true,
+      "bestelltage": [
+        "di",
+        "sa"
+      ],
+      "bestellbar": true
     },
     {
       "ort": "Bregenz",
@@ -58,7 +65,12 @@
         "ro": ""
       },
       "hervorheben": false,
-      "sichtbar": true
+      "sichtbar": true,
+      "bestelltage": [
+        "di",
+        "fr"
+      ],
+      "bestellbar": true
     },
     {
       "ort": "Dornbirn",
@@ -78,7 +90,12 @@
         "ro": ""
       },
       "hervorheben": false,
-      "sichtbar": true
+      "sichtbar": true,
+      "bestelltage": [
+        "mi",
+        "sa"
+      ],
+      "bestellbar": true
     }
   ]
 }

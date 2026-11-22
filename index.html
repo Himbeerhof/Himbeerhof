@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400..700,0..100;1,9..144,400..700,0..100&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/site.css?v=20261118e">
+    <link rel="stylesheet" href="css/site.css?v=20261122a">
 </head>
 <body>
 
@@ -38,6 +38,7 @@
             <nav class="menue" aria-label="Hauptmenü">
                 <a href="#ueber-uns" data-t="nav_ueber">Über uns</a>
                 <a href="#fruechte" data-t="nav_produkte">Unsere Produkte</a>
+                <a href="#bestellen" data-t="nav_bestellen" data-bestellen-link>Bestellen</a>
                 <a href="#wochenmaerkte" data-t="nav_maerkte">Wochenmärkte</a>
                 <a href="#kontakt" data-t="nav_kontakt">Kontakt</a>
             </nav>
@@ -51,6 +52,7 @@
         <div id="mobile-menu" class="hidden">
             <a href="#ueber-uns" class="mobile-link" data-t="nav_ueber">Über uns</a>
             <a href="#fruechte" class="mobile-link" data-t="nav_produkte">Unsere Produkte</a>
+            <a href="#bestellen" class="mobile-link" data-t="nav_bestellen" data-bestellen-link>Bestellen</a>
             <a href="#wochenmaerkte" class="mobile-link" data-t="nav_maerkte">Wochenmärkte</a>
             <a href="#kontakt" class="mobile-link" data-t="nav_kontakt">Kontakt</a>
             <a href="https://www.facebook.com/profile.php?id=61596530077610" data-fb target="_blank" rel="noopener" class="mobile-link">Facebook</a>
@@ -65,8 +67,8 @@
                     <h1><span data-feld="hero_titel">Frische Früchte</span><span data-feld="hero_titel_kursiv">direkt vom Hof & Markt</span></h1>
                     <p class="hero-text" data-feld="hero_text">Erntefrische Beeren, Steinobst, Gemüse & Ganzjahres-Klassiker – für Sie auf den Wochenmärkten in Bregenz, Dornbirn, Feldkirch & Hard!</p>
                     <div class="hero-knoepfe">
-                        <a href="#wochenmaerkte" class="knopf knopf-voll" data-t="cta_maerkte">Wochenmärkte entdecken</a>
-                        <a href="#fruechte" class="knopf knopf-rand" data-t="nav_produkte">Unsere Produkte</a>
+                        <a href="#bestellen" class="knopf knopf-voll" data-t="cta_bestellen" data-bestellen-link>Online vorbestellen</a>
+                        <a href="#wochenmaerkte" class="knopf knopf-rand" data-t="cta_maerkte">Wochenmärkte entdecken</a>
                     </div>
                     <a class="hero-herkunft" href="https://www.google.com/maps/search/?api=1&amp;query=Am+Schorrenwald+2%2C+88099+Neukirch" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-ort"/></svg><span data-feld="hero_badge">Sorgfältig angebaut in Neukirch • Marktfrisch in Vorarlberg</span></a>
                 </div>
@@ -98,6 +100,16 @@
                     <p data-t="kalender_text">Wann ist was reif? Tippen Sie auf eine Frucht für Fotos und Details.</p>
                 </div>
                 <div class="kalender" id="produkte-grid"></div>
+            </div>
+        </section>
+
+        <section id="bestellen" class="bestellen-teil">
+            <div class="innen">
+                <div class="teil-kopf">
+                    <h2 data-t="best_titel">Online vorbestellen</h2>
+                    <p data-t="best_text">Wählen Sie Ihre Produkte, den Markt und den Abholtag – wir legen alles für Sie bereit. Bezahlt wird bei Abholung am Stand.</p>
+                </div>
+                <div id="bestell-box" class="bestell-box" aria-live="polite"></div>
             </div>
         </section>
 
@@ -150,7 +162,8 @@
                 </div>
                 <div class="fenster-fuss">
                     <p data-t="modal_menge">Möchten Sie eine größere Menge reservieren?</p>
-                    <a href="tel:+4915124722708" data-tel class="knopf knopf-voll"><svg aria-hidden="true"><use href="#i-tel"/></svg><span data-t="modal_anrufen">Jetzt anrufen & bestellen</span></a>
+                    <button type="button" id="modal-vorbestellen" class="knopf knopf-voll hidden" data-t="modal_vorbestellen">Online vorbestellen</button>
+                    <a href="tel:+4915124722708" data-tel class="knopf knopf-rand"><svg aria-hidden="true"><use href="#i-tel"/></svg><span data-t="modal_anrufen">Jetzt anrufen & bestellen</span></a>
                 </div>
             </div>
         </div>
@@ -178,14 +191,15 @@
                 </div>
                 <div id="datenschutz">
                     <h4 data-t="datenschutz">Datenschutzerklärung</h4>
-                    <p data-t="datenschutz_text">Der Schutz Ihrer persönlichen Daten ist uns ein wichtiges Anliegen.</p>
+                    <p data-t="datenschutz_text" data-html>Der Schutz Ihrer persönlichen Daten ist uns ein wichtiges Anliegen.</p>
                 </div>
             </div>
             <p class="copy">&copy; 2026 Himbeerhof. <span data-t="rechte">Alle Rechte vorbehalten.</span></p>
         </div>
     </footer>
 
-    <script src="js/i18n.js?v=20261118e"></script>
-    <script src="js/inhalt.js?v=20261118e"></script>
+    <script src="js/i18n.js?v=20261122a"></script>
+    <script src="js/inhalt.js?v=20261122a"></script>
+    <script src="js/bestellen.js?v=20261122a"></script>
 </body>
 </html>

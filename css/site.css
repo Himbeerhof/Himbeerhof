@@ -212,3 +212,61 @@ button.k-zeile:hover .k-name b { color: var(--himbeer); }
     .marke b { font-size: 1.35rem; }
     .marke svg { width: 32px; height: 32px; }
 }
+
+/* ---------- Online-Vorbestellung ---------- */
+.bestellen-teil { padding: clamp(3rem, 7vw, 5.5rem) 0; background: #fff; border-block: 1px solid var(--linie); }
+.bestell-box { display: grid; grid-template-columns: 1.15fr 1fr; gap: clamp(1.5rem, 4vw, 3rem); align-items: start; }
+.best-schritt h3 { font-size: 1.45rem; margin-bottom: 1rem; }
+.best-schritt h4 { font: 600 .95rem/1.3 var(--sans); margin: 1.4rem 0 .6rem; }
+.best-schritt:first-child { grid-row: span 2; }
+.best-liste { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--tinte); }
+.best-p { display: grid; grid-template-columns: 3.2rem 1fr auto; gap: .9rem; align-items: center; padding: .6rem 0; border-bottom: 1px solid var(--linie); }
+.best-p img { width: 3.2rem; height: 3.2rem; object-fit: cover; border-radius: 8px; }
+.best-p-name b { display: block; font: 600 1.1rem/1.2 var(--serif); font-variation-settings: 'opsz' 36; }
+.best-p-name small { color: var(--grau-text); font-size: .85rem; }
+.best-p.gewaehlt .best-p-name b { color: var(--himbeer); }
+.best-menge { display: inline-flex; align-items: center; border: 1px solid var(--linie); border-radius: 999px; background: var(--morgen); }
+.best-menge button { width: 2.4rem; height: 2.4rem; border: 0; background: none; font-size: 1.25rem; font-weight: 600; cursor: pointer; border-radius: 50%; }
+.best-menge button:hover:not(:disabled) { background: #fff; color: var(--himbeer); }
+.best-menge button:disabled { opacity: .3; cursor: default; }
+.best-menge output { min-width: 4.6rem; text-align: center; font-weight: 600; font-size: .95rem; }
+.best-menge output small { font-weight: 400; color: var(--grau-text); font-size: .75rem; }
+.best-summe { margin-top: .9rem; color: var(--grau-text); }
+.best-summe b { color: var(--tinte); font-size: 1.2rem; }
+.best-wahlen { display: flex; flex-wrap: wrap; gap: .5rem; }
+.best-wahl { border: 1.5px solid var(--linie); background: var(--morgen); border-radius: 12px; padding: .6rem .9rem; cursor: pointer; text-align: left; }
+.best-wahl b { display: block; font-size: 1rem; }
+.best-wahl small { display: block; color: var(--grau-text); font-size: .78rem; }
+.best-wahl.tag { font-size: .9rem; border-radius: 999px; padding: .5rem .9rem; }
+.best-wahl:hover { border-color: var(--tinte); }
+.best-wahl.an { border-color: var(--himbeer); background: var(--himbeer); color: #fff; }
+.best-wahl.an small { color: rgba(255,255,255,.85); }
+.best-klein { font-size: .82rem; color: var(--grau-text); margin-top: .7rem; }
+.best-felder { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
+.best-felder label { display: flex; flex-direction: column; gap: .3rem; font-size: .88rem; font-weight: 500; }
+.best-felder .breit { grid-column: 1 / -1; }
+.best-felder input:not([type=checkbox]), .best-felder textarea { font: inherit; padding: .7rem .8rem; border: 1.5px solid var(--linie); border-radius: 10px; background: var(--morgen); color: var(--tinte); }
+.best-felder input:focus, .best-felder textarea:focus { outline: none; border-color: var(--himbeer); background: #fff; }
+.best-ok { flex-direction: row !important; align-items: flex-start; gap: .6rem !important; font-weight: 400 !important; color: var(--grau-text); }
+.best-ok input { margin-top: .25rem; width: 1.1rem; height: 1.1rem; accent-color: var(--himbeer); flex: none; }
+.best-hinweis { font-size: .85rem; color: var(--blatt); margin-top: 1rem; }
+.best-fehler { margin-top: .8rem; color: #B3261E; font-size: .9rem; font-weight: 500; }
+.best-knoepfe { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.1rem; }
+.best-knoepfe .knopf:disabled { opacity: .6; cursor: wait; }
+.best-leer { color: var(--grau-text); }
+.best-danke { grid-column: 1 / -1; text-align: center; padding: 2rem 1rem; background: var(--morgen); border-radius: 18px; }
+.best-danke h3 { font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--himbeer); margin-bottom: .6rem; }
+.best-danke p { color: var(--grau-text); max-width: 34em; margin: 0 auto .6rem; }
+.best-danke .knopf { margin-top: 1rem; }
+.fenster-fuss .knopf + .knopf { margin-left: .4rem; }
+@media (max-width: 900px) {
+    .bestell-box { grid-template-columns: 1fr; }
+    .best-schritt:first-child { grid-row: auto; }
+}
+@media (max-width: 480px) {
+    .best-felder { grid-template-columns: 1fr; }
+    .best-p { grid-template-columns: 2.6rem 1fr auto; gap: .6rem; }
+    .best-p img { width: 2.6rem; height: 2.6rem; }
+    .best-menge output { min-width: 3.6rem; }
+    .best-knoepfe .knopf { width: 100%; justify-content: center; }
+}

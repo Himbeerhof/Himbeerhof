@@ -92,11 +92,16 @@
     }
     document.querySelectorAll('[data-lang]').forEach(b => b.addEventListener('click', () => spracheWechseln(b.dataset.lang)));
 
+    // Gemeinsame Helfer für js/bestellen.js
+    const melden = () => document.dispatchEvent(new Event('himbeer:update'));
+    window.HIMBEER = { esc, tx: (v) => tx(v), ui: (k) => ui(k), saisonMonate, daten, sprache: () => sprache };
+
     function allesAnzeigen() {
         uiTexteSetzen();
         if (daten.site) seiteFuellen(daten.site);
         if (daten.produkte) produkteAnzeigen(daten.produkte);
         if (daten.maerkte) maerkteAnzeigen(daten.maerkte);
+        melden();
     }
 
     function seiteFuellen(site) {
@@ -150,7 +155,7 @@
         const jetzt = [];
         const zeilen = liste.filter(p => p.sichtbar !== false).map((roh, i) => {
             const id = 'p' + i;
-            const p = { ...roh, name: tx(roh.name), saison: tx(roh.saison), kurz: tx(roh.kurz), titel: tx(roh.titel), untertitel: tx(roh.untertitel), beschreibung: tx(roh.beschreibung), herkunft: tx(roh.herkunft) };
+            const p = { ...roh, nameDe: (roh.name && roh.name.de) || tx(roh.name), name: tx(roh.name), saison: tx(roh.saison), kurz: tx(roh.kurz), titel: tx(roh.titel), untertitel: tx(roh.untertitel), beschreibung: tx(roh.beschreibung), herkunft: tx(roh.herkunft) };
             produkteNachId[id] = p;
             const monate = saisonMonate(roh.saison);
             if (monate.has(heute)) jetzt.push(p);
@@ -195,6 +200,13 @@
         if (!fotos.length && p.bild) fotos.push(p.bild);
         document.getElementById('modal-gallery').innerHTML = fotos.map((u, i) =>
             `<img src="${esc(u)}" alt="${esc(p.titel || p.name)} – ${esc(ui('foto'))} ${i + 1}" loading="lazy">`).join('');
+        const vb = document.getElementById('modal-vorbestellen');
+        if (vb) {
+            const nameDe = p.nameDe || '';
+            const darf = window.HIMBEER.istBestellbar && nameDe && window.HIMBEER.istBestellbar(nameDe);
+            vb.classList.toggle('hidden', !darf);
+            vb.onclick = () => window.vorbestellen(nameDe);
+        }
         document.getElementById('product-modal').classList.remove('hidden');
         document.body.style.overflow = 'hidden';
         document.querySelector('.fenster-zu').focus();
@@ -210,7 +222,7 @@
     document.addEventListener('keydown', e => { if (e.key === 'Escape' && !document.getElementById('product-modal').classList.contains('hidden')) window.closeProductModal(); });
 
     uiTexteSetzen();
-    holen('data/site.json').then(d => { daten.site = d; seiteFuellen(d); }).catch(console.error);
-    holen('data/produkte.json').then(d => { daten.produkte = d.produkte || []; produkteAnzeigen(daten.produkte); }).catch(console.error);
-    holen('data/maerkte.json').then(d => { daten.maerkte = d.maerkte || []; maerkteAnzeigen(daten.maerkte); }).catch(console.error);
+    holen('data/site.json').then(d => { daten.site = d; seiteFuellen(d); melden(); }).catch(console.error);
+    holen('data/produkte.json').then(d => { daten.produkte = d.produkte || []; produkteAnzeigen(daten.produkte); melden(); }).catch(console.error);
+    holen('data/maerkte.json').then(d => { daten.maerkte = d.maerkte || []; maerkteAnzeigen(daten.maerkte); melden(); }).catch(console.error);
 })();
